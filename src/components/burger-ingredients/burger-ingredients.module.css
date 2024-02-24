@@ -1,0 +1,12 @@
+/* burger-ingredients.module.css' */
+.container{
+	display:flex;
+	flex-direction:column;
+	align-content: center;
+}
+.ingredientsContainer{
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	gap: 24px;
+}

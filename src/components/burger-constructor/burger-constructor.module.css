@@ -1,0 +1,6 @@
+/* burger-constructor.module.css */
+.container{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
