@@ -2,7 +2,7 @@
 import React, {useState} from 'react'
 import PropTypes from 'prop-types';
 
-import {Button, ConstructorElement, CurrencyIcon} from "@ya.praktikum/react-developer-burger-ui-components";
+import {Button, ConstructorElement, CurrencyIcon, DragIcon} from "@ya.praktikum/react-developer-burger-ui-components";
 import ScrollableBlock from "../scrollable-block/scrollable-block";
 import Modal from "../modal/modal";
 import OrderDetails from "../order-details/order-details";
@@ -31,32 +31,41 @@ const BurgerConstructor = ({ingredients, style, topIngredient, bottomIngredient 
 	return (
 		<div className={`${burgerConstructor.container} pt-25 pr-4 pl-4`} style={{...style}}>
 
-				<ConstructorElement
-					type="top"
-					isLocked={true}
-					text={topIngredient.name}
-					price={topIngredient.price}
-					thumbnail={topIngredient.image}
-				/>
+				<div className={`${burgerConstructor.bunContainer} pr-4 pl-7`}>
+					<ConstructorElement
+						type="top"
+						isLocked={true}
+						text={topIngredient.name}
+						price={topIngredient.price}
+						thumbnail={topIngredient.image}
+					/>
+				</div>
 				<ScrollableBlock>
-					<div className={`${burgerConstructor.ingredientsContainer} pt-4 pb-4`}>
+					<div className={`${burgerConstructor.ingredientsContainer} pt-4 pb-4 pr-4 pl-2`}>
 						{ingredients.map((ingredient)=>{
-							return (<ConstructorElement
-								key={ingredient._id}
-								text={ingredient.name}
-								price={ingredient.price}
-								thumbnail={ingredient.image}
-							/>);
+							return (
+								<div className={burgerConstructor.elementContainer}>
+									<DragIcon type='primary' />
+									<ConstructorElement
+									key={ingredient._id}
+									text={ingredient.name}
+									price={ingredient.price}
+									thumbnail={ingredient.image}
+									/>
+								</div>
+							);
 						})}
 					</div>
 				</ScrollableBlock>
-				<ConstructorElement
-					type="bottom"
-					isLocked={true}
-					text={bottomIngredient.name}
-					price={bottomIngredient.price}
-					thumbnail={bottomIngredient.image}
-				/>
+				<div className={`${burgerConstructor.bunContainer} pr-4 pl-7`}>
+					<ConstructorElement
+						type="bottom"
+						isLocked={true}
+						text={bottomIngredient.name}
+						price={bottomIngredient.price}
+						thumbnail={bottomIngredient.image}
+					/>
+				</div>
 
 				<section className={`${burgerConstructor.priceSection} pt-10 pb-10`}>
 					<div className={burgerConstructor.priceContainer}>
