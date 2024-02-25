@@ -9,18 +9,19 @@ import IngredientCard from "../ingredient-card/ingredient-card";
 import Modal from "../modal/modal";
 import IngredientDetails from "../ingredient-details/ingredient-details";
 import PropTypes from "prop-types";
+import ingredientType from "../../utils/types";
 
 const Tabs = () => {
 	const [current, setCurrent] = React.useState('one')
 	return (
 		<div style={{ display: 'flex' }} className={'pt-5'}>
-			<Tab value='one' active={current === 'one'} onClick={setCurrent}>
+			<Tab value='buns' active={current === 'buns'} onClick={setCurrent}>
 				Булки
 			</Tab>
-			<Tab value='two' active={current === 'two'} onClick={setCurrent}>
+			<Tab value='sauces' active={current === 'sauces'} onClick={setCurrent}>
 				Соусы
 			</Tab>
-			<Tab value='three' active={current === 'three'} onClick={setCurrent}>
+			<Tab value='mains' active={current === 'mains'} onClick={setCurrent}>
 				Начинки
 			</Tab>
 		</div>
@@ -51,7 +52,7 @@ const BurgerIngredients = ({ ingredients, style })  => {
 			<h2 className='text text_type_main-large pt-10'>
 				Соберите бургер
 			</h2>
-			<div style={{display: 'flex', justifyContent:'center'}}>
+			<div className={burgerIngredients.tabsContainer}>
 				<Tabs />
 			</div>
 			<ScrollableBlock>
@@ -60,8 +61,8 @@ const BurgerIngredients = ({ ingredients, style })  => {
 				</h3>
 
 				<div className={`${burgerIngredients.ingredientsContainer} pt-6 pl-4 pb-6 pr-4`}>
-					{buns.map((ingredient, key) => {
-						return <IngredientCard key={key} count={0} price={ingredient.price} name={ingredient.name} url={ingredient.image} onClick={() => openIngredient(ingredient)}/>
+					{buns.map((ingredient) => {
+						return (<IngredientCard key={ingredient._id} count={0} price={ingredient.price} name={ingredient.name} url={ingredient.image} onClick={() => openIngredient(ingredient)}/>)
 					})}
 				</div>
 
@@ -71,7 +72,7 @@ const BurgerIngredients = ({ ingredients, style })  => {
 
 				<div className={`${burgerIngredients.ingredientsContainer} pt-6 pl-4 pb-6 pr-4`}>
 					{sauces.map((ingredient) => {
-						return <IngredientCard count={0} price={ingredient.price} name={ingredient.name} url={ingredient.image} onClick={() => openIngredient(ingredient)}/>
+						return (<IngredientCard key={ingredient._id} count={0} price={ingredient.price} name={ingredient.name} url={ingredient.image} onClick={() => openIngredient(ingredient)}/>)
 					})}
 				</div>
 
@@ -81,7 +82,7 @@ const BurgerIngredients = ({ ingredients, style })  => {
 
 				<div className={`${burgerIngredients.ingredientsContainer} pt-6 pl-4 pb-6 pr-4`}>
 					{mains.map((ingredient) => {
-						return <IngredientCard count={0} price={ingredient.price} name={ingredient.name} url={ingredient.image} onClick={() => openIngredient(ingredient)}/>
+						return (<IngredientCard key={ingredient._id} count={0} price={ingredient.price} name={ingredient.name} url={ingredient.image} onClick={() => openIngredient(ingredient)}/>)
 					})}
 				</div>
 			</ScrollableBlock>
@@ -95,12 +96,7 @@ const BurgerIngredients = ({ ingredients, style })  => {
 }
 
 BurgerIngredients.propTypes = {
-	ingredients: PropTypes.arrayOf(PropTypes.shape({
-		type: PropTypes.string.isRequired,
-		price: PropTypes.number.isRequired,
-		name: PropTypes.string.isRequired,
-		image: PropTypes.string.isRequired,
-	})).isRequired,
+	ingredients: PropTypes.arrayOf(PropTypes.shape(ingredientType)).isRequired,
 	style: PropTypes.object,
 };
 

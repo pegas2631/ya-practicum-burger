@@ -10,3 +10,8 @@
 	flex-wrap: wrap;
 	gap: 24px;
 }
+.tabsContainer
+{
+	display: flex;
+	justify-content: center;
+}

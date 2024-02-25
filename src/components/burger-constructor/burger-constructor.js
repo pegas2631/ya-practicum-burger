@@ -6,16 +6,17 @@ import {Button, ConstructorElement, CurrencyIcon} from "@ya.praktikum/react-deve
 import ScrollableBlock from "../scrollable-block/scrollable-block";
 import Modal from "../modal/modal";
 import OrderDetails from "../order-details/order-details";
+import burgerConstructor from "./burger-constructor.module.css"
+import ingredientType from "../../utils/types";
 
-const BurgerConstructor = ({ingredients, style }) => {
-	const img = 'https://code.s3.yandex.net/react/code/mineral_rings.png';
+const BurgerConstructor = ({ingredients, style, topIngredient, bottomIngredient }) => {
 	const order = {
 		identifier: '034536',
 	};
 
 	const [isOrderDetailOpen, setIsOrderDetailOpen] = useState(false);
 
-	const openOrderDetail = (order) => {
+	const openOrderDetail = () => {
 		setIsOrderDetailOpen(true);
 	};
 
@@ -23,44 +24,49 @@ const BurgerConstructor = ({ingredients, style }) => {
 		setIsOrderDetailOpen(false);
 	};
 
+	if (!topIngredient || !bottomIngredient || !ingredients) {
+		return (<p>Загрузка ингредиентов...</p>);
+	}
+
 	return (
-		<div style={{...style, display:'flex', flexDirection:'column', alignContent: 'center'}} className={'pt-25 pr-4 pl-4'}>
+		<div className={`${burgerConstructor.container} pt-25 pr-4 pl-4`} style={{...style}}>
 
 				<ConstructorElement
 					type="top"
 					isLocked={true}
-					text="Краторная булка N-200i (верх)"
-					price={200}
-					thumbnail={img}
+					text={topIngredient.name}
+					price={topIngredient.price}
+					thumbnail={topIngredient.image}
 				/>
 				<ScrollableBlock>
-					<div className='pt-4 pb-4' style={{display: 'flex', flexDirection:'column', gap: '16px'}}>
+					<div className={`${burgerConstructor.ingredientsContainer} pt-4 pb-4`}>
 						{ingredients.map((ingredient)=>{
-							return <ConstructorElement
+							return (<ConstructorElement
+								key={ingredient._id}
 								text={ingredient.name}
 								price={ingredient.price}
 								thumbnail={ingredient.image}
-							/>
+							/>);
 						})}
 					</div>
 				</ScrollableBlock>
 				<ConstructorElement
 					type="bottom"
 					isLocked={true}
-					text="Краторная булка N-200i (низ)"
-					price={200}
-					thumbnail={img}
+					text={bottomIngredient.name}
+					price={bottomIngredient.price}
+					thumbnail={bottomIngredient.image}
 				/>
 
-				<div style={{display: 'flex', gap: '40px', justifyContent: 'flex-end'}} className='pt-10 pb-10'>
-					<div style={{display: 'flex', gap: '8px', justifyContent: 'center', alignItems:'center'}}>
+				<section className={`${burgerConstructor.priceSection} pt-10 pb-10`}>
+					<div className={burgerConstructor.priceContainer}>
 						<span className='text text_type_digits-medium'>610</span>
 						<CurrencyIcon type="primary" />
 					</div>
 					<Button htmlType="button" type="primary" size="large" onClick={() => openOrderDetail()}>
 						Оформить заказ
 					</Button>
-				</div>
+				</section>
 				{isOrderDetailOpen && (
 					<Modal title='' onClose={closeIngredient}>
 						<OrderDetails order={order} />
@@ -71,11 +77,7 @@ const BurgerConstructor = ({ingredients, style }) => {
 }
 
 BurgerConstructor.propTypes = {
-	ingredients: PropTypes.arrayOf(PropTypes.shape({
-		name: PropTypes.string.isRequired,
-		price: PropTypes.number.isRequired,
-		image: PropTypes.string.isRequired,
-	})).isRequired,
+	ingredients: PropTypes.arrayOf(PropTypes.shape(ingredientType)).isRequired,
 	style: PropTypes.object,
 };
 

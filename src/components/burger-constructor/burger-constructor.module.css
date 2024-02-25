@@ -2,5 +2,23 @@
 .container{
 	display: flex;
 	flex-direction: column;
-	gap: 10px;
+	align-сontent: center;
+}
+
+.ingredientsContainer{
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.priceSection{
+	display: flex;
+	gap: 40px;
+	justify-content: flex-end;
+}
+.priceContainer{
+	display: flex;
+	gap: 8px;
+	justify-content: center;
+	align-items: center;
 }

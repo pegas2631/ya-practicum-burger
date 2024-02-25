@@ -2,11 +2,12 @@
 import React from 'react';
 import ingredientDetails from './ingredients-details.module.css';
 import PropTypes from "prop-types";
+import ingredientType from "../../utils/types";
 
 const IngredientDetails = ({ ingredient }) => {
 	return (
 		<div className={`${ingredientDetails.content} pt-10 pb-15`}>
-			<img alt={'alt'} src={ingredient.image_large}/>
+			<img alt={ingredient.name} src={ingredient.image_large}/>
 			<h2 className='text text_type_main-medium pt-4'>{ingredient.name}</h2>
 			<div className={`${ingredientDetails.nutritionalContainer} pt-8`}>
 				<div className={`${ingredientDetails.nutritionalCell}`}>
@@ -31,14 +32,7 @@ const IngredientDetails = ({ ingredient }) => {
 };
 
 IngredientDetails.propTypes = {
-	ingredient: PropTypes.shape({
-		image_large: PropTypes.string.isRequired,
-		name: PropTypes.string.isRequired,
-		calories: PropTypes.number.isRequired,
-		proteins: PropTypes.number.isRequired,
-		fat: PropTypes.number.isRequired,
-		carbohydrates: PropTypes.number.isRequired,
-	}).isRequired,
+	ingredient: PropTypes.shape(ingredientType).isRequired,
 };
 
 

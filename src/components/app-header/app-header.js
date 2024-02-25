@@ -4,11 +4,10 @@ import {BurgerIcon, ProfileIcon, ListIcon, Logo} from '@ya.praktikum/react-devel
 import NavButton from '../nav-button/nav-button';
 
 import appHeader from './app-header.module.css'
-import PropTypes from "prop-types";
 
 const AppHeader = () => {
 	return (
-		<div className={`${appHeader.container} p-4`}>
+		<header className={`${appHeader.container} p-4`}>
 			<div className={appHeader.nav}>
 				<NavButton text='Конструктор' active={true} customStyle={ {marginLeft: 0} } >
 					<BurgerIcon type='primary' />
@@ -25,15 +24,8 @@ const AppHeader = () => {
 					<ProfileIcon type='secondary' />
 				</NavButton>
 			</div>
-		</div>
+		</header>
 	);
 }
-
-NavButton.propTypes = {
-	text: PropTypes.string.isRequired,
-	active: PropTypes.bool,
-	customStyle: PropTypes.object,
-	children: PropTypes.node.isRequired,
-};
 
 export default AppHeader

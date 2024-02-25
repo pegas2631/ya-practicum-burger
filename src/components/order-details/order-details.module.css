@@ -10,3 +10,7 @@
 	display: flex;
 	justify-content: center;
 }
+
+.glowingText{
+	text-shadow: #4C4CFF 1px 0 10px;
+}
