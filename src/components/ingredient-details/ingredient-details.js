@@ -1,7 +1,6 @@
 // modal-overlay.js
 import React from 'react';
 import ingredientDetails from './ingredients-details.module.css';
-import PropTypes from "prop-types";
 import ingredientType from "../../utils/types";
 
 const IngredientDetails = ({ ingredient }) => {
@@ -32,7 +31,7 @@ const IngredientDetails = ({ ingredient }) => {
 };
 
 IngredientDetails.propTypes = {
-	ingredient: PropTypes.shape(ingredientType).isRequired,
+	ingredient: ingredientType.isRequired,
 };
 
 

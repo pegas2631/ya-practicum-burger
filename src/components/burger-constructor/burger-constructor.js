@@ -44,10 +44,9 @@ const BurgerConstructor = ({ingredients, style, topIngredient, bottomIngredient 
 					<div className={`${burgerConstructor.ingredientsContainer} pt-4 pb-4 pr-4 pl-2`}>
 						{ingredients.map((ingredient)=>{
 							return (
-								<div className={burgerConstructor.elementContainer}>
+								<div key={ingredient._id} className={burgerConstructor.elementContainer}>
 									<DragIcon type='primary' />
 									<ConstructorElement
-									key={ingredient._id}
 									text={ingredient.name}
 									price={ingredient.price}
 									thumbnail={ingredient.image}
@@ -86,7 +85,7 @@ const BurgerConstructor = ({ingredients, style, topIngredient, bottomIngredient 
 }
 
 BurgerConstructor.propTypes = {
-	ingredients: PropTypes.arrayOf(PropTypes.shape(ingredientType)).isRequired,
+	ingredients: PropTypes.arrayOf(ingredientType).isRequired,
 	style: PropTypes.object,
 };
 

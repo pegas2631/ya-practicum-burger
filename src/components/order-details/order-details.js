@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 const OrderDetails = ({ order }) => {
 	return (
 		<div className= {`${orderDetails.content} pt-20 pb-20`}>
-			<p className={`${orderDetails.glowingText} text text_type_digits-large`} style={{textShadow: '#4C4CFF 1px 0 10px'}}>
+			<p className={`${orderDetails.glowingText} text text_type_digits-large`}>
 				{order.identifier}
 			</p>
 			<p className="text text_type_main-medium pt-8">

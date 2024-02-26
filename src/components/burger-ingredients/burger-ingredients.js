@@ -14,7 +14,7 @@ import ingredientType from "../../utils/types";
 const Tabs = () => {
 	const [current, setCurrent] = React.useState('one')
 	return (
-		<div style={{ display: 'flex' }} className={'pt-5'}>
+		<div className={`${burgerIngredients.tabs} pt-5`}>
 			<Tab value='buns' active={current === 'buns'} onClick={setCurrent}>
 				Булки
 			</Tab>
@@ -96,7 +96,7 @@ const BurgerIngredients = ({ ingredients, style })  => {
 }
 
 BurgerIngredients.propTypes = {
-	ingredients: PropTypes.arrayOf(PropTypes.shape(ingredientType)).isRequired,
+	ingredients: PropTypes.arrayOf(ingredientType).isRequired,
 	style: PropTypes.object,
 };
 
