@@ -7,11 +7,6 @@
     <list default="true" id="81bc4438-5409-4ae8-8a87-9859283cbcdd" name="Changes" comment="правки">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/burger-constructor/burger-constructor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-constructor/burger-constructor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/burger-ingredients/burger-ingredients.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-ingredients/burger-ingredients.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/burger-ingredients/burger-ingredients.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-ingredients/burger-ingredients.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ingredient-details/ingredient-details.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ingredient-details/ingredient-details.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/order-details/order-details.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-details/order-details.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/types.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,10 +32,10 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/opt/homebrew/Cellar/php/8.2.11/bin/php" />
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2cjwTT6re4Stjfn8CaG1XNpBWPJ" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
@@ -53,7 +48,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "sprint-1/step-2",
-    "last_opened_file_path": "/Users/m.ustinov/Projects/Practicum/react-burger/src/components/burger-constructor",
+    "last_opened_file_path": "/Users/m.ustinov/Projects/Practicum/react-burger",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -82,7 +77,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708638302897</updated>
-      <workItem from="1708638304868" duration="45613000" />
+      <workItem from="1708638304868" duration="46015000" />
+      <workItem from="1708956019224" duration="75000" />
     </task>
     <task id="LOCAL-00001" summary="правки ревью">
       <option name="closed" value="true" />
@@ -108,7 +104,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708895470784</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="правки">
+      <option name="closed" value="true" />
+      <created>1708929642940</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1708929642940</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
