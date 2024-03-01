@@ -1,0 +1,15 @@
+.content
+{
+	width: 520px;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.nutritionalContainer{
+	display: flex;
+	gap: 20px;
+}
+.nutritionalCell{
+	text-align: center;
+	width: 120px;
+}

@@ -1,0 +1,16 @@
+.content
+{
+	width: 520px;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.iconContainer{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.glowingText{
+	text-shadow: #4C4CFF 1px 0 10px;
+}

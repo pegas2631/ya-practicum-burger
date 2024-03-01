@@ -1,0 +1,27 @@
+.modal {
+	background-color: #1C1C21;
+	border-radius: 40px;
+	position: relative;
+	width: 720px;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.modalContent {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.closeIcon {
+	cursor: pointer;
+}
+
+.content {
+	margin-top: 20px;
+}

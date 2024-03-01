@@ -1,0 +1,6 @@
+/* nav-button.module.css */
+.container{
+	display: flex;
+	border-radius: 40px;
+	cursor: pointer;
+}

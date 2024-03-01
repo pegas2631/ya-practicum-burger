@@ -1,0 +1,29 @@
+/* burger-constructor.module.css */
+.container{
+	display: flex;
+	flex-direction: column;
+	align-сontent: center;
+}
+.ingredientsContainer{
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+.priceSection{
+	display: flex;
+	gap: 40px;
+	justify-content: flex-end;
+}
+.priceContainer{
+	display: flex;
+	gap: 8px;
+	justify-content: center;
+	align-items: center;
+}
+.elementContainer{
+	display: flex;
+	align-items: center;
+}
+.bunContainer{
+
+}
