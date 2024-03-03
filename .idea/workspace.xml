@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81bc4438-5409-4ae8-8a87-9859283cbcdd" name="Changes" comment="правки">
+      <change afterPath="$PROJECT_DIR$/src/services/burger-constructor-context.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/app/app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/app.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/burger-constructor/burger-constructor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-constructor/burger-constructor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/order-details/order-details.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-details/order-details.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +50,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "sprint-1/step-2",
+    "git-widget-placeholder": "sprint-2/step-1",
     "last_opened_file_path": "/Users/m.ustinov/Projects/Practicum/react-burger",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",

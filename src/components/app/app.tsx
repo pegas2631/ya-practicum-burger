@@ -30,6 +30,7 @@ function App() {
 					throw new Error(`Ошибка ${response.status}`);
 				}
 				const data = await response.json();
+				console.log(data);
 				setIngredients(data.data);
 			} catch (error) {
 				console.error('Ошибка при получении данных:', error);
@@ -41,8 +42,6 @@ function App() {
 		fetchIngredients();
 	}, []);
 
-	const topIngredient = ingredients.find((ingredient) => ingredient.type === 'bun');
-	const bottomIngredient = ingredients.find((ingredient) => ingredient.type === 'bun');
 	return (
 		<div className={styles.app}>
 			<AppHeader />
@@ -52,7 +51,7 @@ function App() {
 				) : (
 					<>
 						<BurgerIngredients ingredients={ingredients} style={{flex: 2}}/>
-						<BurgerConstructor ingredients={ingredients} bottomIngredient={bottomIngredient} topIngredient={topIngredient} style={{flex: 1}}/>
+						<BurgerConstructor ingredients={ingredients} style={{flex: 1}}/>
 					</>
 				)}
 			</main>
