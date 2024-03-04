@@ -1,15 +1,15 @@
 // burger-ingredients.js
 import React, {useState} from 'react'
 
-import {Tab} from "@ya.praktikum/react-developer-burger-ui-components";
+import { Tab } from '@ya.praktikum/react-developer-burger-ui-components';
 
 import burgerIngredients from './burger-ingredients.module.css'
-import ScrollableBlock from "../scrollable-block/scrollable-block";
-import IngredientCard from "../ingredient-card/ingredient-card";
-import Modal from "../modal/modal";
-import IngredientDetails from "../ingredient-details/ingredient-details";
-import PropTypes from "prop-types";
-import ingredientType from "../../utils/types";
+import ScrollableBlock from '../scrollable-block/scrollable-block';
+import IngredientCard from '../ingredient-card/ingredient-card';
+import Modal from '../modal/modal';
+import IngredientDetails from '../ingredient-details/ingredient-details';
+import PropTypes from 'prop-types';
+import ingredientType from '../../utils/types';
 
 const Tabs = () => {
 	const [current, setCurrent] = React.useState('one')

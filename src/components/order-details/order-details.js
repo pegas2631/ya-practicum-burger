@@ -1,8 +1,9 @@
 // order-details.js
 import React, { useEffect, useState, useContext } from 'react';
 import orderDetails from './order-details.module.css';
-import { CheckMarkIcon } from "@ya.praktikum/react-developer-burger-ui-components";
+import { CheckMarkIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import { IngredientsContext } from '../../services/burger-constructor-context';
+import { BASE_URL } from '../../utils/consts';
 
 const OrderDetails = () => {
 	const { ingredients, topIngredient, bottomIngredient } = useContext(IngredientsContext);
@@ -17,7 +18,7 @@ const OrderDetails = () => {
 			ingredientsIds.push(topIngredient._id);
 			ingredientsIds.push(bottomIngredient._id);
 			try {
-				const response = await fetch(`https://norma.nomoreparties.space/api/orders`, {
+				const response = await fetch(`${BASE_URL}/orders`, {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json',
