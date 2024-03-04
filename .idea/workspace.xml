@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81bc4438-5409-4ae8-8a87-9859283cbcdd" name="Changes" comment="вынес BASE_URL в отдельный файл с константами">
-      <change afterPath="$PROJECT_DIR$/src/utils/request-helper.js" afterDir="false" />
+    <list default="true" id="81bc4438-5409-4ae8-8a87-9859283cbcdd" name="Changes" comment="вынес fetchOrder в BurgerConstructor для вызова его по кнопке заказа, прокинул order и isOrderLoading в orderDetail через контекст для отрисовки деталки заказа">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/app/app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/burger-constructor/burger-constructor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-constructor/burger-constructor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/order-details/order-details.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-details/order-details.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/consts.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +152,8 @@
     <MESSAGE value="правки" />
     <MESSAGE value="промежуточная работа 2 спринта" />
     <MESSAGE value="вынес BASE_URL в отдельный файл с константами" />
-    <option name="LAST_COMMIT_MESSAGE" value="вынес BASE_URL в отдельный файл с константами" />
+    <MESSAGE value="вынес fetchOrder в BurgerConstructor для вызова его по кнопке заказа, прокинул order и isOrderLoading в orderDetail через контекст для отрисовки деталки заказа" />
+    <option name="LAST_COMMIT_MESSAGE" value="вынес fetchOrder в BurgerConstructor для вызова его по кнопке заказа, прокинул order и isOrderLoading в orderDetail через контекст для отрисовки деталки заказа" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -9,11 +9,37 @@ import OrderDetails from "../order-details/order-details";
 import burgerConstructor from "./burger-constructor.module.css"
 import ingredientType from "../../utils/types";
 import { IngredientsContext } from '../../services/burger-constructor-context';
+import request from "../../utils/request-helper";
+
 
 const BurgerConstructor = ({ingredients, style}) => {
 
 	const [isOrderDetailOpen, setIsOrderDetailOpen] = useState(false);
+	const [isOrderLoading, setIsOrderLoading] = useState(false);
+	const [order, setOrder] = useState(null);
 	const [totalPrice, setTotalPrice] = useState(0);
+
+	const fetchOrder = async () => {
+		setIsOrderLoading(true);
+		const ingredientsIds = ingredients.map((ingredient) => ingredient._id);
+		ingredientsIds.push(topIngredient._id, bottomIngredient._id);
+		try {
+			const data = await request('orders', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					ingredients: ingredientsIds
+				}),
+			});
+			setOrder(data.order);
+		} catch (error) {
+			console.error('Ошибка при получении данных:', error);
+		} finally {
+			setIsOrderLoading(false);
+		}
+	};
 
 	const openOrderDetail = () => {
 		setIsOrderDetailOpen(true);
@@ -46,7 +72,7 @@ const BurgerConstructor = ({ingredients, style}) => {
 
 	return (
 		<div className={`${burgerConstructor.container} pt-25 pr-4 pl-4`} style={{...style}}>
-			<IngredientsContext.Provider value={{totalPrice, ingredients, topIngredient, bottomIngredient}}>
+			<IngredientsContext.Provider value={{totalPrice, ingredients, topIngredient, bottomIngredient, isOrderLoading, order}}>
 				<div className={`${burgerConstructor.bunContainer} pr-4 pl-7`}>
 					<ConstructorElement
 						type="top"
@@ -87,7 +113,10 @@ const BurgerConstructor = ({ingredients, style}) => {
 						<span className='text text_type_digits-medium'>{totalPrice}</span>
 						<CurrencyIcon type="primary" />
 					</div>
-					<Button htmlType="button" type="primary" size="large" onClick={() => openOrderDetail()}>
+					<Button htmlType="button" type="primary" size="large" onClick={() => {
+						fetchOrder();
+						openOrderDetail();
+					}}>
 						Оформить заказ
 					</Button>
 				</section>
