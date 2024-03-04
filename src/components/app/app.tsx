@@ -5,7 +5,7 @@ import styles from './app.module.css';
 import AppHeader from '../app-header/app-header';
 import BurgerIngredients from '../burger-ingredients/burger-ingredients.js';
 import BurgerConstructor from '../burger-constructor/burger-constructor';
-import { BASE_URL } from '../../utils/consts';
+import request from '../../utils/request-helper';
 
 interface Ingredient {
 	id: string;
@@ -24,12 +24,7 @@ function App() {
 		const fetchIngredients = async () => {
 			setIsLoading(true);
 			try {
-				const response = await fetch(`${BASE_URL}/ingredients`);
-				if (!response.ok) {
-					throw new Error(`Ошибка ${response.status}`);
-				}
-				const data = await response.json();
-				console.log(data);
+				const data = await request('ingredients', {});
 				setIngredients(data.data);
 			} catch (error) {
 				console.error('Ошибка при получении данных:', error);

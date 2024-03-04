@@ -3,7 +3,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import orderDetails from './order-details.module.css';
 import { CheckMarkIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import { IngredientsContext } from '../../services/burger-constructor-context';
-import { BASE_URL } from '../../utils/consts';
+import request from '../../utils/request-helper';
 
 const OrderDetails = () => {
 	const { ingredients, topIngredient, bottomIngredient } = useContext(IngredientsContext);
@@ -17,8 +17,9 @@ const OrderDetails = () => {
 			const ingredientsIds = ingredients.map((ingredient) => ingredient._id);
 			ingredientsIds.push(topIngredient._id);
 			ingredientsIds.push(bottomIngredient._id);
+
 			try {
-				const response = await fetch(`${BASE_URL}/orders`, {
+				const data = await request('orders', {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json',
@@ -27,22 +28,15 @@ const OrderDetails = () => {
 						ingredients: ingredientsIds
 					}),
 				});
-				if (!response.ok) {
-					throw new Error(`Ошибка ${response.status}`);
-				}
-				const data = await response.json();
 
-				if (data.success) {
-					setOrder(data.order);
-				} else {
-					throw new Error('Ошибка при получении данных с сервера');
-				}
+				setOrder(data.order);
 			} catch (error) {
 				console.error('Ошибка при получении данных:', error);
 			} finally {
 				setIsLoading(false);
 			}
 		};
+
 		if (ingredients && ingredients.length > 0)
 		{
 			fetchOrder();

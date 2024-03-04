@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81bc4438-5409-4ae8-8a87-9859283cbcdd" name="Changes" comment="промежуточная работа 2 спринта">
-      <change afterPath="$PROJECT_DIR$/src/utils/consts.js" afterDir="false" />
+    <list default="true" id="81bc4438-5409-4ae8-8a87-9859283cbcdd" name="Changes" comment="вынес BASE_URL в отдельный файл с константами">
+      <change afterPath="$PROJECT_DIR$/src/utils/request-helper.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/app/app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/burger-ingredients/burger-ingredients.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-ingredients/burger-ingredients.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/order-details/order-details.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-details/order-details.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/consts.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +82,7 @@
       <updated>1708638302897</updated>
       <workItem from="1708638304868" duration="46015000" />
       <workItem from="1708956019224" duration="75000" />
-      <workItem from="1709563981356" duration="270000" />
+      <workItem from="1709563981356" duration="1710000" />
     </task>
     <task id="LOCAL-00001" summary="правки ревью">
       <option name="closed" value="true" />
@@ -124,7 +124,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709477564295</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="вынес BASE_URL в отдельный файл с константами">
+      <option name="closed" value="true" />
+      <created>1709564287900</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1709564287900</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,7 +153,8 @@
     <MESSAGE value="правки ревью" />
     <MESSAGE value="правки" />
     <MESSAGE value="промежуточная работа 2 спринта" />
-    <option name="LAST_COMMIT_MESSAGE" value="промежуточная работа 2 спринта" />
+    <MESSAGE value="вынес BASE_URL в отдельный файл с константами" />
+    <option name="LAST_COMMIT_MESSAGE" value="вынес BASE_URL в отдельный файл с константами" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
