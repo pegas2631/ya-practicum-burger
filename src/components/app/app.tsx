@@ -4,7 +4,8 @@ import React, { useEffect, useState } from 'react';
 import styles from './app.module.css';
 import AppHeader from '../app-header/app-header';
 import BurgerIngredients from '../burger-ingredients/burger-ingredients.js';
-import BurgerConstructor from "../burger-constructor/burger-constructor";
+import BurgerConstructor from '../burger-constructor/burger-constructor';
+import request from '../../utils/request-helper';
 
 interface Ingredient {
 	id: string;
@@ -16,8 +17,6 @@ interface Ingredient {
 }
 
 function App() {
-
-	const API_URL = 'https://norma.nomoreparties.space/api';
 	const [ingredients, setIngredients] = useState<Ingredient[]>([]);
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -25,11 +24,7 @@ function App() {
 		const fetchIngredients = async () => {
 			setIsLoading(true);
 			try {
-				const response = await fetch(`${API_URL}/ingredients`);
-				if (!response.ok) {
-					throw new Error(`Ошибка ${response.status}`);
-				}
-				const data = await response.json();
+				const data = await request('ingredients', {});
 				setIngredients(data.data);
 			} catch (error) {
 				console.error('Ошибка при получении данных:', error);
@@ -41,8 +36,6 @@ function App() {
 		fetchIngredients();
 	}, []);
 
-	const topIngredient = ingredients.find((ingredient) => ingredient.type === 'bun');
-	const bottomIngredient = ingredients.find((ingredient) => ingredient.type === 'bun');
 	return (
 		<div className={styles.app}>
 			<AppHeader />
@@ -52,7 +45,7 @@ function App() {
 				) : (
 					<>
 						<BurgerIngredients ingredients={ingredients} style={{flex: 2}}/>
-						<BurgerConstructor ingredients={ingredients} bottomIngredient={bottomIngredient} topIngredient={topIngredient} style={{flex: 1}}/>
+						<BurgerConstructor ingredients={ingredients} style={{flex: 1}}/>
 					</>
 				)}
 			</main>
