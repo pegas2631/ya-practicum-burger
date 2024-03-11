@@ -1,5 +1,5 @@
 // burger-ingredients.js
-import React, {useState} from 'react'
+import React from 'react'
 
 import { Tab } from '@ya.praktikum/react-developer-burger-ui-components';
 
@@ -13,8 +13,7 @@ import ingredientType from '../../utils/types';
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentIngredient, clearCurrentIngredient, setCurrentIngredientIsOpen } from '../../services/slices/current-ingredient-slice';
 
-const Tabs = () => {
-	const [current, setCurrent] = React.useState('one')
+const Tabs = ({current, setCurrent}) => {
 	return (
 		<div className={`${burgerIngredients.tabs} pt-5`}>
 			<Tab value='buns' active={current === 'buns'} onClick={setCurrent}>
@@ -51,16 +50,36 @@ const BurgerIngredients = ({ style })  => {
 		dispatch(setCurrentIngredientIsOpen(false));
 	};
 
+	const bunsRef = React.useRef(null);
+	const saucesRef = React.useRef(null);
+	const mainsRef = React.useRef(null);
+
+	const [current, setCurrent] = React.useState('buns')
+	const handleScroll = () => {
+		const bunsPosition = bunsRef.current.getBoundingClientRect().top;
+		const saucesPosition = saucesRef.current.getBoundingClientRect().top;
+		const mainsPosition = mainsRef.current.getBoundingClientRect().top;
+		const tabOffset = 100; // Значение смещения для активации таба
+
+		if (mainsPosition < tabOffset) {
+			setCurrent('mains');
+		} else if (saucesPosition < tabOffset) {
+			setCurrent('sauces');
+		} else if (bunsPosition < tabOffset) {
+			setCurrent('buns');
+		}
+	};
+
 	return (
 		<div className={burgerIngredients.container} style={{...style}}>
 			<h2 className='text text_type_main-large pt-10'>
 				Соберите бургер
 			</h2>
 			<div className={burgerIngredients.tabsContainer}>
-				<Tabs />
+				<Tabs current={current} setCurrent={setCurrent} />
 			</div>
-			<ScrollableBlock>
-				<h3 className='text text_type_main-medium pt-10'>
+			<ScrollableBlock onScroll={handleScroll}>
+				<h3 ref={bunsRef} className='text text_type_main-medium pt-10'>
 					Булки
 				</h3>
 
@@ -70,7 +89,7 @@ const BurgerIngredients = ({ style })  => {
 					})}
 				</div>
 
-				<h3 className='text text_type_main-medium pt-10'>
+				<h3 ref={saucesRef} className='text text_type_main-medium pt-10'>
 					Соусы
 				</h3>
 
@@ -80,7 +99,7 @@ const BurgerIngredients = ({ style })  => {
 					})}
 				</div>
 
-				<h3 className='text text_type_main-medium pt-10'>
+				<h3 ref={mainsRef} className='text text_type_main-medium pt-10'>
 					Начинки
 				</h3>
 

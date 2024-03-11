@@ -4,20 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81bc4438-5409-4ae8-8a87-9859283cbcdd" name="Changes" comment="зависимости для redux">
-      <change afterPath="$PROJECT_DIR$/src/services/slices/burger-constructor-slice.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/slices/current-ingredient-slice.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/slices/ingredients-slice.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/slices/order-slice.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/store.js" afterDir="false" />
+    <list default="true" id="81bc4438-5409-4ae8-8a87-9859283cbcdd" name="Changes" comment="переход на хранилище redux">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/app/app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/burger-constructor/burger-constructor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-constructor/burger-constructor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/burger-ingredients/burger-ingredients.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-ingredients/burger-ingredients.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/order-details/order-details.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-details/order-details.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/scrollable-block/scrollable-block.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/scrollable-block/scrollable-block.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +88,7 @@
       <workItem from="1708956019224" duration="75000" />
       <workItem from="1709563981356" duration="1710000" />
       <workItem from="1709748903034" duration="2349000" />
-      <workItem from="1709918898504" duration="21339000" />
+      <workItem from="1709918898504" duration="21960000" />
     </task>
     <task id="LOCAL-00001" summary="правки ревью">
       <option name="closed" value="true" />
@@ -164,7 +154,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709749205299</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="переход на хранилище redux">
+      <option name="closed" value="true" />
+      <created>1710191670971</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1710191670971</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,7 +198,8 @@
     <MESSAGE value="вынес BASE_URL в отдельный файл с константами" />
     <MESSAGE value="вынес fetchOrder в BurgerConstructor для вызова его по кнопке заказа, прокинул order и isOrderLoading в orderDetail через контекст для отрисовки деталки заказа" />
     <MESSAGE value="зависимости для redux" />
-    <option name="LAST_COMMIT_MESSAGE" value="зависимости для redux" />
+    <MESSAGE value="переход на хранилище redux" />
+    <option name="LAST_COMMIT_MESSAGE" value="переход на хранилище redux" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
