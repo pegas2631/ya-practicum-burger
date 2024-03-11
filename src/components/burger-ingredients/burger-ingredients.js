@@ -10,6 +10,8 @@ import Modal from '../modal/modal';
 import IngredientDetails from '../ingredient-details/ingredient-details';
 import PropTypes from 'prop-types';
 import ingredientType from '../../utils/types';
+import { useDispatch, useSelector } from "react-redux";
+import { setCurrentIngredient, clearCurrentIngredient, setCurrentIngredientIsOpen } from '../../services/slices/current-ingredient-slice';
 
 const Tabs = () => {
 	const [current, setCurrent] = React.useState('one')
@@ -28,23 +30,25 @@ const Tabs = () => {
 	)
 }
 
-const BurgerIngredients = ({ ingredients, style })  => {
+const BurgerIngredients = ({ style })  => {
+
+	const dispatch = useDispatch();
+	const ingredients = useSelector((state) => state.ingredients.ingredients);
+	const currentIngredient = useSelector((state) => state.currentIngredient.currentIngredient)
+	const currentIngredientIsOpen = useSelector((state) => state.currentIngredient.isOpen);
 
 	const buns = ingredients.filter((ingredient) => ingredient.type === 'bun');
 	const mains = ingredients.filter((ingredient) => ingredient.type === 'main');
 	const sauces = ingredients.filter((ingredient) => ingredient.type === 'sauce');
 
-	const [isIngredientOpen, setIsIngredientOpen] = useState(false);
-	const [currentIngredient, setCurrentIngredient] = useState(null);
-
 	const openIngredient = (ingredient) => {
-		setCurrentIngredient(ingredient);
-		setIsIngredientOpen(true);
+		dispatch(setCurrentIngredient(ingredient));
+		dispatch(setCurrentIngredientIsOpen(true));
 	};
 
 	const closeIngredient = () => {
-		setIsIngredientOpen(false);
-		setCurrentIngredient(null);
+		dispatch(clearCurrentIngredient());
+		dispatch(setCurrentIngredientIsOpen(false));
 	};
 
 	return (
@@ -86,7 +90,7 @@ const BurgerIngredients = ({ ingredients, style })  => {
 					})}
 				</div>
 			</ScrollableBlock>
-			{isIngredientOpen && (
+			{currentIngredientIsOpen && (
 				<Modal title="Детали ингредиента" onClose={closeIngredient}>
 					<IngredientDetails ingredient={currentIngredient} />
 				</Modal>
@@ -96,7 +100,7 @@ const BurgerIngredients = ({ ingredients, style })  => {
 }
 
 BurgerIngredients.propTypes = {
-	ingredients: PropTypes.arrayOf(ingredientType).isRequired,
+	//ingredients: PropTypes.arrayOf(ingredientType).isRequired,
 	style: PropTypes.object,
 };
 

@@ -1,44 +1,27 @@
-// burger-constructor.js
-import React, {useState} from 'react'
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-
+import { useDispatch, useSelector } from 'react-redux';
 import { Button, ConstructorElement, CurrencyIcon, DragIcon } from "@ya.praktikum/react-developer-burger-ui-components";
 import ScrollableBlock from "../scrollable-block/scrollable-block";
 import Modal from "../modal/modal";
 import OrderDetails from "../order-details/order-details";
-import burgerConstructor from "./burger-constructor.module.css"
+import burgerConstructor from "./burger-constructor.module.css";
 import ingredientType from "../../utils/types";
-import { IngredientsContext } from '../../services/burger-constructor-context';
-import request from "../../utils/request-helper";
+import { fetchOrder } from '../../services/slices/order-slice';
 
+const BurgerConstructor = ({ style }) => {
+	const dispatch = useDispatch();
+	let { ingredients, totalPrice, bun } = useSelector((state) => state.burgerConstructor);
+	const allIngredients = useSelector((state) => state.ingredients.ingredients);
+	bun = allIngredients.find((item) => item.type === 'bun'); //todo
 
-const BurgerConstructor = ({ingredients, style}) => {
 
 	const [isOrderDetailOpen, setIsOrderDetailOpen] = useState(false);
-	const [isOrderLoading, setIsOrderLoading] = useState(false);
-	const [order, setOrder] = useState(null);
-	const [totalPrice, setTotalPrice] = useState(0);
 
-	const fetchOrder = async () => {
-		setIsOrderLoading(true);
+	const handleFetchOrder = () => {
 		const ingredientsIds = ingredients.map((ingredient) => ingredient._id);
-		ingredientsIds.push(topIngredient._id, bottomIngredient._id);
-		try {
-			const data = await request('orders', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify({
-					ingredients: ingredientsIds
-				}),
-			});
-			setOrder(data.order);
-		} catch (error) {
-			console.error('Ошибка при получении данных:', error);
-		} finally {
-			setIsOrderLoading(false);
-		}
+		if (bun) ingredientsIds.push(bun._id, bun._id);
+		dispatch(fetchOrder(ingredientsIds));
 	};
 
 	const openOrderDetail = () => {
@@ -48,91 +31,71 @@ const BurgerConstructor = ({ingredients, style}) => {
 	const closeOrderDetail = () => {
 		setIsOrderDetailOpen(false);
 	};
-	const topIngredient = ingredients.find((ingredient) => ingredient.type === 'bun');
-	const bottomIngredient = topIngredient;
-	ingredients = ingredients.filter((ingredient) => ingredient.type !== 'bun');
 
-	React.useEffect(
-		() => {
-			let total = 0;
-			ingredients.forEach(item => (total += item.price));
-			if (topIngredient && bottomIngredient)
-			{
-				total += topIngredient.price + bottomIngredient.price;
-			}
-			setTotalPrice(total);
-		},
-		[ingredients, topIngredient, bottomIngredient]
-	);
-
-	if (!topIngredient || !bottomIngredient || !ingredients || ingredients.length === 0) {
+	if (!bun) {
 		return (<p>Что-то пошло не так... :((</p>);
 	}
 
-
 	return (
-		<div className={`${burgerConstructor.container} pt-25 pr-4 pl-4`} style={{...style}}>
-			<IngredientsContext.Provider value={{totalPrice, ingredients, topIngredient, bottomIngredient, isOrderLoading, order}}>
-				<div className={`${burgerConstructor.bunContainer} pr-4 pl-7`}>
-					<ConstructorElement
-						type="top"
-						isLocked={true}
-						text={`${topIngredient.name}\n(верх)`}
-						price={topIngredient.price}
-						thumbnail={topIngredient.image}
-					/>
+		<div className={`${burgerConstructor.container} pt-25 pr-4 pl-4`} style={{ ...style }}>
+			<div className={`${burgerConstructor.bunContainer} pr-4 pl-7`}>
+				<ConstructorElement
+					type="top"
+					isLocked={true}
+					text={`${bun.name} (верх)`}
+					price={bun.price}
+					thumbnail={bun.image}
+				/>
+			</div>
+			<ScrollableBlock>
+				<div className={`${burgerConstructor.ingredientsContainer} pt-4 pb-4 pr-4 pl-2`}>
+					{ingredients.map((ingredient) => {
+						return (
+							<div key={ingredient._id} className={burgerConstructor.elementContainer}>
+								<DragIcon type='primary' />
+								<ConstructorElement
+									text={ingredient.name}
+									price={ingredient.price}
+									thumbnail={ingredient.image}
+								/>
+							</div>
+						);
+					})}
 				</div>
-				<ScrollableBlock>
-					<div className={`${burgerConstructor.ingredientsContainer} pt-4 pb-4 pr-4 pl-2`}>
-						{ingredients.map((ingredient)=>{
-							return (
-								<div key={ingredient._id} className={burgerConstructor.elementContainer}>
-									<DragIcon type='primary' />
-									<ConstructorElement
-										text={ingredient.name}
-										price={ingredient.price}
-										thumbnail={ingredient.image}
-									/>
-								</div>
-							);
-						})}
-					</div>
-				</ScrollableBlock>
-				<div className={`${burgerConstructor.bunContainer} pr-4 pl-7`}>
-					<ConstructorElement
-						type="bottom"
-						isLocked={true}
-						text={`${bottomIngredient.name}\n(низ)`}
-						price={bottomIngredient.price}
-						thumbnail={bottomIngredient.image}
-					/>
-				</div>
+			</ScrollableBlock>
+			<div className={`${burgerConstructor.bunContainer} pr-4 pl-7`}>
+				<ConstructorElement
+					type="bottom"
+					isLocked={true}
+					text={`${bun.name} (низ)`}
+					price={bun.price}
+					thumbnail={bun.image}
+				/>
+			</div>
 
-				<section className={`${burgerConstructor.priceSection} pt-10 pb-10`}>
-					<div className={burgerConstructor.priceContainer}>
-						<span className='text text_type_digits-medium'>{totalPrice}</span>
-						<CurrencyIcon type="primary" />
-					</div>
-					<Button htmlType="button" type="primary" size="large" onClick={() => {
-						fetchOrder();
-						openOrderDetail();
-					}}>
-						Оформить заказ
-					</Button>
-				</section>
-				{isOrderDetailOpen && (
-					<Modal title='' onClose={closeOrderDetail}>
-						<OrderDetails />
-					</Modal>
-				)}
-			</IngredientsContext.Provider>
+			<section className={`${burgerConstructor.priceSection} pt-10 pb-10`}>
+				<div className={burgerConstructor.priceContainer}>
+					<span className='text text_type_digits-medium'>{totalPrice}</span>
+					<CurrencyIcon type="primary" />
+				</div>
+				<Button htmlType="button" type="primary" size="large" onClick={() => {
+					handleFetchOrder();
+					openOrderDetail();
+				}}>
+					Оформить заказ
+				</Button>
+			</section>
+			{isOrderDetailOpen && (
+				<Modal title='' onClose={closeOrderDetail}>
+					<OrderDetails />
+				</Modal>
+			)}
 		</div>
 	);
 }
 
 BurgerConstructor.propTypes = {
-	ingredients: PropTypes.arrayOf(ingredientType).isRequired,
 	style: PropTypes.object,
 };
 
-export default BurgerConstructor
+export default BurgerConstructor;
