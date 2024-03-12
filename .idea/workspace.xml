@@ -4,10 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81bc4438-5409-4ae8-8a87-9859283cbcdd" name="Changes" comment="переход на хранилище redux">
+    <list default="true" id="81bc4438-5409-4ae8-8a87-9859283cbcdd" name="Changes" comment="перетаскивание элементов внутри конструктора">
+      <change afterPath="$PROJECT_DIR$/src/components/draggable-ingredient/draggable-ingredient.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/app/app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/burger-constructor/burger-constructor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-constructor/burger-constructor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/burger-ingredients/burger-ingredients.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-ingredients/burger-ingredients.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/scrollable-block/scrollable-block.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/scrollable-block/scrollable-block.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ingredient-card/ingredient-card.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ingredient-card/ingredient-card.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/slices/burger-constructor-slice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/burger-constructor-slice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/slices/ingredients-slice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/ingredients-slice.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +96,7 @@
       <workItem from="1708956019224" duration="75000" />
       <workItem from="1709563981356" duration="1710000" />
       <workItem from="1709748903034" duration="2349000" />
-      <workItem from="1709918898504" duration="21960000" />
+      <workItem from="1709918898504" duration="36537000" />
     </task>
     <task id="LOCAL-00001" summary="правки ревью">
       <option name="closed" value="true" />
@@ -162,7 +170,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710191670971</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="переключение табов по скролу">
+      <option name="closed" value="true" />
+      <created>1710192317838</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1710192317838</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,7 +215,9 @@
     <MESSAGE value="вынес fetchOrder в BurgerConstructor для вызова его по кнопке заказа, прокинул order и isOrderLoading в orderDetail через контекст для отрисовки деталки заказа" />
     <MESSAGE value="зависимости для redux" />
     <MESSAGE value="переход на хранилище redux" />
-    <option name="LAST_COMMIT_MESSAGE" value="переход на хранилище redux" />
+    <MESSAGE value="переключение табов по скролу" />
+    <MESSAGE value="перетаскивание элементов внутри конструктора" />
+    <option name="LAST_COMMIT_MESSAGE" value="перетаскивание элементов внутри конструктора" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -85,7 +85,7 @@ const BurgerIngredients = ({ style })  => {
 
 				<div className={`${burgerIngredients.ingredientsContainer} pt-6 pl-4 pb-6 pr-4`}>
 					{buns.map((ingredient) => {
-						return (<IngredientCard key={ingredient._id} count={0} price={ingredient.price} name={ingredient.name} url={ingredient.image} onClick={() => openIngredient(ingredient)}/>)
+						return (<IngredientCard key={ingredient._id} ingredient={ingredient} onClick={() => openIngredient(ingredient)}/>)
 					})}
 				</div>
 
@@ -95,7 +95,7 @@ const BurgerIngredients = ({ style })  => {
 
 				<div className={`${burgerIngredients.ingredientsContainer} pt-6 pl-4 pb-6 pr-4`}>
 					{sauces.map((ingredient) => {
-						return (<IngredientCard key={ingredient._id} count={0} price={ingredient.price} name={ingredient.name} url={ingredient.image} onClick={() => openIngredient(ingredient)}/>)
+						return (<IngredientCard key={ingredient._id} ingredient={ingredient} onClick={() => openIngredient(ingredient)}/>)
 					})}
 				</div>
 
@@ -105,7 +105,7 @@ const BurgerIngredients = ({ style })  => {
 
 				<div className={`${burgerIngredients.ingredientsContainer} pt-6 pl-4 pb-6 pr-4`}>
 					{mains.map((ingredient) => {
-						return (<IngredientCard key={ingredient._id} count={0} price={ingredient.price} name={ingredient.name} url={ingredient.image} onClick={() => openIngredient(ingredient)}/>)
+						return (<IngredientCard key={ingredient._id} ingredient={ingredient} onClick={() => openIngredient(ingredient)}/>)
 					})}
 				</div>
 			</ScrollableBlock>

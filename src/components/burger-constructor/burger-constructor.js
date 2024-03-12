@@ -1,22 +1,43 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, ConstructorElement, CurrencyIcon, DragIcon } from "@ya.praktikum/react-developer-burger-ui-components";
-import ScrollableBlock from "../scrollable-block/scrollable-block";
-import Modal from "../modal/modal";
-import OrderDetails from "../order-details/order-details";
-import burgerConstructor from "./burger-constructor.module.css";
+import { useDrop } from 'react-dnd';
+import { Button, ConstructorElement, CurrencyIcon, DragIcon } from '@ya.praktikum/react-developer-burger-ui-components';
+import ScrollableBlock from '../scrollable-block/scrollable-block';
+import Modal from '../modal/modal';
+import OrderDetails from '../order-details/order-details';
+import burgerConstructor from './burger-constructor.module.css';
 import ingredientType from "../../utils/types";
 import { fetchOrder } from '../../services/slices/order-slice';
+import {addIngredient, removeIngredient, setBun} from '../../services/slices/burger-constructor-slice';
+import {increaseIngredientCount, decreaseIngredientCount} from '../../services/slices/ingredients-slice';
+import DraggableIngredient from "../draggable-ingredient/draggable-ingredient";
+
 
 const BurgerConstructor = ({ style }) => {
 	const dispatch = useDispatch();
-	let { ingredients, totalPrice, bun } = useSelector((state) => state.burgerConstructor);
+	const { ingredients, totalPrice, bun } = useSelector((state) => state.burgerConstructor);
 	const allIngredients = useSelector((state) => state.ingredients.ingredients);
-	bun = allIngredients.find((item) => item.type === 'bun'); //todo
 
+	useEffect(() => {
+		if (!bun) {
+			const defaultBun = allIngredients.find((item) => item.type === 'bun');
+			if (defaultBun) {
+				dispatch(setBun(defaultBun));
+			}
+		}
+	}, [bun, allIngredients, dispatch]);
 
 	const [isOrderDetailOpen, setIsOrderDetailOpen] = useState(false);
+
+	const [, dropRef] = useDrop(() => ({
+		accept: 'ingredient',
+		drop: (ingredient) => {
+			dispatch(addIngredient(ingredient));
+			dispatch(increaseIngredientCount(ingredient));
+		},
+	}));
+
 
 	const handleFetchOrder = () => {
 		const ingredientsIds = ingredients.map((ingredient) => ingredient._id);
@@ -37,7 +58,7 @@ const BurgerConstructor = ({ style }) => {
 	}
 
 	return (
-		<div className={`${burgerConstructor.container} pt-25 pr-4 pl-4`} style={{ ...style }}>
+		<div ref={dropRef} className={`${burgerConstructor.container} pt-25 pr-4 pl-4`} style={{ ...style }}>
 			<div className={`${burgerConstructor.bunContainer} pr-4 pl-7`}>
 				<ConstructorElement
 					type="top"
@@ -49,16 +70,13 @@ const BurgerConstructor = ({ style }) => {
 			</div>
 			<ScrollableBlock>
 				<div className={`${burgerConstructor.ingredientsContainer} pt-4 pb-4 pr-4 pl-2`}>
-					{ingredients.map((ingredient) => {
+					{ingredients.map((ingredient, index) => {
 						return (
-							<div key={ingredient._id} className={burgerConstructor.elementContainer}>
-								<DragIcon type='primary' />
-								<ConstructorElement
-									text={ingredient.name}
-									price={ingredient.price}
-									thumbnail={ingredient.image}
-								/>
-							</div>
+							<DraggableIngredient
+								key={`${ingredient._id}_${index}`}
+								ingredient={ingredient}
+								index={index}
+							/>
 						);
 					})}
 				</div>

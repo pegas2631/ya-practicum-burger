@@ -31,6 +31,29 @@ export const ingredientsSlice = createSlice({
 		clearIngredients: (state) => {
 			state.ingredients = [];
 		},
+		increaseIngredientCount: (state, action) => {
+			if (action.payload.type !== 'bun')
+			{
+				const index = state.ingredients.findIndex(ingredient => ingredient._id === action.payload._id);
+
+				if (index !== -1) {
+					if (!state.ingredients[index].count) {
+						state.ingredients[index].count = 1;
+					} else {
+						state.ingredients[index].count += 1;
+					}
+				}
+			}
+		},
+		decreaseIngredientCount: (state, action) => {
+			if (action.payload.type !== 'bun')
+			{
+				const index = state.ingredients.findIndex(ingredient => ingredient._id === action.payload._id);
+				if (index !== -1 && state.ingredients[index].count && state.ingredients[index].count > 0) {
+					state.ingredients[index].count -= 1;
+				}
+			}
+		}
 	},
 	extraReducers: (builder) => {
 		builder
@@ -49,10 +72,9 @@ export const ingredientsSlice = createSlice({
 
 export const {
 	addIngredient,
-	updateIngredient,
-	removeIngredient,
 	clearIngredients,
 	addIngredients,
-	setLoading,
+	increaseIngredientCount,
+	decreaseIngredientCount,
 } = ingredientsSlice.actions;
 export default ingredientsSlice.reducer;

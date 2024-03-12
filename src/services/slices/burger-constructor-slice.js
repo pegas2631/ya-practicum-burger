@@ -23,23 +23,28 @@ export const burgerConstructorSlice = createSlice({
 	initialState,
 	reducers: {
 		addIngredient: (state, action) => {
-			state.ingredients.push(action.payload);
+			if (action.payload.type === 'bun')
+			{
+				state.bun = action.payload;
+			}
+			else
+			{
+				const ingredient = {...action.payload, index: state.ingredients.length}
+				state.ingredients.push(ingredient);
+			}
 			state.totalPrice = calculateTotalPrice(state.ingredients, state.bun);
 		},
 		addIngredients: (state, action) => {
+			if (action.payload)
 			state.ingredients = state.ingredients.concat(action.payload);
 			state.totalPrice = calculateTotalPrice(state.ingredients, state.bun);
 		},
-		updateIngredient: (state, action) => {
+		removeIngredient: (state, action) => {
 			const index = state.ingredients.findIndex(ingredient => ingredient._id === action.payload._id);
 			if (index !== -1) {
-				state.ingredients[index] = action.payload;
+				state.ingredients.splice(index, 1);
 				state.totalPrice = calculateTotalPrice(state.ingredients, state.bun);
 			}
-		},
-		removeIngredient: (state, action) => {
-			state.ingredients = state.ingredients.filter(ingredient => ingredient._id !== action.payload);
-			state.totalPrice = calculateTotalPrice(state.ingredients, state.bun);
 		},
 		clearIngredients: (state) => {
 			state.ingredients = [];
@@ -50,20 +55,24 @@ export const burgerConstructorSlice = createSlice({
 			state.bun = action.payload;
 			state.totalPrice = calculateTotalPrice(state.ingredients, state.bun);
 		},
-		setTotalPrice: (state, action) => {
-			state.totalPrice = action.payload;
+		moveIngredient: (state, action) => {
+			const { dragIndex, hoverIndex } = action.payload;
+			const newIngredients = [...state.ingredients];
+			const [removed] = newIngredients.splice(dragIndex, 1);
+			newIngredients.splice(hoverIndex, 0, removed);
+
+			state.ingredients = newIngredients;
 		},
 	},
 });
 
 export const {
 	addIngredient,
-	updateIngredient,
 	removeIngredient,
 	clearIngredients,
 	addIngredients,
-	setTotalPrice,
 	setBun,
+	moveIngredient,
 } = burgerConstructorSlice.actions;
 
 export default burgerConstructorSlice.reducer;
