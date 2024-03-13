@@ -5,6 +5,8 @@ import { useDispatch } from 'react-redux';
 import {moveIngredient, removeIngredient} from '../../services/slices/burger-constructor-slice';
 import burgerConstructor from "../burger-constructor/burger-constructor.module.css";
 import {decreaseIngredientCount} from "../../services/slices/ingredients-slice";
+import ingredientType from "../../utils/types";
+import PropTypes from "prop-types";
 
 const DraggableIngredient = ({ ingredient, index }) => {
 	const dispatch = useDispatch();
@@ -48,6 +50,11 @@ const DraggableIngredient = ({ ingredient, index }) => {
 			/>
 		</div>
 	);
+};
+
+DraggableIngredient.propTypes = {
+	ingredient: ingredientType.isRequired,
+	index: PropTypes.number,
 };
 
 export default DraggableIngredient;

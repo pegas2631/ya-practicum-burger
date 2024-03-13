@@ -12,6 +12,7 @@ const ScrollableBlock = ({onScroll, children }) => {
 }
 
 ScrollableBlock.propTypes = {
+	onScroll: PropTypes.func,
 	children: PropTypes.node,
 };
 

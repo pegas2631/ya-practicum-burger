@@ -9,7 +9,6 @@ import IngredientCard from '../ingredient-card/ingredient-card';
 import Modal from '../modal/modal';
 import IngredientDetails from '../ingredient-details/ingredient-details';
 import PropTypes from 'prop-types';
-import ingredientType from '../../utils/types';
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentIngredient, clearCurrentIngredient, setCurrentIngredientIsOpen } from '../../services/slices/current-ingredient-slice';
 
@@ -119,7 +118,6 @@ const BurgerIngredients = ({ style })  => {
 }
 
 BurgerIngredients.propTypes = {
-	//ingredients: PropTypes.arrayOf(ingredientType).isRequired,
 	style: PropTypes.object,
 };
 

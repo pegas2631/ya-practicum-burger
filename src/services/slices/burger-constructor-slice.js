@@ -1,5 +1,5 @@
-
 import { createSlice } from '@reduxjs/toolkit';
+import { v4 as uuidv4 } from 'uuid';
 
 const initialState = {
 	ingredients: [],
@@ -29,13 +29,12 @@ export const burgerConstructorSlice = createSlice({
 			}
 			else
 			{
-				const ingredient = {...action.payload, index: state.ingredients.length}
+				const ingredient = {...action.payload, index: state.ingredients.length, uuid: uuidv4() }
 				state.ingredients.push(ingredient);
 			}
 			state.totalPrice = calculateTotalPrice(state.ingredients, state.bun);
 		},
 		addIngredients: (state, action) => {
-			if (action.payload)
 			state.ingredients = state.ingredients.concat(action.payload);
 			state.totalPrice = calculateTotalPrice(state.ingredients, state.bun);
 		},

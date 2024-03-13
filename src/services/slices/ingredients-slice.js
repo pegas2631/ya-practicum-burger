@@ -8,13 +8,9 @@ const initialState = {
 
 export const fetchIngredients = createAsyncThunk(
 	'ingredients/fetchIngredients',
-	async (_, { rejectWithValue }) => {
-		try {
-			const response = await request('ingredients', {});
-			return response.data;
-		} catch (error) {
-			return rejectWithValue(error.response.data);
-		}
+	async () => {
+		const response = await request('ingredients', {});
+		return response.data;
 	}
 );
 
@@ -64,8 +60,9 @@ export const ingredientsSlice = createSlice({
 			state.isLoading = false;
 			state.ingredients = action.payload;
 		})
-		.addCase(fetchIngredients.rejected, (state) => {
+		.addCase(fetchIngredients.rejected, (state, action) => {
 			state.isLoading = false;
+			console.error(action.error.message);
 		});
 	},
 });

@@ -1,32 +1,20 @@
-import React, {useEffect, useState} from 'react';
+import React, { useState} from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { useDrop } from 'react-dnd';
-import { Button, ConstructorElement, CurrencyIcon, DragIcon } from '@ya.praktikum/react-developer-burger-ui-components';
+import { Button, ConstructorElement, CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import ScrollableBlock from '../scrollable-block/scrollable-block';
 import Modal from '../modal/modal';
 import OrderDetails from '../order-details/order-details';
 import burgerConstructor from './burger-constructor.module.css';
-import ingredientType from "../../utils/types";
 import { fetchOrder } from '../../services/slices/order-slice';
-import {addIngredient, removeIngredient, setBun} from '../../services/slices/burger-constructor-slice';
-import {increaseIngredientCount, decreaseIngredientCount} from '../../services/slices/ingredients-slice';
+import {addIngredient} from '../../services/slices/burger-constructor-slice';
+import {increaseIngredientCount} from '../../services/slices/ingredients-slice';
 import DraggableIngredient from "../draggable-ingredient/draggable-ingredient";
-
 
 const BurgerConstructor = ({ style }) => {
 	const dispatch = useDispatch();
 	const { ingredients, totalPrice, bun } = useSelector((state) => state.burgerConstructor);
-	const allIngredients = useSelector((state) => state.ingredients.ingredients);
-
-	useEffect(() => {
-		if (!bun) {
-			const defaultBun = allIngredients.find((item) => item.type === 'bun');
-			if (defaultBun) {
-				dispatch(setBun(defaultBun));
-			}
-		}
-	}, [bun, allIngredients, dispatch]);
 
 	const [isOrderDetailOpen, setIsOrderDetailOpen] = useState(false);
 
@@ -53,27 +41,26 @@ const BurgerConstructor = ({ style }) => {
 		setIsOrderDetailOpen(false);
 	};
 
-	if (!bun) {
-		return (<p>Что-то пошло не так... :((</p>);
-	}
-
 	return (
 		<div ref={dropRef} className={`${burgerConstructor.container} pt-25 pr-4 pl-4`} style={{ ...style }}>
 			<div className={`${burgerConstructor.bunContainer} pr-4 pl-7`}>
-				<ConstructorElement
-					type="top"
-					isLocked={true}
-					text={`${bun.name} (верх)`}
-					price={bun.price}
-					thumbnail={bun.image}
-				/>
+				{
+					// todo сделать красивее как будет время
+					bun ? <ConstructorElement
+						type="top"
+						isLocked={true}
+						text={`${bun.name} (верх)`}
+						price={bun.price}
+						thumbnail={bun.image}
+					/> : <span>Переместите сюда булочку</span>
+				}
 			</div>
 			<ScrollableBlock>
 				<div className={`${burgerConstructor.ingredientsContainer} pt-4 pb-4 pr-4 pl-2`}>
 					{ingredients.map((ingredient, index) => {
 						return (
 							<DraggableIngredient
-								key={`${ingredient._id}_${index}`}
+								key={ingredient.uuid}
 								ingredient={ingredient}
 								index={index}
 							/>
@@ -82,13 +69,15 @@ const BurgerConstructor = ({ style }) => {
 				</div>
 			</ScrollableBlock>
 			<div className={`${burgerConstructor.bunContainer} pr-4 pl-7`}>
-				<ConstructorElement
-					type="bottom"
-					isLocked={true}
-					text={`${bun.name} (низ)`}
-					price={bun.price}
-					thumbnail={bun.image}
-				/>
+				{
+					bun ? <ConstructorElement
+						type="bottom"
+						isLocked={true}
+						text={`${bun.name} (низ)`}
+						price={bun.price}
+						thumbnail={bun.image}
+					/> : <span>Переместите сюда булочку</span>
+				}
 			</div>
 
 			<section className={`${burgerConstructor.priceSection} pt-10 pb-10`}>
