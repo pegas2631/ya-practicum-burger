@@ -8,6 +8,22 @@ const initialState = {
 	isLoading: false,
 };
 
+export const fetchOrder = createAsyncThunk(
+	'order/fetchOrder',
+	async (ingredientsIds, { dispatch }) => {
+		const data = await request('orders', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				ingredients: ingredientsIds
+			}),
+		});
+		return data.order;
+	}
+);
+
 export const orderSlice = createSlice({
 	name: 'order',
 	initialState,
@@ -28,31 +44,12 @@ export const orderSlice = createSlice({
 			state.isLoading = false;
 			state.order = action.payload;
 		})
-		.addCase(fetchOrder.rejected, (state) => {
+		.addCase(fetchOrder.rejected, (state, action) => {
 			state.isLoading = false;
+			console.error(action.error.message);
 		});
 	},
 });
-
-export const fetchOrder = createAsyncThunk(
-	'order/fetchOrder',
-	async (ingredientsIds, { dispatch }) => {
-		try {
-			const data = await request('orders', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify({
-					ingredients: ingredientsIds
-				}),
-			});
-			return data.order;
-		} catch (error) {
-			throw error;
-		}
-	}
-);
 
 export const {
 	setOrder,
