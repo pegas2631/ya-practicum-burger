@@ -1,11 +1,12 @@
 // order-details.js
-import React, { useContext } from 'react';
+import React from 'react';
 import orderDetails from './order-details.module.css';
 import { CheckMarkIcon } from '@ya.praktikum/react-developer-burger-ui-components';
-import { IngredientsContext } from '../../services/burger-constructor-context';
+import { useSelector } from "react-redux";
 
 const OrderDetails = () => {
-	const { isOrderLoading, order } = useContext(IngredientsContext);
+	const isOrderLoading = useSelector((state) => state.order.isLoading);
+	const order  = useSelector((state) => state.order.order);
 
 	return (
 		<div className= {`${orderDetails.content} pt-20 pb-20`}>

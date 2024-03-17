@@ -1,11 +1,14 @@
 // app.tsx
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import styles from './app.module.css';
 import AppHeader from '../app-header/app-header';
 import BurgerIngredients from '../burger-ingredients/burger-ingredients.js';
 import BurgerConstructor from '../burger-constructor/burger-constructor';
-import request from '../../utils/request-helper';
+import { fetchIngredients } from '../../services/slices/ingredients-slice';
+
+
 
 interface Ingredient {
 	id: string;
@@ -17,24 +20,15 @@ interface Ingredient {
 }
 
 function App() {
-	const [ingredients, setIngredients] = useState<Ingredient[]>([]);
-	const [isLoading, setIsLoading] = useState<boolean>(false);
+
+	const dispatch = useDispatch();
+	// @ts-ignore
+	const isLoading = useSelector((state) => state.ingredients.isLoading);
 
 	useEffect(() => {
-		const fetchIngredients = async () => {
-			setIsLoading(true);
-			try {
-				const data = await request('ingredients', {});
-				setIngredients(data.data);
-			} catch (error) {
-				console.error('Ошибка при получении данных:', error);
-			} finally {
-				setIsLoading(false);
-			}
-		};
-
-		fetchIngredients();
-	}, []);
+		// @ts-ignore
+		dispatch(fetchIngredients());
+	}, [dispatch]);
 
 	return (
 		<div className={styles.app}>
@@ -44,8 +38,8 @@ function App() {
 					<p>Загрузка...</p>
 				) : (
 					<>
-						<BurgerIngredients ingredients={ingredients} style={{flex: 2}}/>
-						<BurgerConstructor ingredients={ingredients} style={{flex: 1}}/>
+						<BurgerIngredients style={{flex: 2}}/>
+						<BurgerConstructor style={{flex: 1}}/>
 					</>
 				)}
 			</main>
