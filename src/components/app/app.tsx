@@ -1,29 +1,34 @@
-// app.tsx
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { ForgotPasswordPage, HomePage, IngredientDetailPage, LoginPage, NotFound404Page, ProfilePage, RegisterPage, ResetPasswordPage } from '../../pages';
+import { useDispatch } from "react-redux";
+import { fetchIngredients } from "../../services/slices/ingredients-slice";
 
-import styles from './app.module.css';
-import AppHeader from '../app-header/app-header';
-import BurgerIngredients from '../burger-ingredients/burger-ingredients.js';
-import BurgerConstructor from '../burger-constructor/burger-constructor';
-import { fetchIngredients } from '../../services/slices/ingredients-slice';
+const useAuth = () => {
+	const user = localStorage.getItem('accessToken');
+	return !!user;
+};
 
+// @ts-ignore
+const ProtectedRoute = ({ children }) => {
+	const isAuth = useAuth();
+	return isAuth ? children : <Navigate to="/login" replace />;
+};
 
+// @ts-ignore
+const PublicOnlyRoute = ({ children }) => {
+	const isAuth = useAuth();
+	return !isAuth ? children : <Navigate to="/" replace />;
+};
 
-interface Ingredient {
-	id: string;
-	type: string;
-	name: string;
-	_id: string;
-	price: number;
-	image: string;
-}
+// @ts-ignore
+const ResetPasswordProtected = ({ children }) => {
+	const canResetPassword = localStorage.getItem('canResetPassword');
+	return canResetPassword ? children : <Navigate to="/forgot-password" replace />;
+};
 
 function App() {
-
 	const dispatch = useDispatch();
-	// @ts-ignore
-	const isLoading = useSelector((state) => state.ingredients.isLoading);
 
 	useEffect(() => {
 		// @ts-ignore
@@ -31,19 +36,38 @@ function App() {
 	}, [dispatch]);
 
 	return (
-		<div className={styles.app}>
-			<AppHeader />
-			<main className={styles.mainContent}>
-				{isLoading ? (
-					<p>Загрузка...</p>
-				) : (
-					<>
-						<BurgerIngredients style={{flex: 2}}/>
-						<BurgerConstructor style={{flex: 1}}/>
-					</>
-				)}
-			</main>
-		</div>
+		<BrowserRouter>
+			<Routes>
+				<Route path='/' element={<HomePage />} />
+				<Route path='/login' element={
+					<PublicOnlyRoute>
+						<LoginPage />
+					</PublicOnlyRoute>
+				} />
+				<Route path='/register' element={
+					<PublicOnlyRoute>
+						<RegisterPage />
+					</PublicOnlyRoute>
+				} />
+				<Route path='/forgot-password' element={
+					<PublicOnlyRoute>
+						<ForgotPasswordPage />
+					</PublicOnlyRoute>
+				} />
+				<Route path='/reset-password' element={
+					<ResetPasswordProtected>
+						<ResetPasswordPage />
+					</ResetPasswordProtected>
+				} />
+				<Route path='/profile' element={
+					<ProtectedRoute>
+						<ProfilePage />
+					</ProtectedRoute>
+				} />
+				<Route path='/ingredients/:id' element={<IngredientDetailPage />} />
+				<Route path='*' element={<NotFound404Page />} />
+			</Routes>
+		</BrowserRouter>
 	);
 }
 

@@ -1,7 +1,6 @@
-/* app-header.module.css */
-.container{
-	display: flex;
-	justify-content: space-between;
+.container {
+	display: grid;
+	grid-template-columns: 1fr auto 1fr; /* Создаем три колонки */
 	align-items: center;
 	padding: 16px;
 	background-color: #1C1C21;
@@ -10,4 +9,13 @@
 .nav {
 	display: flex;
 	gap: 8px;
+	justify-self: start; /* Выравниваем содержимое первой колонки к началу */
+}
+
+.nav:last-child {
+	justify-self: end; /* Выравниваем содержимое последней колонки к концу */
+}
+
+.logo-container {
+	justify-self: center; /* Центрируем логотип */
 }

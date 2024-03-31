@@ -5,8 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81bc4438-5409-4ae8-8a87-9859283cbcdd" name="Changes" comment="правки по ревью: убрал catch в createAsyncThunk, убрал булку из начального состояния, типизация пропсов, uuid и key на его основе для ингредиентов в конструкторе">
+      <change afterPath="$PROJECT_DIR$/src/components/main/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/main/main.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/forgot-password.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/global.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/home.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/ingredient-detail.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/not-found.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/profile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/profile.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/register.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/reset-password.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/slices/user-slice.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/slices/order-slice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/order-slice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/app-header/app-header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app-header/app-header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/app-header/app-header.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app-header/app-header.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/app/app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/burger-ingredients/burger-ingredients.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-ingredients/burger-ingredients.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ingredient-card/ingredient-card.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ingredient-card/ingredient-card.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/store.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,8 +88,8 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;sprint-2/step-2&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/m.ustinov/Projects/Practicum/react-burger&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/m.ustinov/Projects/Practicum/react-burger/ya-practicum-burger-main/ya-practicum-burger&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -75,7 +97,7 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/m.ustinov/Projects/Practicum/react-burger/node_modules/typescript/lib&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/m.ustinov/Projects/Practicum/react-burger/ya-practicum-burger-main/ya-practicum-burger/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -105,6 +127,8 @@
       <workItem from="1710259748280" duration="614000" />
       <workItem from="1710351976884" duration="2670000" />
       <workItem from="1710413829999" duration="129000" />
+      <workItem from="1710685798203" duration="1593000" />
+      <workItem from="1711730944044" duration="29272000" />
     </task>
     <task id="LOCAL-00001" summary="правки ревью">
       <option name="closed" value="true" />

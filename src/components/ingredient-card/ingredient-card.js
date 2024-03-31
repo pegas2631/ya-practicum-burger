@@ -1,4 +1,3 @@
-// ingredient-card.js
 import React from 'react'
 
 import ingredientCard from './ingredient-card.module.css'
