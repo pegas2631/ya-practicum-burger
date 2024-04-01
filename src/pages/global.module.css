@@ -22,6 +22,12 @@
 	align-items: center;
 }
 
+.rightSide {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+}
+
 .fullWidth {
 	width: 100%;
 }

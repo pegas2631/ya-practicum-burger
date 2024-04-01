@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import styles from "./global.module.css";
 import profile from "./profile.module.css";
-import AppHeader from "../components/app-header/app-header";
 import { Button, EmailInput, Input, PasswordInput } from "@ya.praktikum/react-developer-burger-ui-components";
 import { fetchUserData, logoutUser, updateUserData } from '../services/slices/user-slice';
 
@@ -45,6 +44,15 @@ export function ProfilePage() {
 		}
 	};
 
+	const handleCancel = (e) => {
+		e.preventDefault();
+		if (user) {
+			setEmail(user.email);
+			setName(user.name);
+			setPassword('');
+		}
+	};
+
 	const handleLogout = () => {
 		dispatch(logoutUser());
 		localStorage.removeItem('accessToken'); // Убедитесь, что токены удаляются при выходе
@@ -54,16 +62,17 @@ export function ProfilePage() {
 
 	return (
 		<div className={styles.main}>
-			<AppHeader />
 			<div className={`${profile.mainContent} pt-30`}>
 				<div className={`${profile.menu} ${styles.oneThird}`}>
 					<div className={profile.menuItem}>
 						<p className="text text_type_main-large">Профиль</p>
 					</div>
 
-					<div className={profile.menuItem}>
-						<p className="text text_type_main-large text_color_inactive">История заказов</p>
-					</div>
+					<Link to={'/order-history'}>
+						<div className={profile.menuItem}>
+							<p className="text text_type_main-large text_color_inactive">История заказов</p>
+						</div>
+					</Link>
 
 					<div className={profile.menuItem} onClick={handleLogout}>
 						<p className="text text_type_main-large text_color_inactive">Выход</p>
@@ -100,7 +109,10 @@ export function ProfilePage() {
 							extraClass='mb-6'
 							icon={'EditIcon'}
 						/>
-						<div className={`${styles.centered} ${styles.fullWidth}`}>
+						<div className={`${styles.rightSide} ${styles.fullWidth}`}>
+							<Button htmlType="button" type="secondary" size="medium" onClick={handleCancel}>
+								Отменить
+							</Button>
 							<Button htmlType="submit" type="primary" size="large">
 								Сохранить
 							</Button>

@@ -11,11 +11,13 @@ import { fetchOrder } from '../../services/slices/order-slice';
 import {addIngredient} from '../../services/slices/burger-constructor-slice';
 import {increaseIngredientCount} from '../../services/slices/ingredients-slice';
 import DraggableIngredient from "../draggable-ingredient/draggable-ingredient";
+import useAuth from "../../utils/auth";
+import { useNavigate } from 'react-router-dom';
 
 const BurgerConstructor = ({ style }) => {
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 	const { ingredients, totalPrice, bun } = useSelector((state) => state.burgerConstructor);
-
 	const [isOrderDetailOpen, setIsOrderDetailOpen] = useState(false);
 
 	const [, dropRef] = useDrop(() => ({
@@ -26,8 +28,14 @@ const BurgerConstructor = ({ style }) => {
 		},
 	}));
 
+	const isAuth = useAuth();
+
 
 	const handleFetchOrder = () => {
+		if(!isAuth)
+		{
+			navigate('/login');
+		}
 		const ingredientsIds = ingredients.map((ingredient) => ingredient._id);
 		if (bun) ingredientsIds.push(bun._id, bun._id);
 		dispatch(fetchOrder(ingredientsIds));

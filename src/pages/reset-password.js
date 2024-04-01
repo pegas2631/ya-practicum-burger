@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from "./global.module.css";
-import AppHeader from "../components/app-header/app-header";
 import {Button, Input, PasswordInput} from "@ya.praktikum/react-developer-burger-ui-components";
 import request from '../utils/request-helper';
 
@@ -33,7 +32,6 @@ export function ResetPasswordPage() {
 
 	return (
 		<div className={styles.main}>
-			<AppHeader />
 			<div className={styles.centeredFullWindow}>
 				<form onSubmit={handleSubmit}>
 					<h1 className="text text_type_main-medium mb-6 text-center">Восстановление пароля</h1>

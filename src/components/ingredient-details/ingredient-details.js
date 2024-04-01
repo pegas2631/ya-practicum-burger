@@ -1,9 +1,29 @@
-// modal-overlay.js
 import React from 'react';
 import ingredientDetails from './ingredients-details.module.css';
-import ingredientType from "../../utils/types";
+//import ingredientType from "../../utils/types";
+import {useParams} from "react-router-dom";
+import { useSelector } from 'react-redux';
 
-const IngredientDetails = ({ ingredient }) => {
+const IngredientDetails = () => {
+
+	const { id } = useParams();
+	const isLoading = useSelector((state) => state.ingredients.isLoading);
+
+	const currentIngredient = useSelector((state) => state.currentIngredient.currentIngredient);
+	const ingredientById = useSelector((state) =>
+		state.ingredients.ingredients.find((ingredient) => ingredient._id === id)
+	);
+
+	const ingredient = currentIngredient || ingredientById;
+
+	if (isLoading) {
+		return <div>Загрузка...</div>;
+	}
+
+	if (!ingredient) {
+		return <div>Ингредиент не найден</div>;
+	}
+
 	return (
 		<div className={`${ingredientDetails.content} pt-10 pb-15`}>
 			<img alt={ingredient.name} src={ingredient.image_large}/>
@@ -30,9 +50,9 @@ const IngredientDetails = ({ ingredient }) => {
 	);
 };
 
-IngredientDetails.propTypes = {
-	ingredient: ingredientType.isRequired,
-};
+// IngredientDetails.propTypes = {
+// 	ingredient: ingredientType.isRequired,
+// };
 
 
 export default IngredientDetails;

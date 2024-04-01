@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import styles from "./global.module.css";
-import AppHeader from "../components/app-header/app-header";
 import { EmailInput, PasswordInput, Button } from '@ya.praktikum/react-developer-burger-ui-components';
 import { Link } from 'react-router-dom';
 import { loginUser } from '../services/slices/user-slice';
@@ -12,6 +11,8 @@ export function LoginPage() {
 	const [password, setPassword] = useState('');
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
+	const location = useLocation();
+	const { from } = location.state || { from: { pathname: "/" } }
 
 	const onChangeEmail = e => {
 		setEmail(e.target.value);
@@ -21,11 +22,12 @@ export function LoginPage() {
 		setPassword(e.target.value);
 	};
 
-	const handleLogin = () => {
+	const handleLogin = (e) => {
+		e.preventDefault();
 		dispatch(loginUser({ email, password }))
 		.unwrap()
 		.then(() => {
-			navigate('/');
+			navigate(from);
 		})
 		.catch((error) => {
 			console.error('Ошибка при входе:', error);
@@ -34,9 +36,8 @@ export function LoginPage() {
 
 	return (
 		<div className={styles.main}>
-			<AppHeader />
 			<div className={styles.centeredFullWindow}>
-				<div>
+				<form onSubmit={handleLogin}>
 					<h1 className="text text_type_main-medium mb-6 text-center">Вход</h1>
 					<EmailInput
 						onChange={onChangeEmail}
@@ -52,7 +53,7 @@ export function LoginPage() {
 						extraClass="mb-6"
 					/>
 					<div className={`${styles.centered} ${styles.fullWidth} mb-20`}>
-						<Button onClick={handleLogin} htmlType="button" type="primary" size="large">
+						<Button htmlType="submit" type="primary" size="large">
 							Войти
 						</Button>
 					</div>
@@ -73,7 +74,7 @@ export function LoginPage() {
 							</Button>
 						</Link>
 					</p>
-				</div>
+				</form>
 			</div>
 		</div>
 	);

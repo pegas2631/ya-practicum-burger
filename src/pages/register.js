@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import styles from "./global.module.css";
-import AppHeader from "../components/app-header/app-header";
 import { Button, EmailInput, PasswordInput, Input } from "@ya.praktikum/react-developer-burger-ui-components";
 import { registerUser } from '../services/slices/user-slice';
 
@@ -39,7 +38,6 @@ export function RegisterPage() {
 
 	return (
 		<div className={styles.main}>
-			<AppHeader />
 			<div className={styles.centeredFullWindow}>
 				<form onSubmit={handleSubmit}>
 					<h1 className="text text_type_main-medium mb-6 text-center">Регистрация</h1>
