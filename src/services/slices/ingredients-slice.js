@@ -28,11 +28,17 @@ export const ingredientsSlice = createSlice({
 			state.ingredients = [];
 		},
 		increaseIngredientCount: (state, action) => {
-			if (action.payload.type !== 'bun')
-			{
-				const index = state.ingredients.findIndex(ingredient => ingredient._id === action.payload._id);
+			const index = state.ingredients.findIndex(ingredient => ingredient._id === action.payload._id);
 
-				if (index !== -1) {
+			if (index !== -1) {
+				if (action.payload.type === 'bun') {
+					state.ingredients.forEach((ingredient, idx) => {
+						if (ingredient.type === 'bun') {
+							state.ingredients[idx].count = 0;
+						}
+					});
+					state.ingredients[index].count = 1;
+				} else {
 					if (!state.ingredients[index].count) {
 						state.ingredients[index].count = 1;
 					} else {
@@ -42,12 +48,9 @@ export const ingredientsSlice = createSlice({
 			}
 		},
 		decreaseIngredientCount: (state, action) => {
-			if (action.payload.type !== 'bun')
-			{
-				const index = state.ingredients.findIndex(ingredient => ingredient._id === action.payload._id);
-				if (index !== -1 && state.ingredients[index].count && state.ingredients[index].count > 0) {
-					state.ingredients[index].count -= 1;
-				}
+			const index = state.ingredients.findIndex(ingredient => ingredient._id === action.payload._id);
+			if (index !== -1 && state.ingredients[index].count && state.ingredients[index].count > 0) {
+				state.ingredients[index].count -= 1;
 			}
 		}
 	},
