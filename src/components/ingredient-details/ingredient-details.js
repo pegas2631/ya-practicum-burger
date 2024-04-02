@@ -1,20 +1,22 @@
 import React from 'react';
 import ingredientDetails from './ingredients-details.module.css';
 //import ingredientType from "../../utils/types";
-import {useParams} from "react-router-dom";
+import {useLocation, useParams} from "react-router-dom";
 import { useSelector } from 'react-redux';
 
 const IngredientDetails = () => {
 
-	const { id } = useParams();
+	const location = useLocation();
+	const idFromLocation = location.state?.ingredientId;
+	const { id: idFromParams } = useParams();
+
+	const id = idFromLocation || idFromParams;
+
 	const isLoading = useSelector((state) => state.ingredients.isLoading);
 
-	const currentIngredient = useSelector((state) => state.currentIngredient.currentIngredient);
-	const ingredientById = useSelector((state) =>
+	const ingredient = useSelector((state) =>
 		state.ingredients.ingredients.find((ingredient) => ingredient._id === id)
 	);
-
-	const ingredient = currentIngredient || ingredientById;
 
 	if (isLoading) {
 		return <div>Загрузка...</div>;

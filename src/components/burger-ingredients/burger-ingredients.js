@@ -43,7 +43,10 @@ const BurgerIngredients = ({ style })  => {
 
 	const openIngredient = (ingredient) => {
 		dispatch(setCurrentIngredient(ingredient))
-		navigate(`/ingredients/${ingredient._id}`, { state: { background: location } });
+		navigate(`/ingredients/${ingredient._id}`, { state: {
+			background: location,
+			ingredientId: ingredient._id,
+		}});
 	};
 
 	const closeIngredient = () => {

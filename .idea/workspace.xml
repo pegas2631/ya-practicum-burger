@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81bc4438-5409-4ae8-8a87-9859283cbcdd" name="Changes" comment="правки по ревью, доработки">
+    <list default="true" id="81bc4438-5409-4ae8-8a87-9859283cbcdd" name="Changes" comment="Над булкой тоже показываем цифру, если она в заказе">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/burger-constructor/burger-constructor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-constructor/burger-constructor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/slices/ingredients-slice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/ingredients-slice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/burger-ingredients/burger-ingredients.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-ingredients/burger-ingredients.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ingredient-details/ingredient-details.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ingredient-details/ingredient-details.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/ingredient-detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ingredient-detail.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +111,7 @@
       <workItem from="1710685798203" duration="1593000" />
       <workItem from="1711730944044" duration="30282000" />
       <workItem from="1711994596655" duration="11361000" />
-      <workItem from="1712069660106" duration="1908000" />
+      <workItem from="1712069660106" duration="4230000" />
     </task>
     <task id="LOCAL-00001" summary="правки ревью">
       <option name="closed" value="true" />
@@ -232,7 +233,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712005370732</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Над булкой тоже показываем цифру, если она в заказе">
+      <option name="closed" value="true" />
+      <created>1712071603790</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1712071603791</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,7 +283,8 @@
     <MESSAGE value="правки по ревью: убрал catch в createAsyncThunk, убрал булку из начального состояния, типизация пропсов, uuid и key на его основе для ингредиентов в конструкторе" />
     <MESSAGE value="спринт 3" />
     <MESSAGE value="правки по ревью, доработки" />
-    <option name="LAST_COMMIT_MESSAGE" value="правки по ревью, доработки" />
+    <MESSAGE value="Над булкой тоже показываем цифру, если она в заказе" />
+    <option name="LAST_COMMIT_MESSAGE" value="Над булкой тоже показываем цифру, если она в заказе" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

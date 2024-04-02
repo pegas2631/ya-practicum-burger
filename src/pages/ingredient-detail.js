@@ -2,7 +2,6 @@ import React from 'react';
 import IngredientDetails from "../components/ingredient-details/ingredient-details";
 import styles from "./global.module.css";
 
-
 export function IngredientDetailPage() {
 	return (
 		<div className={styles.main}>
