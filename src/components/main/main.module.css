@@ -1,0 +1,8 @@
+
+.mainContent {
+	max-height: calc(100vh - 88px);
+	display: flex;
+	flex-grow: 1;
+	max-width: 1280px;
+	margin: 0 auto;
+}

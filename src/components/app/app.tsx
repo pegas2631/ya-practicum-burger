@@ -1,29 +1,14 @@
-// app.tsx
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 
-import styles from './app.module.css';
-import AppHeader from '../app-header/app-header';
-import BurgerIngredients from '../burger-ingredients/burger-ingredients.js';
-import BurgerConstructor from '../burger-constructor/burger-constructor';
-import { fetchIngredients } from '../../services/slices/ingredients-slice';
+import { useDispatch } from "react-redux";
+import { fetchIngredients } from "../../services/slices/ingredients-slice";
+import AppHeader from "../app-header/app-header";
+import AppRoutes from "../routes/routes";
 
-
-
-interface Ingredient {
-	id: string;
-	type: string;
-	name: string;
-	_id: string;
-	price: number;
-	image: string;
-}
 
 function App() {
-
 	const dispatch = useDispatch();
-	// @ts-ignore
-	const isLoading = useSelector((state) => state.ingredients.isLoading);
 
 	useEffect(() => {
 		// @ts-ignore
@@ -31,19 +16,10 @@ function App() {
 	}, [dispatch]);
 
 	return (
-		<div className={styles.app}>
-			<AppHeader />
-			<main className={styles.mainContent}>
-				{isLoading ? (
-					<p>Загрузка...</p>
-				) : (
-					<>
-						<BurgerIngredients style={{flex: 2}}/>
-						<BurgerConstructor style={{flex: 1}}/>
-					</>
-				)}
-			</main>
-		</div>
+			<BrowserRouter>
+				<AppHeader />
+				<AppRoutes />
+			</BrowserRouter>
 	);
 }
 

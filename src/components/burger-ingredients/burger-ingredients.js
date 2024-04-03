@@ -1,4 +1,3 @@
-// burger-ingredients.js
 import React from 'react'
 
 import { Tab } from '@ya.praktikum/react-developer-burger-ui-components';
@@ -10,6 +9,7 @@ import Modal from '../modal/modal';
 import IngredientDetails from '../ingredient-details/ingredient-details';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from "react-redux";
+import {useLocation, useNavigate} from 'react-router-dom';
 import { setCurrentIngredient, clearCurrentIngredient, setCurrentIngredientIsOpen } from '../../services/slices/current-ingredient-slice';
 
 const Tabs = ({current, setCurrent}) => {
@@ -30,6 +30,8 @@ const Tabs = ({current, setCurrent}) => {
 
 const BurgerIngredients = ({ style })  => {
 
+	const navigate = useNavigate();
+	const location = useLocation();
 	const dispatch = useDispatch();
 	const ingredients = useSelector((state) => state.ingredients.ingredients);
 	const currentIngredient = useSelector((state) => state.currentIngredient.currentIngredient)
@@ -40,13 +42,17 @@ const BurgerIngredients = ({ style })  => {
 	const sauces = ingredients.filter((ingredient) => ingredient.type === 'sauce');
 
 	const openIngredient = (ingredient) => {
-		dispatch(setCurrentIngredient(ingredient));
-		dispatch(setCurrentIngredientIsOpen(true));
+		dispatch(setCurrentIngredient(ingredient))
+		navigate(`/ingredients/${ingredient._id}`, { state: {
+			background: location,
+			ingredientId: ingredient._id,
+		}});
 	};
 
 	const closeIngredient = () => {
 		dispatch(clearCurrentIngredient());
 		dispatch(setCurrentIngredientIsOpen(false));
+		window.history.pushState({ modal: true }, '', `/`);
 	};
 
 	const bunsRef = React.useRef(null);
@@ -58,7 +64,7 @@ const BurgerIngredients = ({ style })  => {
 		const bunsPosition = bunsRef.current.getBoundingClientRect().top;
 		const saucesPosition = saucesRef.current.getBoundingClientRect().top;
 		const mainsPosition = mainsRef.current.getBoundingClientRect().top;
-		const tabOffset = 100; // Значение смещения для активации таба
+		const tabOffset = 100;
 
 		if (mainsPosition < tabOffset) {
 			setCurrent('mains');
@@ -110,7 +116,7 @@ const BurgerIngredients = ({ style })  => {
 			</ScrollableBlock>
 			{currentIngredientIsOpen && (
 				<Modal title="Детали ингредиента" onClose={closeIngredient}>
-					<IngredientDetails ingredient={currentIngredient} />
+					<IngredientDetails ingredientId={currentIngredient._id} />
 				</Modal>
 			)}
 		</div>

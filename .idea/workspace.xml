@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81bc4438-5409-4ae8-8a87-9859283cbcdd" name="Changes" comment="правки по ревью: убрал catch в createAsyncThunk, убрал булку из начального состояния, типизация пропсов, uuid и key на его основе для ингредиентов в конструкторе">
+    <list default="true" id="81bc4438-5409-4ae8-8a87-9859283cbcdd" name="Changes" comment="Над булкой тоже показываем цифру, если она в заказе">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/slices/order-slice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/order-slice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/burger-ingredients/burger-ingredients.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-ingredients/burger-ingredients.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ingredient-details/ingredient-details.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ingredient-details/ingredient-details.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/ingredient-detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ingredient-detail.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,8 +68,8 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;sprint-2/step-2&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/m.ustinov/Projects/Practicum/react-burger&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;sprint-3&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/m.ustinov/Projects/Practicum/react-burger/ya-practicum-burger-main/ya-practicum-burger&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -75,7 +77,7 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/m.ustinov/Projects/Practicum/react-burger/node_modules/typescript/lib&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/m.ustinov/Projects/Practicum/react-burger/ya-practicum-burger-main/ya-practicum-burger/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -84,6 +86,7 @@
       <recent name="$PROJECT_DIR$/src/components/burger-constructor" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/routes" />
       <recent name="$PROJECT_DIR$/src/services/slices" />
       <recent name="$PROJECT_DIR$/src/components/modal" />
       <recent name="$PROJECT_DIR$/src/components/app" />
@@ -105,6 +108,10 @@
       <workItem from="1710259748280" duration="614000" />
       <workItem from="1710351976884" duration="2670000" />
       <workItem from="1710413829999" duration="129000" />
+      <workItem from="1710685798203" duration="1593000" />
+      <workItem from="1711730944044" duration="30282000" />
+      <workItem from="1711994596655" duration="11361000" />
+      <workItem from="1712069660106" duration="4230000" />
     </task>
     <task id="LOCAL-00001" summary="правки ревью">
       <option name="closed" value="true" />
@@ -202,7 +209,39 @@
       <option name="project" value="LOCAL" />
       <updated>1710354013342</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="спринт 3">
+      <option name="closed" value="true" />
+      <created>1711877299858</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1711877299858</updated>
+    </task>
+    <task id="LOCAL-00014" summary="спринт 3">
+      <option name="closed" value="true" />
+      <created>1711877409120</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1711877409120</updated>
+    </task>
+    <task id="LOCAL-00015" summary="правки по ревью, доработки">
+      <option name="closed" value="true" />
+      <created>1712005370732</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1712005370732</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Над булкой тоже показываем цифру, если она в заказе">
+      <option name="closed" value="true" />
+      <created>1712071603790</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1712071603791</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,7 +258,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="sprint-2/step-2" />
+                        <option value="HEAD" />
                       </list>
                     </value>
                   </entry>
@@ -242,7 +281,10 @@
     <MESSAGE value="переключение табов по скролу" />
     <MESSAGE value="перетаскивание элементов внутри конструктора" />
     <MESSAGE value="правки по ревью: убрал catch в createAsyncThunk, убрал булку из начального состояния, типизация пропсов, uuid и key на его основе для ингредиентов в конструкторе" />
-    <option name="LAST_COMMIT_MESSAGE" value="правки по ревью: убрал catch в createAsyncThunk, убрал булку из начального состояния, типизация пропсов, uuid и key на его основе для ингредиентов в конструкторе" />
+    <MESSAGE value="спринт 3" />
+    <MESSAGE value="правки по ревью, доработки" />
+    <MESSAGE value="Над булкой тоже показываем цифру, если она в заказе" />
+    <option name="LAST_COMMIT_MESSAGE" value="Над булкой тоже показываем цифру, если она в заказе" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
