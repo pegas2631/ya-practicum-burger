@@ -1,17 +1,18 @@
-import React from 'react';
+import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import styles from "./global.module.css";
-import { Button, EmailInput } from "@ya.praktikum/react-developer-burger-ui-components";
+import styles from './global.module.css';
+import { Button, EmailInput } from '@ya.praktikum/react-developer-burger-ui-components';
 import request from '../utils/request-helper';
 
-export function ForgotPasswordPage() {
+export const ForgotPasswordPage: React.FC = () => {
 	const navigate = useNavigate();
-	const [email, setEmail] = React.useState('');
-	const onChangeEmail = e => {
+	const [email, setEmail] = useState<string>('');
+
+	const onChangeEmail = (e: ChangeEvent<HTMLInputElement>) => {
 		setEmail(e.target.value);
 	};
 
-	const handleSubmit = async (e) => {
+	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault();
 		const response = await request('password-reset', {
 			method: 'POST',
@@ -32,7 +33,7 @@ export function ForgotPasswordPage() {
 		<div className={styles.main}>
 			<div className={styles.centeredFullWindow}>
 				<form onSubmit={handleSubmit}>
-					<h1 className="text text_type_main-medium mb-6 text-center">Восстановление пароля</h1>
+					<h1 className='text text_type_main-medium mb-6 text-center'>Восстановление пароля</h1>
 					<EmailInput
 						onChange={onChangeEmail}
 						value={email}
@@ -57,4 +58,4 @@ export function ForgotPasswordPage() {
 			</div>
 		</div>
 	);
-}
+};

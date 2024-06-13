@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import useAuth from '../../../utils/auth';
 
-const ProtectedRoute = ({ children }) => {
+interface IProtectedRouteProps {
+	children: ReactNode;
+}
+
+const ProtectedRoute: React.FC<IProtectedRouteProps> = ({ children }) => {
 	const isAuth = useAuth();
 	const location = useLocation();
 
@@ -10,7 +14,7 @@ const ProtectedRoute = ({ children }) => {
 		return <Navigate to="/login" state={{ from: location }} replace />;
 	}
 
-	return children;
+	return <>{children}</>;
 };
 
 export default ProtectedRoute;

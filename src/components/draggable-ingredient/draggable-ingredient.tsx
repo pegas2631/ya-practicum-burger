@@ -2,19 +2,23 @@ import React, { useRef } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
 import { ConstructorElement, DragIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import { useDispatch } from 'react-redux';
-import {moveIngredient, removeIngredient} from '../../services/slices/burger-constructor-slice';
-import burgerConstructor from "../burger-constructor/burger-constructor.module.css";
-import {decreaseIngredientCount} from "../../services/slices/ingredients-slice";
-import ingredientType from "../../utils/types";
-import PropTypes from "prop-types";
+import { moveIngredient, removeIngredient } from '../../services/slices/burger-constructor-slice';
+import burgerConstructor from '../burger-constructor/burger-constructor.module.css';
+import { decreaseIngredientCount } from '../../services/slices/ingredients-slice';
+import TIngredient from '../../utils/types';
 
-const DraggableIngredient = ({ ingredient, index }) => {
+interface IDraggableIngredientProps {
+	ingredient: TIngredient;
+	index: number;
+}
+
+const DraggableIngredient: React.FC<IDraggableIngredientProps> = ({ ingredient, index }) => {
 	const dispatch = useDispatch();
-	const ref = useRef(null);
+	const ref = useRef<HTMLDivElement>(null);
 
 	const [, drop] = useDrop({
 		accept: 'item',
-		drop(item) {
+		drop(item: { index: number }) {
 			const dragIndex = item.index;
 			const hoverIndex = index;
 
@@ -43,18 +47,13 @@ const DraggableIngredient = ({ ingredient, index }) => {
 				text={ingredient.name}
 				price={ingredient.price}
 				thumbnail={ingredient.image}
-				handleClose={()=>{
+				handleClose={() => {
 					dispatch(removeIngredient(ingredient));
-					dispatch(decreaseIngredientCount(ingredient))
+					dispatch(decreaseIngredientCount(ingredient));
 				}}
 			/>
 		</div>
 	);
-};
-
-DraggableIngredient.propTypes = {
-	ingredient: ingredientType.isRequired,
-	index: PropTypes.number,
 };
 
 export default DraggableIngredient;
