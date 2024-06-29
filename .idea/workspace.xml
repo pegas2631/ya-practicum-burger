@@ -4,42 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81bc4438-5409-4ae8-8a87-9859283cbcdd" name="Changes" comment="оставляем открытым ингредиент после перезагрузки">
-      <change afterPath="$PROJECT_DIR$/src/components/routes/public-only-route/public-only-route.tsx" afterDir="false" />
+    <list default="true" id="81bc4438-5409-4ae8-8a87-9859283cbcdd" name="Changes" comment="типизация проекта">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/app-header/app-header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app-header/app-header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/burger-constructor/burger-constructor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-constructor/burger-constructor.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/burger-ingredients/burger-ingredients.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-ingredients/burger-ingredients.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/draggable-ingredient/draggable-ingredient.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/draggable-ingredient/draggable-ingredient.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ingredient-card/ingredient-card.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ingredient-card/ingredient-card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ingredient-details/ingredient-details.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ingredient-details/ingredient-details.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/main/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/main/main.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modal/modal-overlay/modal-overlay.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/modal-overlay/modal-overlay.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modal/modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/modal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/nav-button/nav-button.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/nav-button/nav-button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/order-details/order-details.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-details/order-details.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/routes/protected-route/protected-route.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/routes/protected-route/protected-route.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/routes/public-only-route/public-only-route.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/routes/reset-password-protected/reset-password-protected.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/routes/reset-password-protected/reset-password-protected.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/routes/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/routes/routes.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/scrollable-block/scrollable-block.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/scrollable-block/scrollable-block.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/forgot-password.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/forgot-password.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ingredient-detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ingredient-detail.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/not-found.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/not-found.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/order-history.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/order-history.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/order-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/order-list.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/register.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/reset-password.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/reset-password.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/auth.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/request-helper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/request-helper.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/app/app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/burger-constructor/burger-constructor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-constructor/burger-constructor.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/register.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/burger-constructor-context.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/burger-constructor-context.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/slices/burger-constructor-slice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/burger-constructor-slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/slices/current-ingredient-slice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/current-ingredient-slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/slices/ingredients-slice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/ingredients-slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/slices/order-slice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/order-slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/slices/user-slice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/user-slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/store.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,24 +74,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "sprint-4/step-1",
-    "last_opened_file_path": "/Users/m.ustinov/Projects/Practicum/react-burger/ya-practicum-burger-main/ya-practicum-burger",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "Errors",
-    "ts.external.directory.path": "/Users/m.ustinov/Projects/Practicum/react-burger/ya-practicum-burger-main/ya-practicum-burger/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;sprint-4/step-1&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/m.ustinov/Projects/Practicum/react-burger/ya-practicum-burger-main/ya-practicum-burger&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/m.ustinov/Projects/Practicum/react-burger/ya-practicum-burger-main/ya-practicum-burger/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/components/burger-constructor" />
@@ -143,7 +123,12 @@
       <workItem from="1711730944044" duration="30282000" />
       <workItem from="1711994596655" duration="11361000" />
       <workItem from="1712069660106" duration="4230000" />
-      <workItem from="1718186458435" duration="10832000" />
+      <workItem from="1718186458435" duration="13267000" />
+      <workItem from="1718354874315" duration="598000" />
+      <workItem from="1718372201207" duration="1182000" />
+      <workItem from="1718719124199" duration="597000" />
+      <workItem from="1719305075289" duration="1195000" />
+      <workItem from="1719392435127" duration="6580000" />
     </task>
     <task id="LOCAL-00001" summary="правки ревью">
       <option name="closed" value="true" />
@@ -273,7 +258,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712071603791</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="типизация проекта">
+      <option name="closed" value="true" />
+      <created>1718314472987</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1718314472987</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -316,7 +309,8 @@
     <MESSAGE value="спринт 3" />
     <MESSAGE value="правки по ревью, доработки" />
     <MESSAGE value="Над булкой тоже показываем цифру, если она в заказе" />
-    <option name="LAST_COMMIT_MESSAGE" value="Над булкой тоже показываем цифру, если она в заказе" />
+    <MESSAGE value="типизация проекта" />
+    <option name="LAST_COMMIT_MESSAGE" value="типизация проекта" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

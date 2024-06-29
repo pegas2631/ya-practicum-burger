@@ -5,6 +5,7 @@ import styles from './global.module.css';
 import { EmailInput, PasswordInput, Button } from '@ya.praktikum/react-developer-burger-ui-components';
 import { Link } from 'react-router-dom';
 import { loginUser } from '../services/slices/user-slice';
+import { AppDispatch } from '../services/store';
 
 interface LocationState {
 	from: {
@@ -15,7 +16,7 @@ interface LocationState {
 export const LoginPage: React.FC = () => {
 	const [email, setEmail] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
-	const dispatch = useDispatch();
+	const dispatch = useDispatch<AppDispatch>();
 	const navigate = useNavigate();
 	const location = useLocation();
 	const { from } = (location.state as LocationState) || { from: { pathname: '/' } };
@@ -31,7 +32,6 @@ export const LoginPage: React.FC = () => {
 	const handleLogin = (e: FormEvent) => {
 		e.preventDefault();
 
-		// @ts-ignore
 		dispatch(loginUser({ email, password }))
 		.unwrap()
 		.then(() => {

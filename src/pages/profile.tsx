@@ -5,17 +5,17 @@ import styles from './global.module.css';
 import profile from './profile.module.css';
 import { Button, EmailInput, Input, PasswordInput } from '@ya.praktikum/react-developer-burger-ui-components';
 import { fetchUserData, logoutUser, updateUserData } from '../services/slices/user-slice';
+import { AppDispatch } from '../services/store';
 
 export const ProfilePage: React.FC = () => {
 	const [email, setEmail] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
 	const [name, setName] = useState<string>('');
-	const dispatch = useDispatch();
+	const dispatch = useDispatch<AppDispatch>();
 	const navigate = useNavigate();
 	const user = useSelector((state: any) => state.user.user); // Убираем типизацию хранилища
 
 	useEffect(() => {
-		// @ts-ignore
 		dispatch(fetchUserData());
 	}, [dispatch]);
 
@@ -41,7 +41,6 @@ export const ProfilePage: React.FC = () => {
 	const handleSave = async (e: FormEvent) => {
 		e.preventDefault();
 		if (email !== user.email || name !== user.name || password) {
-			// @ts-ignore
 			dispatch(updateUserData({ email, password, name }));
 		}
 	};
@@ -56,7 +55,6 @@ export const ProfilePage: React.FC = () => {
 	};
 
 	const handleLogout = () => {
-		// @ts-ignore
 		dispatch(logoutUser());
 		localStorage.removeItem('accessToken'); // Убедитесь, что токены удаляются при выходе
 		localStorage.removeItem('refreshToken');

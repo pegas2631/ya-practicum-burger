@@ -4,12 +4,13 @@ import { useNavigate, Link } from 'react-router-dom';
 import styles from './global.module.css';
 import { Button, EmailInput, PasswordInput, Input } from '@ya.praktikum/react-developer-burger-ui-components';
 import { registerUser } from '../services/slices/user-slice';
+import { AppDispatch } from '../services/store';
 
 export const RegisterPage: React.FC = () => {
 	const [email, setEmail] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
 	const [name, setName] = useState<string>('');
-	const dispatch = useDispatch();
+	const dispatch = useDispatch<AppDispatch>();
 	const navigate = useNavigate();
 
 	const onChangeName = (e: ChangeEvent<HTMLInputElement>) => {
@@ -26,7 +27,6 @@ export const RegisterPage: React.FC = () => {
 
 	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault();
-		// @ts-ignore
 		dispatch(registerUser({ email, password, name }))
 			.unwrap()
 			.then(() => {

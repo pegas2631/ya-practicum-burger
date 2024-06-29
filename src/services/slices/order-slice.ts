@@ -1,14 +1,23 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import request from '../../utils/request-helper';
 
-const initialState = {
+interface IOrder {
+	number: number | null;
+}
+
+interface IOrderState {
+	order: IOrder | null;
+	isLoading: boolean;
+}
+
+const initialState: IOrderState = {
 	order: {
 		number: null,
 	},
 	isLoading: false,
 };
 
-export const fetchOrder = createAsyncThunk(
+export const fetchOrder = createAsyncThunk<IOrder, string[]>(
 	'order/fetchOrder',
 	async (ingredientsIds, { dispatch }) => {
 		const data = await request('orders', {
@@ -28,7 +37,7 @@ export const orderSlice = createSlice({
 	name: 'order',
 	initialState,
 	reducers: {
-		setOrder: (state, action) => {
+		setOrder: (state, action: PayloadAction<IOrder>) => {
 			state.order = action.payload;
 		},
 		clearOrder: (state) => {
@@ -37,17 +46,17 @@ export const orderSlice = createSlice({
 	},
 	extraReducers: (builder) => {
 		builder
-		.addCase(fetchOrder.pending, (state) => {
-			state.isLoading = true;
-		})
-		.addCase(fetchOrder.fulfilled, (state, action) => {
-			state.isLoading = false;
-			state.order = action.payload;
-		})
-		.addCase(fetchOrder.rejected, (state, action) => {
-			state.isLoading = false;
-			console.error(action.error.message);
-		});
+			.addCase(fetchOrder.pending, (state) => {
+				state.isLoading = true;
+			})
+			.addCase(fetchOrder.fulfilled, (state, action: PayloadAction<IOrder>) => {
+				state.isLoading = false;
+				state.order = action.payload;
+			})
+			.addCase(fetchOrder.rejected, (state, action) => {
+				state.isLoading = false;
+				console.error(action.error.message);
+			});
 	},
 });
 

@@ -13,13 +13,14 @@ import DraggableIngredient from '../draggable-ingredient/draggable-ingredient';
 import useAuth from '../../utils/auth';
 import { useNavigate } from 'react-router-dom';
 import TIngredient from '../../utils/types';
+import { AppDispatch } from '../../services/store';
 
 interface IBurgerConstructorProps {
 	style?: CSSProperties;
 }
 
 const BurgerConstructor: React.FC<IBurgerConstructorProps> = ({ style }) => {
-	const dispatch = useDispatch();
+	const dispatch = useDispatch<AppDispatch>();
 	const navigate = useNavigate();
 	const { ingredients, totalPrice, bun } = useSelector((state: any) => state.burgerConstructor);
 	const [isOrderDetailOpen, setIsOrderDetailOpen] = useState(false);
@@ -40,7 +41,6 @@ const BurgerConstructor: React.FC<IBurgerConstructorProps> = ({ style }) => {
 		}
 		const ingredientsIds = ingredients.map((ingredient: TIngredient) => ingredient._id);
 		if (bun) ingredientsIds.push(bun._id, bun._id);
-		// @ts-ignore
 		dispatch(fetchOrder(ingredientsIds));
 	};
 
