@@ -1,11 +1,11 @@
 import React from 'react';
-import styles from "./global.module.css";
+import styles from './global.module.css';
 
 export function OrderHistoryPage() {
 	return (
 		<div className={styles.main}>
 			<div className={styles.centeredFullWindow}>
-				<h1 className="text text_type_main-large text-center">История заказов</h1>
+				<h1 className='text text_type_main-large text-center'>История заказов</h1>
 			</div>
 		</div>
 	);

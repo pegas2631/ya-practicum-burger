@@ -1,20 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {Link, useNavigate} from 'react-router-dom';
-import styles from "./global.module.css";
-import profile from "./profile.module.css";
-import { Button, EmailInput, Input, PasswordInput } from "@ya.praktikum/react-developer-burger-ui-components";
+import { Link, useNavigate } from 'react-router-dom';
+import styles from './global.module.css';
+import profile from './profile.module.css';
+import { Button, EmailInput, Input, PasswordInput } from '@ya.praktikum/react-developer-burger-ui-components';
 import { fetchUserData, logoutUser, updateUserData } from '../services/slices/user-slice';
 
-export function ProfilePage() {
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
-	const [name, setName] = useState('');
+export const ProfilePage: React.FC = () => {
+	const [email, setEmail] = useState<string>('');
+	const [password, setPassword] = useState<string>('');
+	const [name, setName] = useState<string>('');
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	const user = useSelector((state) => state.user.user);
+	const user = useSelector((state: any) => state.user.user); // Убираем типизацию хранилища
 
 	useEffect(() => {
+		// @ts-ignore
 		dispatch(fetchUserData());
 	}, [dispatch]);
 
@@ -25,26 +26,27 @@ export function ProfilePage() {
 		}
 	}, [user]);
 
-	const onChangeName = e => {
+	const onChangeName = (e: ChangeEvent<HTMLInputElement>) => {
 		setName(e.target.value);
 	};
 
-	const onChangeEmail = e => {
+	const onChangeEmail = (e: ChangeEvent<HTMLInputElement>) => {
 		setEmail(e.target.value);
 	};
 
-	const onChangePassword = e => {
+	const onChangePassword = (e: ChangeEvent<HTMLInputElement>) => {
 		setPassword(e.target.value);
 	};
 
-	const handleSave = async (e) => {
+	const handleSave = async (e: FormEvent) => {
 		e.preventDefault();
 		if (email !== user.email || name !== user.name || password) {
+			// @ts-ignore
 			dispatch(updateUserData({ email, password, name }));
 		}
 	};
 
-	const handleCancel = (e) => {
+	const handleCancel = (e: FormEvent) => {
 		e.preventDefault();
 		if (user) {
 			setEmail(user.email);
@@ -54,6 +56,7 @@ export function ProfilePage() {
 	};
 
 	const handleLogout = () => {
+		// @ts-ignore
 		dispatch(logoutUser());
 		localStorage.removeItem('accessToken'); // Убедитесь, что токены удаляются при выходе
 		localStorage.removeItem('refreshToken');
@@ -65,23 +68,22 @@ export function ProfilePage() {
 			<div className={`${profile.mainContent} pt-30`}>
 				<div className={`${profile.menu} ${styles.oneThird}`}>
 					<div className={profile.menuItem}>
-						<p className="text text_type_main-large">Профиль</p>
+						<p className='text text_type_main-large'>Профиль</p>
 					</div>
 
 					<Link to={'/order-history'}>
 						<div className={profile.menuItem}>
-							<p className="text text_type_main-large text_color_inactive">История заказов</p>
+							<p className='text text_type_main-large text_color_inactive'>История заказов</p>
 						</div>
 					</Link>
 
 					<div className={profile.menuItem} onClick={handleLogout}>
-						<p className="text text_type_main-large text_color_inactive">Выход</p>
+						<p className='text text_type_main-large text_color_inactive'>Выход</p>
 					</div>
 
 					<div className='pt-20'>
-						<p className="text text_type_main-default text_color_inactive">
-							В этом разделе вы можете
-							изменить свои персональные данные
+						<p className='text text_type_main-default text_color_inactive'>
+							В этом разделе вы можете изменить свои персональные данные
 						</p>
 					</div>
 				</div>
@@ -94,12 +96,15 @@ export function ProfilePage() {
 							name={'name'}
 							extraClass='mb-6'
 							icon={'EditIcon'}
+							onPointerEnterCapture={undefined}
+							onPointerLeaveCapture={undefined}
 						/>
 						<EmailInput
 							onChange={onChangeEmail}
 							value={email}
 							name={'email'}
 							extraClass='mb-6'
+							// @ts-ignore
 							icon={'EditIcon'}
 						/>
 						<PasswordInput
@@ -110,10 +115,10 @@ export function ProfilePage() {
 							icon={'EditIcon'}
 						/>
 						<div className={`${styles.rightSide} ${styles.fullWidth}`}>
-							<Button htmlType="button" type="secondary" size="medium" onClick={handleCancel}>
+							<Button htmlType='button' type='secondary' size='medium' onClick={handleCancel}>
 								Отменить
 							</Button>
-							<Button htmlType="submit" type="primary" size="large">
+							<Button htmlType='submit' type='primary' size='large'>
 								Сохранить
 							</Button>
 						</div>
@@ -122,4 +127,4 @@ export function ProfilePage() {
 			</div>
 		</div>
 	);
-}
+};

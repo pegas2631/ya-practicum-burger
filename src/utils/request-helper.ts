@@ -1,29 +1,32 @@
 const BASE_URL = 'https://norma.nomoreparties.space/api';
 
-function checkResponse(response)
-{
+function checkResponse(response: Response): void {
 	if (!response.ok) {
 		throw new Error(`Ошибка ${response.status}`);
 	}
 }
 
-function checkData(data)
-{
+interface ApiResponse {
+	success: boolean;
+	[key: string]: any;
+}
+
+function checkData(data: ApiResponse): void {
 	if (!data.success) {
 		throw new Error('Ошибка при получении данных с сервера');
 	}
 }
 
-async function request(endpoint, options) {
+async function request(endpoint: string, options?: RequestInit): Promise<ApiResponse> {
 	const response = await fetch(`${BASE_URL}/${endpoint}`, options);
 
 	checkResponse(response);
 
-	const data = await response.json();
+	const data: ApiResponse = await response.json();
 
-	checkData(data);
+checkData(data);
 
-	return data;
+return data;
 }
 
 export default request;

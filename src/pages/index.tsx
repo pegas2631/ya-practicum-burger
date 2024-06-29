@@ -10,4 +10,15 @@ import { ResetPasswordPage } from './reset-password';
 import { OrderListPage } from './order-list';
 import { OrderHistoryPage } from './order-history';
 
-export { ForgotPasswordPage, HomePage, IngredientDetailPage, LoginPage, NotFound404Page, ProfilePage, RegisterPage, ResetPasswordPage, OrderListPage, OrderHistoryPage };
+export {
+	ForgotPasswordPage,
+	HomePage,
+	IngredientDetailPage,
+	LoginPage,
+	NotFound404Page,
+	ProfilePage,
+	RegisterPage,
+	ResetPasswordPage,
+	OrderListPage,
+	OrderHistoryPage
+};

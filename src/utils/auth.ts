@@ -1,4 +1,4 @@
-const useAuth = () => {
+const useAuth = (): boolean => {
 	const user = localStorage.getItem('accessToken');
 	return !!user;
 };

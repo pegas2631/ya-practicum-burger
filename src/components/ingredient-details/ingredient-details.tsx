@@ -1,21 +1,25 @@
 import React from 'react';
 import ingredientDetails from './ingredients-details.module.css';
-//import ingredientType from "../../utils/types";
-import {useLocation, useParams} from "react-router-dom";
+import { useLocation, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import TIngredient from '../../utils/types';
 
-const IngredientDetails = () => {
+interface ILocationState {
+	ingredientId?: string;
+}
 
+const IngredientDetails: React.FC<ILocationState> = ({ ingredientId }) => {
 	const location = useLocation();
-	const idFromLocation = location.state?.ingredientId;
-	const { id: idFromParams } = useParams();
+	const state = location.state as ILocationState;
+	const idFromLocation = state?.ingredientId;
+	const { id: idFromParams } = useParams<{ id: string }>();
 
 	const id = idFromLocation || idFromParams;
 
-	const isLoading = useSelector((state) => state.ingredients.isLoading);
+	const isLoading = useSelector((state: any) => state.ingredients.isLoading);
 
-	const ingredient = useSelector((state) =>
-		state.ingredients.ingredients.find((ingredient) => ingredient._id === id)
+	const ingredient = useSelector((state: any) =>
+		state.ingredients.ingredients.find((ingredient: TIngredient) => ingredient._id === id)
 	);
 
 	if (isLoading) {
@@ -28,7 +32,7 @@ const IngredientDetails = () => {
 
 	return (
 		<div className={`${ingredientDetails.content} pt-10 pb-15`}>
-			<img alt={ingredient.name} src={ingredient.image_large}/>
+			<img alt={ingredient.name} src={ingredient.image_large} />
 			<h2 className='text text_type_main-medium pt-4'>{ingredient.name}</h2>
 			<div className={`${ingredientDetails.nutritionalContainer} pt-8`}>
 				<div className={`${ingredientDetails.nutritionalCell}`}>
@@ -44,17 +48,12 @@ const IngredientDetails = () => {
 					<p className='text text_type_digits-default text_color_inactive'>{ingredient.fat}</p>
 				</div>
 				<div className={`${ingredientDetails.nutritionalCell}`}>
-					<h3 className='text text_type_main-small text_color_inactive'>Улеводы, г</h3>
+					<h3 className='text text_type_main-small text_color_inactive'>Углеводы, г</h3>
 					<p className='text text_type_digits-default text_color_inactive'>{ingredient.carbohydrates}</p>
 				</div>
 			</div>
 		</div>
 	);
 };
-
-// IngredientDetails.propTypes = {
-// 	ingredient: ingredientType.isRequired,
-// };
-
 
 export default IngredientDetails;
