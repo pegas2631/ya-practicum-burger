@@ -1,14 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-interface IIngredient {
-	_id: string;
-	name: string;
-	type: string;
-	price: number;
-}
+import TIngredient from '../../utils/types';
 
 interface ICurrentIngredientState {
-	currentIngredient: IIngredient | null;
+	currentIngredient: TIngredient | null;
 	isOpen: boolean;
 }
 
@@ -21,7 +15,7 @@ export const currentIngredientSlice = createSlice({
 	name: 'currentIngredient',
 	initialState,
 	reducers: {
-		setCurrentIngredient: (state, action: PayloadAction<IIngredient | null>) => {
+		setCurrentIngredient: (state, action: PayloadAction<TIngredient | null>) => {
 			state.currentIngredient = action.payload;
 		},
 		clearCurrentIngredient: (state) => {

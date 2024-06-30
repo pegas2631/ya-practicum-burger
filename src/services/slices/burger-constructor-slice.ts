@@ -1,14 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { v4 as uuidv4 } from 'uuid';
-
-interface IIngredient {
-	_id: string;
-	name: string;
-	type: string;
-	price: number;
-	index?: number;
-	uuid?: string;
-}
+import TIngredient from '../../utils/types';
 
 interface IBun {
 	_id: string;
@@ -18,7 +10,7 @@ interface IBun {
 }
 
 interface IBurgerConstructorState {
-	ingredients: IIngredient[];
+	ingredients: TIngredient[];
 	totalPrice: number;
 	bun: IBun | null;
 }
@@ -28,7 +20,7 @@ const initialState: IBurgerConstructorState = {
 	totalPrice: 0,
 	bun: null,
 };
-const calculateTotalPrice = (ingredients: IIngredient[], bun: IBun | null): number => {
+const calculateTotalPrice = (ingredients: TIngredient[], bun: IBun | null): number => {
 	let total = 0;
 	ingredients.forEach(ingredient => {
 		total += ingredient.price;
@@ -43,7 +35,7 @@ export const burgerConstructorSlice = createSlice({
 	name: 'burgerConstructor',
 	initialState,
 	reducers: {
-		addIngredient: (state, action: PayloadAction<IIngredient>) => {
+		addIngredient: (state, action: PayloadAction<TIngredient>) => {
 			if (action.payload.type === 'bun')
 			{
 				state.bun = action.payload;
@@ -55,7 +47,7 @@ export const burgerConstructorSlice = createSlice({
 			}
 			state.totalPrice = calculateTotalPrice(state.ingredients, state.bun);
 		},
-		addIngredients: (state, action: PayloadAction<IIngredient[]>) => {
+		addIngredients: (state, action: PayloadAction<TIngredient[]>) => {
 			state.ingredients = state.ingredients.concat(action.payload);
 			state.totalPrice = calculateTotalPrice(state.ingredients, state.bun);
 		},

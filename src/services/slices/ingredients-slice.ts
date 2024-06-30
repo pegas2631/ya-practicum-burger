@@ -1,16 +1,9 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import request from '../../utils/request-helper';
-
-interface IIngredient {
-	_id: string;
-	name: string;
-	type: string;
-	price: number;
-	count: number;
-}
+import TIngredient from '../../utils/types';
 
 interface IIngredientsState {
-	ingredients: IIngredient[];
+	ingredients: TIngredient[];
 	isLoading: boolean;
 }
 
@@ -19,7 +12,7 @@ const initialState: IIngredientsState = {
 	isLoading: false,
 };
 
-export const fetchIngredients = createAsyncThunk<IIngredient[]>(
+export const fetchIngredients = createAsyncThunk<TIngredient[]>(
 	'ingredients/fetchIngredients',
 	async () => {
 		const response = await request('ingredients', {});
@@ -31,10 +24,10 @@ export const ingredientsSlice = createSlice({
 	name: 'ingredients',
 	initialState,
 	reducers: {
-		addIngredient: (state, action: PayloadAction<IIngredient>) => {
+		addIngredient: (state, action: PayloadAction<TIngredient>) => {
 			state.ingredients.push(action.payload);
 		},
-		addIngredients: (state, action: PayloadAction<IIngredient>) => {
+		addIngredients: (state, action: PayloadAction<TIngredient>) => {
 			state.ingredients = state.ingredients.concat(action.payload);
 		},
 		clearIngredients: (state) => {
@@ -72,7 +65,7 @@ export const ingredientsSlice = createSlice({
 			.addCase(fetchIngredients.pending, (state) => {
 				state.isLoading = true;
 			})
-			.addCase(fetchIngredients.fulfilled, (state, action: PayloadAction<IIngredient[]>) => {
+			.addCase(fetchIngredients.fulfilled, (state, action: PayloadAction<TIngredient[]>) => {
 				state.isLoading = false;
 				state.ingredients = action.payload;
 			})
