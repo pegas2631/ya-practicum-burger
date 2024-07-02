@@ -1,0 +1,59 @@
+.content
+{
+	width: 640px;
+	height: 650px;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	flex-wrap: wrap;
+}
+.header
+{
+	height: 64px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.info{
+	width: 100%;
+}
+.ingredients{
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+.ingredientsTitle{
+	width: 100%;
+}
+.ingredientsScrollContainer{
+	height: 384px;
+	max-height: 384px;
+}
+.ingredientsContainer{
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	flex-grow: 1;
+	gap: 24px;
+}
+.footer{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: nowrap;
+}
+.totalPrice{
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+}
+.successColor
+{
+	color: var(--colors-interface-success);
+}
+.errorColor
+{
+	color: var(--colors-interface-error);
+}

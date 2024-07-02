@@ -12,7 +12,7 @@ import { increaseIngredientCount } from '../../services/slices/ingredients-slice
 import DraggableIngredient from '../draggable-ingredient/draggable-ingredient';
 import useAuth from '../../utils/auth';
 import { useNavigate } from 'react-router-dom';
-import TIngredient from '../../utils/types';
+import { TIngredient } from '../../utils/types';
 import { AppDispatch } from '../../services/store';
 
 interface IBurgerConstructorProps {

@@ -8,7 +8,7 @@ import IngredientDetails from '../ingredient-details/ingredient-details';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { setCurrentIngredient, clearCurrentIngredient, setCurrentIngredientIsOpen } from '../../services/slices/current-ingredient-slice';
-import TIngredient from '../../utils/types';
+import { TIngredient } from '../../utils/types';
 
 interface ITabsProps {
 	current: string;

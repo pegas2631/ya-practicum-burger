@@ -4,22 +4,53 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81bc4438-5409-4ae8-8a87-9859283cbcdd" name="Changes" comment="типизация проекта">
+    <list default="true" id="81bc4438-5409-4ae8-8a87-9859283cbcdd" name="Changes" comment="поправил поправил интерфейсы">
+      <change afterPath="$PROJECT_DIR$/src/components/ingredient-list-item/ingredient-list-item.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ingredient-list-item/ingredient-list-item.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ingredient-preview/ingredient-preview.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ingredient-preview/ingredient-preview.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ingredient-stack/ingredient-stack.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ingredient-stack/ingredient-stack.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/order-card/order-card.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/order-card/order-card.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/order-history/order-history.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/order-history/order-history.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/order-info/order-info.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/order-info/order-info.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/order-list/order-list.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/order-list/order-list.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/order-history.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/order-info.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/middleware/web-socket-middleware.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/selectors.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/slices/current-order-slice.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/slices/orders-slice.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/slices/user-orders-slice.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/date-format.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/react-burger.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/react-burger.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/app/app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/app-header/app-header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app-header/app-header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/burger-constructor/burger-constructor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-constructor/burger-constructor.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/burger-ingredients/burger-ingredients.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-ingredients/burger-ingredients.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/draggable-ingredient/draggable-ingredient.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/draggable-ingredient/draggable-ingredient.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ingredient-card/ingredient-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ingredient-card/ingredient-card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ingredient-details/ingredient-details.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ingredient-details/ingredient-details.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modal/modal-overlay/modal-overlay.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/modal-overlay/modal-overlay.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modal/modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/modal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routes/routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/routes/routes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/scrollable-block/scrollable-block.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/scrollable-block/scrollable-block.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/global.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/global.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/order-history.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/order-history.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/order-list.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/order-feed.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/register.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/burger-constructor-context.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/burger-constructor-context.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/slices/burger-constructor-slice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/burger-constructor-slice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/slices/current-ingredient-slice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/current-ingredient-slice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/slices/ingredients-slice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/ingredients-slice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/slices/order-slice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/order-slice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/slices/user-slice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/user-slice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/slices/burger-constructor-slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/burger-constructor-slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/slices/current-ingredient-slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/current-ingredient-slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/slices/ingredients-slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/ingredients-slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +71,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="sprint-4/step-1" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -79,7 +110,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;sprint-4/step-1&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;sprint-5/step-1&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/m.ustinov/Projects/Practicum/react-burger/ya-practicum-burger-main/ya-practicum-burger&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -97,10 +128,11 @@
       <recent name="$PROJECT_DIR$/src/components/burger-constructor" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/services/middleware" />
+      <recent name="$PROJECT_DIR$/src/services" />
       <recent name="$PROJECT_DIR$/src/components/routes" />
       <recent name="$PROJECT_DIR$/src/services/slices" />
       <recent name="$PROJECT_DIR$/src/components/modal" />
-      <recent name="$PROJECT_DIR$/src/components/app" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -128,7 +160,9 @@
       <workItem from="1718372201207" duration="1182000" />
       <workItem from="1718719124199" duration="597000" />
       <workItem from="1719305075289" duration="1195000" />
-      <workItem from="1719392435127" duration="6580000" />
+      <workItem from="1719392435127" duration="14471000" />
+      <workItem from="1719745076784" duration="10317000" />
+      <workItem from="1719776260083" duration="38306000" />
     </task>
     <task id="LOCAL-00001" summary="правки ревью">
       <option name="closed" value="true" />
@@ -266,7 +300,31 @@
       <option name="project" value="LOCAL" />
       <updated>1718314472987</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="типизация хранилища проекта">
+      <option name="closed" value="true" />
+      <created>1719648090969</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1719648090969</updated>
+    </task>
+    <task id="LOCAL-00019" summary="поправил gitignore">
+      <option name="closed" value="true" />
+      <created>1719738932054</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1719738932054</updated>
+    </task>
+    <task id="LOCAL-00020" summary="поправил поправил интерфейсы">
+      <option name="closed" value="true" />
+      <created>1719738951123</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1719738951123</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -310,7 +368,10 @@
     <MESSAGE value="правки по ревью, доработки" />
     <MESSAGE value="Над булкой тоже показываем цифру, если она в заказе" />
     <MESSAGE value="типизация проекта" />
-    <option name="LAST_COMMIT_MESSAGE" value="типизация проекта" />
+    <MESSAGE value="типизация хранилища проекта" />
+    <MESSAGE value="поправил gitignore" />
+    <MESSAGE value="поправил поправил интерфейсы" />
+    <option name="LAST_COMMIT_MESSAGE" value="поправил поправил интерфейсы" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

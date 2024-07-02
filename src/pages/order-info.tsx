@@ -1,11 +1,14 @@
 import React from 'react';
+import OrderInfo from '../components/order-info/order-info';
 import styles from './global.module.css';
 
-export function OrderListPage() {
+export function OrderInfoPage() {
 	return (
 		<div className={styles.main}>
 			<div className={styles.centeredFullWindow}>
-				<h1 className='text text_type_main-large text-center'>Лента заказов</h1>
+				<div>
+					<OrderInfo />
+				</div>
 			</div>
 		</div>
 	);

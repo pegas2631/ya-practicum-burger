@@ -15,7 +15,7 @@ const AppHeader = () => {
 					</NavButton>
 				</Link>
 
-				<Link to={'/order-list'}>
+				<Link to={'/feed'}>
 					<NavButton text='Лента заказов' active={false}>
 						<ListIcon type='secondary' />
 					</NavButton>

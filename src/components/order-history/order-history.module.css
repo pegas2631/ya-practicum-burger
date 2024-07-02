@@ -1,0 +1,6 @@
+.content{
+	flex-grow: 1;
+	max-height: calc(100vh - 88px - 36px);
+	margin-top: 36px
+}
+

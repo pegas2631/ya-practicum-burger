@@ -2,7 +2,7 @@ import React from 'react';
 import ingredientDetails from './ingredients-details.module.css';
 import { useLocation, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import TIngredient from '../../utils/types';
+import {TIngredient} from '../../utils/types';
 
 interface ILocationState {
 	ingredientId?: string;

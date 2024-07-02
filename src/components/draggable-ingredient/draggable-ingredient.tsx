@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { moveIngredient, removeIngredient } from '../../services/slices/burger-constructor-slice';
 import burgerConstructor from '../burger-constructor/burger-constructor.module.css';
 import { decreaseIngredientCount } from '../../services/slices/ingredients-slice';
-import TIngredient from '../../utils/types';
+import { TIngredient } from '../../utils/types';
 
 interface IDraggableIngredientProps {
 	ingredient: TIngredient;
