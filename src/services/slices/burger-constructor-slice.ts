@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import {TIngredient} from '../../utils/types';
 
 interface IBun {
+    image: string;
 	_id: string;
 	name: string;
 	type: string;

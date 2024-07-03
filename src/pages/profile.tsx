@@ -1,5 +1,5 @@
 import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from '../services/hooks';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './global.module.css';
 import profile from './profile.module.css';
@@ -11,7 +11,7 @@ export const ProfilePage: React.FC = () => {
 	const [email, setEmail] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
 	const [name, setName] = useState<string>('');
-	const dispatch = useDispatch<AppDispatch>();
+	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const user = useSelector((state: RootState) => state.user.user);
 

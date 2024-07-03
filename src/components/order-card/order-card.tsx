@@ -4,8 +4,9 @@ import orderCard from './order-card.module.css'
 import { CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import {TIngredient, TOrder} from '../../utils/types';
 import IngredientStack from '../ingredient-stack/ingredient-stack';
-import {useSelector} from 'react-redux';
+import {useSelector} from '../../services/hooks';
 import { formatDate } from '../../utils/date-format';
+import {RootState} from "../../services/store";
 
 interface IOrderCardProps {
 	order: TOrder;
@@ -15,7 +16,7 @@ interface IOrderCardProps {
 const OrderCard: React.FC<IOrderCardProps> = ({ order, onClick }) => {
 
 	const orderIngredients = order.ingredients;
-	const allIngredients = useSelector((state: any) => state.ingredients.ingredients);
+	const allIngredients = useSelector((state: RootState) => state.ingredients.ingredients);
 
 
 	const totalPrice = orderIngredients.reduce((total, ingredientId) => {

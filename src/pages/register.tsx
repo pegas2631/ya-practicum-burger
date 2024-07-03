@@ -1,16 +1,15 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
-import { useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import styles from './global.module.css';
 import { Button, EmailInput, PasswordInput, Input } from '@ya.praktikum/react-developer-burger-ui-components';
 import { registerUser } from '../services/slices/user-slice';
-import { AppDispatch } from '../services/store';
+import { useDispatch } from '../services/hooks'
 
 export const RegisterPage: React.FC = () => {
 	const [email, setEmail] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
 	const [name, setName] = useState<string>('');
-	const dispatch = useDispatch<AppDispatch>();
+	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
 	const onChangeName = (e: ChangeEvent<HTMLInputElement>) => {

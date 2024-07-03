@@ -1,5 +1,5 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch } from '../services/hooks';
 import { useNavigate, useLocation } from 'react-router-dom';
 import styles from './global.module.css';
 import { EmailInput, PasswordInput, Button } from '@ya.praktikum/react-developer-burger-ui-components';
@@ -16,7 +16,7 @@ interface LocationState {
 export const LoginPage: React.FC = () => {
 	const [email, setEmail] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
-	const dispatch = useDispatch<AppDispatch>();
+	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const location = useLocation();
 	const { from } = (location.state as LocationState) || { from: { pathname: '/' } };

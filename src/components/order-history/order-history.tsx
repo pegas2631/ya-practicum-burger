@@ -3,7 +3,7 @@ import orderHistory from './order-history.module.css';
 import ScrollableBlock from '../scrollable-block/scrollable-block'
 import IngredientListItem from "../ingredient-list-item/ingredient-list-item";
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from '../../services/hooks';
 import { RootState } from '../../services/store';
 import { connect, disconnect } from '../../services/slices/user-orders-slice';
 import { TOrder } from '../../utils/types';

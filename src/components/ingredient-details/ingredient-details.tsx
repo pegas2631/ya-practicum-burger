@@ -1,8 +1,9 @@
 import React from 'react';
 import ingredientDetails from './ingredients-details.module.css';
 import { useLocation, useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector } from '../../services/hooks';
 import {TIngredient} from '../../utils/types';
+import {RootState} from "../../services/store";
 
 interface ILocationState {
 	ingredientId?: string;
@@ -16,9 +17,9 @@ const IngredientDetails: React.FC<ILocationState> = ({ ingredientId }) => {
 
 	const id = idFromLocation || idFromParams;
 
-	const isLoading = useSelector((state: any) => state.ingredients.isLoading);
+	const isLoading = useSelector((state: RootState) => state.ingredients.isLoading);
 
-	const ingredient = useSelector((state: any) =>
+	const ingredient = useSelector((state: RootState) =>
 		state.ingredients.ingredients.find((ingredient: TIngredient) => ingredient._id === id)
 	);
 

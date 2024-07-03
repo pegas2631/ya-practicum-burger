@@ -5,13 +5,13 @@ import profile from "./profile.module.css";
 import {Link, useNavigate} from "react-router-dom";
 import {logoutUser} from "../services/slices/user-slice";
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from '../services/hooks';
 import { AppDispatch } from '../services/store';
 import OrderHistory from "../components/order-history/order-history";
 
 export function OrderHistoryPage() {
 
-	const dispatch = useDispatch<AppDispatch>();
+	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
 	const handleLogout = () => {

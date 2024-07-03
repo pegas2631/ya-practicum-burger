@@ -1,11 +1,12 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector } from '../../services/hooks';
 import styles from './main.module.css';
 import BurgerIngredients from '../burger-ingredients/burger-ingredients';
 import BurgerConstructor from '../burger-constructor/burger-constructor';
+import {RootState} from "../../services/store";
 
 const Main: React.FC = () => {
-	const isLoading = useSelector((state: any) => state.ingredients.isLoading);
+	const isLoading = useSelector((state: RootState) => state.ingredients.isLoading);
 
 	return (
 		<main className={styles.mainContent}>

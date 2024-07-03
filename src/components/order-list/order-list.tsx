@@ -3,7 +3,7 @@ import orderList from './order-list.module.css';
 import ScrollableBlock from '../scrollable-block/scrollable-block';
 import { TOrder } from '../../utils/types';
 import OrderCard from '../order-card/order-card';
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch, useSelector} from '../../services/hooks';
 import {useLocation, useNavigate} from "react-router-dom";
 import Modal from '../modal/modal';
 import { setCurrentOrder, clearCurrentOrder, setCurrentOrderIsOpen } from '../../services/slices/current-order-slice';

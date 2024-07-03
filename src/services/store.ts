@@ -1,4 +1,7 @@
-import { configureStore } from '@reduxjs/toolkit';
+import {configureStore, PayloadAction} from '@reduxjs/toolkit';
+import { ThunkAction } from 'redux-thunk';
+import { Action, ActionCreator } from 'redux';
+
 import currentIngredientReducer from './slices/current-ingredient-slice';
 import burgerConstructorIngredientsReducer from './slices/burger-constructor-slice';
 import ingredientsReducer from './slices/ingredients-slice';
@@ -24,5 +27,6 @@ export const store = configureStore({
 	middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(allOrdersSocketMiddleware, userOrdersSocketMiddleware),
 });
 
+export type AppStore = typeof store;
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;

@@ -4,7 +4,7 @@ import {TIngredient, TOrder} from '../../utils/types';
 import ScrollableBlock from '../scrollable-block/scrollable-block';
 import IngredientListItem from '../ingredient-list-item/ingredient-list-item';
 import { CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components';
-import { useSelector } from 'react-redux';
+import { useSelector } from '../../services/hooks';
 import {useLocation, useParams} from 'react-router-dom';
 import { selectOrderByNumber } from '../../services/selectors';
 import {RootState} from "../../services/store";
