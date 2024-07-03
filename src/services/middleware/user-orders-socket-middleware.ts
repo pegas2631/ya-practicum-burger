@@ -47,8 +47,8 @@ const userOrdersSocketMiddleware: Middleware = storeAPI => {
 		};
 	};
 
-	return next => action => {
-		// @ts-ignore
+	return next => (action: any) => {
+
 		if (action.type === 'userOrders/connect') {
 			const accessToken = localStorage.getItem('accessToken');
 			if (!accessToken) {
@@ -57,14 +57,14 @@ const userOrdersSocketMiddleware: Middleware = storeAPI => {
 			}
 
 			const token = accessToken.startsWith('Bearer ') ? accessToken.slice(7) : accessToken;
-			// @ts-ignore
+
 			const wsUrl = `${action.payload}?token=${token}`;
 			console.log('Connecting to WebSocket for user orders:', wsUrl);
 
 			connectWebSocket(wsUrl);
 		}
 
-		// @ts-ignore
+
 		if (action.type === 'userOrders/disconnect' && userOrdersSocket) {
 			userOrdersSocket.close();
 		}

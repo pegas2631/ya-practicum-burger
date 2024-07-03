@@ -3,10 +3,10 @@ import { Middleware } from '@reduxjs/toolkit';
 const allOrdersSocketMiddleware: Middleware = storeAPI => {
 	let allOrdersSocket: WebSocket | null = null;
 
-	return next => action => {
-		// @ts-ignore
+	return next => (action: any) => {
+
 		if (action.type === 'orders/connect') {
-			// @ts-ignore
+
 			allOrdersSocket = new WebSocket(action.payload);
 
 			allOrdersSocket.onopen = () => {
@@ -29,7 +29,6 @@ const allOrdersSocketMiddleware: Middleware = storeAPI => {
 			};
 		}
 
-		// @ts-ignore
 		if (action.type === 'orders/disconnect' && allOrdersSocket) {
 			allOrdersSocket.close();
 		}

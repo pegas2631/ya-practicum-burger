@@ -5,21 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81bc4438-5409-4ae8-8a87-9859283cbcdd" name="Changes" comment="поправил поправил интерфейсы">
-      <change afterPath="$PROJECT_DIR$/src/services/middleware/all-orders-socket-middleware.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/middleware/user-orders-socket-middleware.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/order-history/order-history.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-history/order-history.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/order-history/order-history.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-history/order-history.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/order-info/order-info.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-info/order-info.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/routes/routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/routes/routes.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/scrollable-block/scrollable-block.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/scrollable-block/scrollable-block.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/order-history.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/order-history.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/middleware/web-socket-middleware.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/selectors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/selectors.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/slices/order-slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/order-slice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/slices/user-orders-slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/user-orders-slice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/slices/user-slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/user-slice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/middleware/all-orders-socket-middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/middleware/all-orders-socket-middleware.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/middleware/user-orders-socket-middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/middleware/user-orders-socket-middleware.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
