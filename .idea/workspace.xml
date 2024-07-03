@@ -5,52 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81bc4438-5409-4ae8-8a87-9859283cbcdd" name="Changes" comment="поправил поправил интерфейсы">
-      <change afterPath="$PROJECT_DIR$/src/components/ingredient-list-item/ingredient-list-item.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ingredient-list-item/ingredient-list-item.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ingredient-preview/ingredient-preview.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ingredient-preview/ingredient-preview.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ingredient-stack/ingredient-stack.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ingredient-stack/ingredient-stack.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/order-card/order-card.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/order-card/order-card.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/order-history/order-history.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/order-history/order-history.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/order-info/order-info.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/order-info/order-info.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/order-list/order-list.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/order-list/order-list.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/order-history.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/order-info.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/middleware/web-socket-middleware.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/selectors.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/slices/current-order-slice.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/slices/orders-slice.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/slices/user-orders-slice.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/date-format.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/react-burger.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/react-burger.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/middleware/all-orders-socket-middleware.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/middleware/user-orders-socket-middleware.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/app-header/app-header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app-header/app-header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/burger-constructor/burger-constructor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-constructor/burger-constructor.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/burger-ingredients/burger-ingredients.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-ingredients/burger-ingredients.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/draggable-ingredient/draggable-ingredient.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/draggable-ingredient/draggable-ingredient.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ingredient-card/ingredient-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ingredient-card/ingredient-card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ingredient-details/ingredient-details.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ingredient-details/ingredient-details.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modal/modal-overlay/modal-overlay.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/modal-overlay/modal-overlay.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modal/modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/modal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/order-history/order-history.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-history/order-history.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/order-history/order-history.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-history/order-history.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/order-info/order-info.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-info/order-info.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/routes/routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/routes/routes.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/scrollable-block/scrollable-block.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/scrollable-block/scrollable-block.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/global.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/global.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/scrollable-block/scrollable-block.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/scrollable-block/scrollable-block.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/order-history.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/order-history.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/order-list.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/order-feed.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/slices/burger-constructor-slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/burger-constructor-slice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/slices/current-ingredient-slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/current-ingredient-slice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/slices/ingredients-slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/ingredients-slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/middleware/web-socket-middleware.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/selectors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/selectors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/slices/order-slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/order-slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/slices/user-orders-slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/user-orders-slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/slices/user-slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/user-slice.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

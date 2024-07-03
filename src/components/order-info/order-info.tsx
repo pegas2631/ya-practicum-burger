@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import orderInfo from './order-info.module.css';
 import {TIngredient, TOrder} from '../../utils/types';
 import ScrollableBlock from '../scrollable-block/scrollable-block';
@@ -9,6 +9,7 @@ import {useLocation, useParams} from 'react-router-dom';
 import { selectOrderByNumber } from '../../services/selectors';
 import {RootState} from "../../services/store";
 import { formatDate } from '../../utils/date-format'
+import request from '../../utils/request-helper';
 
 interface ILocationState {
 	orderNumber?: string;
@@ -22,10 +23,39 @@ const OrderInfo: React.FC = () => {
 	const { number: numberFromParams } = useParams<{ number: string }>();
 	const orderNumber = Number(numberFromLocation || numberFromParams);
 
-	const order = useSelector((state: RootState) =>
-		selectOrderByNumber(Number(orderNumber))(state)
+	const orderFromStore = useSelector((state: RootState) =>
+		selectOrderByNumber(orderNumber)(state)
 	);
 	const allIngredients = useSelector((state: RootState) => state.ingredients.ingredients);
+
+	const [order, setOrder] = useState<TOrder | undefined>(orderFromStore);
+	const [loading, setLoading] = useState<boolean>(!orderFromStore);
+	const [error, setError] = useState<string | null>(null);
+
+	useEffect(() => {
+		const fetchOrder = async () => {
+			try {
+				const data = await request(`orders/${orderNumber}`);
+				setOrder(data.orders[0]);
+				setLoading(false);
+			} catch (err) {
+				setError('Ошибка при получении данных с сервера');
+				setLoading(false);
+			}
+		};
+
+		if (!orderFromStore) {
+			fetchOrder();
+		}
+	}, [orderNumber, orderFromStore]);
+
+	if (loading) {
+		return <p>Загрузка...</p>;
+	}
+
+	if (error) {
+		return <p>{error}</p>;
+	}
 
 	if (!order) {
 		return <p>Заказ не найден</p>;

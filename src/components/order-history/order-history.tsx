@@ -16,7 +16,10 @@ const OrderHistory: React.FC = () => {
 	const dispatch = useDispatch();
 	const location = useLocation();
 	const navigate = useNavigate();
-	const { orders, isConnected, error } = useSelector((state: RootState) => state.userOrders);
+
+	const orders: TOrder[] = useSelector((state: RootState) => state.userOrders.orders);
+	const isConnected: boolean = useSelector((state: RootState) => state.userOrders.isConnected);
+	const error: string | null = useSelector((state: RootState) => state.userOrders.error);
 
 	useEffect(() => {
 		dispatch(connect('wss://norma.nomoreparties.space/orders'));
@@ -37,19 +40,13 @@ const OrderHistory: React.FC = () => {
 		});
 	};
 
-	if (error) {
-		return <p>Error: {error}</p>;
-	}
-
 	if (!isConnected) {
 		return <p>Connecting...</p>;
 	}
 
-
-
 	return (
 		<div className={orderHistory.content}>
-			<ScrollableBlock>
+			<ScrollableBlock height={750}>
 				{orders && orders.map((order: TOrder, index: number) => (
 					<OrderCard
 						order={order}

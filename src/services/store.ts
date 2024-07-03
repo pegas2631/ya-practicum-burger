@@ -7,7 +7,8 @@ import userReducer from './slices/user-slice';
 import currentOrderReducer from './slices/current-order-slice';
 import ordersReducer from './slices/orders-slice';
 import userOrdersReducer from './slices/user-orders-slice';
-import webSocketMiddleware from './middleware/web-socket-middleware';
+import allOrdersSocketMiddleware from './middleware/all-orders-socket-middleware';
+import userOrdersSocketMiddleware from './middleware/user-orders-socket-middleware';
 
 export const store = configureStore({
 	reducer: {
@@ -20,7 +21,7 @@ export const store = configureStore({
 		currentOrder: currentOrderReducer,
 		userOrders: userOrdersReducer,
 	},
-	middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(webSocketMiddleware),
+	middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(allOrdersSocketMiddleware, userOrdersSocketMiddleware),
 });
 
 export type AppDispatch = typeof store.dispatch;

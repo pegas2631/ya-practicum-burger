@@ -108,8 +108,8 @@ const AppRoutes: React.FC = () => {
 						path='/profile/orders/:number'
 						element={
 							<ProtectedRoute>
-								<Modal title='Детали заказа' onClose={handleModalClose}>
-									<OrderInfoPage />
+								<Modal onClose={handleModalClose}>
+									<OrderInfo />
 								</Modal>
 							</ProtectedRoute>
 						}

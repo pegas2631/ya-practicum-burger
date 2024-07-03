@@ -45,7 +45,7 @@ export function OrderHistoryPage() {
 						</p>
 					</div>
 				</div>
-				<div className={`${profile.menu} ${styles.oneThird}`}>
+				<div className={`${profile.menu}`}>
 					<OrderHistory />
 				</div>
 			</div>

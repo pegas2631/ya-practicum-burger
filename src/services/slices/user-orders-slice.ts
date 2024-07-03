@@ -26,7 +26,7 @@ export const userOrdersSlice = createSlice({
 		setOrders: (state, action: PayloadAction<TOrder[]>) => {
 			state.orders = action.payload;
 		},
-		setError: (state, action: PayloadAction<string>) => {
+		setError: (state, action: PayloadAction<string | null>) => {
 			state.error = action.payload;
 		},
 		clearOrders: (state) => {

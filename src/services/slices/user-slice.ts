@@ -63,6 +63,7 @@ export const refreshToken = createAsyncThunk<void>(
 			} as HeadersInit,
 			body: JSON.stringify({ token: refreshToken }),
 		});
+		console.log(data.accessToken);
 		localStorage.setItem('refreshToken', data.refreshToken);
 		localStorage.setItem('accessToken', data.accessToken);
 	}

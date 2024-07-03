@@ -20,11 +20,13 @@ const initialState: IOrderState = {
 export const fetchOrder = createAsyncThunk<IOrder, string[]>(
 	'order/fetchOrder',
 	async (ingredientsIds, { dispatch }) => {
+		const accessToken = localStorage.getItem('accessToken');
 		const data = await request('orders', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
-			},
+				'Authorization': accessToken,
+			} as HeadersInit,
 			body: JSON.stringify({
 				ingredients: ingredientsIds
 			}),
