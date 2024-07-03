@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { v4 as uuidv4 } from 'uuid';
-import {TIngredient} from '../../utils/types';
+import { TIngredient } from '../../utils/types';
 
 interface IBun {
-    image: string;
+	image: string;
 	_id: string;
 	name: string;
 	type: string;
@@ -21,6 +21,7 @@ const initialState: IBurgerConstructorState = {
 	totalPrice: 0,
 	bun: null,
 };
+
 const calculateTotalPrice = (ingredients: TIngredient[], bun: IBun | null): number => {
 	let total = 0;
 	ingredients.forEach(ingredient => {
@@ -36,17 +37,20 @@ export const burgerConstructorSlice = createSlice({
 	name: 'burgerConstructor',
 	initialState,
 	reducers: {
-		addIngredient: (state, action: PayloadAction<TIngredient>) => {
-			if (action.payload.type === 'bun')
-			{
-				state.bun = action.payload;
-			}
-			else
-			{
-				const ingredient = { ...action.payload, index: state.ingredients.length, uuid: uuidv4() };
-				state.ingredients.push(ingredient);
-			}
-			state.totalPrice = calculateTotalPrice(state.ingredients, state.bun);
+		addIngredient: {
+			reducer: (state, action: PayloadAction<TIngredient>) => {
+				if (action.payload.type === 'bun')
+				{
+					state.bun = action.payload;
+				} else {
+					const ingredient = { ...action.payload, index: state.ingredients.length };
+					state.ingredients.push(ingredient);
+				}
+				state.totalPrice = calculateTotalPrice(state.ingredients, state.bun);
+			},
+			prepare: (ingredient: TIngredient) => {
+				return { payload: { ...ingredient, uuid: uuidv4() } };
+			},
 		},
 		addIngredients: (state, action: PayloadAction<TIngredient[]>) => {
 			state.ingredients = state.ingredients.concat(action.payload);

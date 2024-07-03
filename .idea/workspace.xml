@@ -4,27 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81bc4438-5409-4ae8-8a87-9859283cbcdd" name="Changes" comment="fix ошибки при отсутствии имени ингредиента">
-      <change afterPath="$PROJECT_DIR$/src/services/hooks.ts" afterDir="false" />
+    <list default="true" id="81bc4438-5409-4ae8-8a87-9859283cbcdd" name="Changes" comment="хук для типизации useSelector и useReducer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/app/app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/burger-constructor/burger-constructor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-constructor/burger-constructor.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/burger-ingredients/burger-ingredients.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-ingredients/burger-ingredients.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/draggable-ingredient/draggable-ingredient.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/draggable-ingredient/draggable-ingredient.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ingredient-details/ingredient-details.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ingredient-details/ingredient-details.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ingredient-stack/ingredient-stack.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ingredient-stack/ingredient-stack.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/main/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/main/main.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/order-card/order-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-card/order-card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/order-details/order-details.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-details/order-details.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/order-history/order-history.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-history/order-history.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/order-info/order-info.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-info/order-info.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/order-list/order-list.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-list/order-list.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/order-history.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/order-history.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/register.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/slices/burger-constructor-slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/burger-constructor-slice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/store.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -315,7 +297,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720019979320</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="хук для типизации useSelector и useReducer">
+      <option name="closed" value="true" />
+      <created>1720022634155</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1720022634155</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -364,7 +354,8 @@
     <MESSAGE value="поправил поправил интерфейсы" />
     <MESSAGE value="убрал ts-ignore" />
     <MESSAGE value="fix ошибки при отсутствии имени ингредиента" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix ошибки при отсутствии имени ингредиента" />
+    <MESSAGE value="хук для типизации useSelector и useReducer" />
+    <option name="LAST_COMMIT_MESSAGE" value="хук для типизации useSelector и useReducer" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
