@@ -21,7 +21,7 @@ const IngredientStack: React.FC<IIngredientStackProps> = ({ ingredients }) => {
 					className={ingredientStack.ingredient}
 					style={{ zIndex: 6 - index, left: `${index * 51}px` }}
 				>
-					<IngredientPreview name={ingredient.name} image={ingredient.image_mobile} />
+					<IngredientPreview name={ingredient?.name} image={ingredient.image_mobile} />
 					{index === 5 && remainingCount > 0 && (
 						<div className={ingredientStack.remainingCount}>
 							<p className={'text text_type_main-default'}>+{remainingCount}</p>
