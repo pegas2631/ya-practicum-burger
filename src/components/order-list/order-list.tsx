@@ -8,7 +8,6 @@ import {useLocation, useNavigate} from "react-router-dom";
 import Modal from '../modal/modal';
 import { setCurrentOrder, clearCurrentOrder, setCurrentOrderIsOpen } from '../../services/slices/current-order-slice';
 import OrderInfo from '../order-info/order-info';
-import { connect, disconnect } from '../../services/slices/orders-slice';
 import {RootState} from "../../services/store";
 
 const OrderList: React.FC = () => {
@@ -23,10 +22,18 @@ const OrderList: React.FC = () => {
 	const totalToday: number = useSelector((state: RootState) => state.orders.totalToday);
 
 	useEffect(() => {
-		dispatch(connect('wss://norma.nomoreparties.space/orders/all'));
+		dispatch({
+			type: 'webSocket/connect',
+			payload: {
+				wsUrl: 'wss://norma.nomoreparties.space/orders/all',
+				onMessageAction: 'orders/setOrders',
+			},
+		});
 
 		return () => {
-			dispatch(disconnect());
+			dispatch({
+				type: 'webSocket/disconnect',
+			});
 		};
 	}, [dispatch]);
 

@@ -4,9 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81bc4438-5409-4ae8-8a87-9859283cbcdd" name="Changes" comment="хук для типизации useSelector и useReducer">
+    <list default="true" id="81bc4438-5409-4ae8-8a87-9859283cbcdd" name="Changes" comment="перенес подготовку ингрединета в prepare reducer-а, для того что бы оставить reducer чистой функцией">
+      <change afterPath="$PROJECT_DIR$/src/services/middleware/socket-middleware.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/slices/ws-slice.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/slices/burger-constructor-slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/burger-constructor-slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/order-history/order-history.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-history/order-history.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/order-list/order-list.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-list/order-list.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/middleware/all-orders-socket-middleware.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/middleware/user-orders-socket-middleware.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/slices/orders-slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/orders-slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/slices/user-orders-slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/user-orders-slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/store.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -305,7 +313,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720022634155</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="перенес подготовку ингрединета в prepare reducer-а, для того что бы оставить reducer чистой функцией">
+      <option name="closed" value="true" />
+      <created>1720030239417</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1720030239417</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -355,7 +371,8 @@
     <MESSAGE value="убрал ts-ignore" />
     <MESSAGE value="fix ошибки при отсутствии имени ингредиента" />
     <MESSAGE value="хук для типизации useSelector и useReducer" />
-    <option name="LAST_COMMIT_MESSAGE" value="хук для типизации useSelector и useReducer" />
+    <MESSAGE value="перенес подготовку ингрединета в prepare reducer-а, для того что бы оставить reducer чистой функцией" />
+    <option name="LAST_COMMIT_MESSAGE" value="перенес подготовку ингрединета в prepare reducer-а, для того что бы оставить reducer чистой функцией" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

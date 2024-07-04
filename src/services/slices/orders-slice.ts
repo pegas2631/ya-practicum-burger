@@ -15,30 +15,30 @@ const initialState: IOrdersState = {
 	totalToday: 0,
 };
 
+interface ISetOrderPayload {
+	orders: TOrder[];
+	success: boolean;
+	total: number;
+	totalToday: number;
+}
+
 export const ordersSlice = createSlice({
 	name: 'orders',
 	initialState,
 	reducers: {
-		connect: (state, action: PayloadAction<string>) => {
-			state.isConnected = true;
-		},
-		disconnect: (state) => {
-			state.isConnected = false;
-		},
-		setOrders: (state, action: PayloadAction<TOrder[]>) => {
-			state.orders = action.payload;
+		setOrders: (state, action: PayloadAction<ISetOrderPayload>) => {
+			state.orders = action.payload.orders;
+			state.total = action.payload.total;
+			state.totalToday = action.payload.totalToday;
 		},
 		clearOrders: (state) => {
 			state.orders = [];
 		},
-		setTotal: (state, action: PayloadAction<number>) => {
-			state.total = action.payload;
-		},
-		setTotalToday: (state, action: PayloadAction<number>) => {
-			state.totalToday = action.payload;
-		},
 	},
 });
 
-export const { connect, disconnect, setOrders, clearOrders } = ordersSlice.actions;
+export const {
+	setOrders,
+	clearOrders,
+} = ordersSlice.actions;
 export default ordersSlice.reducer;

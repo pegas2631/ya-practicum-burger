@@ -5,11 +5,12 @@ import IngredientListItem from "../ingredient-list-item/ingredient-list-item";
 
 import { useDispatch, useSelector } from '../../services/hooks';
 import { RootState } from '../../services/store';
-import { connect, disconnect } from '../../services/slices/user-orders-slice';
+import { connect, disconnect } from '../../services/slices/ws-slice';
 import { TOrder } from '../../utils/types';
 import OrderCard from '../order-card/order-card';
 import {setCurrentOrder, setCurrentOrderIsOpen} from '../../services/slices/current-order-slice';
 import {useLocation, useNavigate} from 'react-router-dom';
+import {setOrders} from "../../services/slices/user-orders-slice";
 
 
 const OrderHistory: React.FC = () => {
@@ -18,14 +19,22 @@ const OrderHistory: React.FC = () => {
 	const navigate = useNavigate();
 
 	const orders: TOrder[] = useSelector((state: RootState) => state.userOrders.orders);
-	const isConnected: boolean = useSelector((state: RootState) => state.userOrders.isConnected);
-	const error: string | null = useSelector((state: RootState) => state.userOrders.error);
+	const isConnected: boolean = useSelector((state: RootState) => state.webSocket.wsConnected);
+	const error: string | undefined = useSelector((state: RootState) => state.webSocket.error);
 
 	useEffect(() => {
-		dispatch(connect('wss://norma.nomoreparties.space/orders'));
+		dispatch({
+			type: 'webSocket/connect',
+			payload: {
+				wsUrl: 'wss://norma.nomoreparties.space/orders',
+				onMessageAction: 'userOrders/setOrders',
+			},
+		});
 
 		return () => {
-			dispatch(disconnect());
+			dispatch({
+				type: 'webSocket/disconnect',
+			});
 		};
 	}, [dispatch]);
 
