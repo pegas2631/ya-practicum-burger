@@ -1,5 +1,5 @@
 import React, { useState, CSSProperties } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from '../../services/hooks';
 import { useDrop } from 'react-dnd';
 import { Button, ConstructorElement, CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import ScrollableBlock from '../scrollable-block/scrollable-block';
@@ -12,7 +12,8 @@ import { increaseIngredientCount } from '../../services/slices/ingredients-slice
 import DraggableIngredient from '../draggable-ingredient/draggable-ingredient';
 import useAuth from '../../utils/auth';
 import { useNavigate } from 'react-router-dom';
-import TIngredient from '../../utils/types';
+import { TIngredient } from '../../utils/types';
+import {AppDispatch, RootState} from '../../services/store';
 
 interface IBurgerConstructorProps {
 	style?: CSSProperties;
@@ -21,7 +22,7 @@ interface IBurgerConstructorProps {
 const BurgerConstructor: React.FC<IBurgerConstructorProps> = ({ style }) => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	const { ingredients, totalPrice, bun } = useSelector((state: any) => state.burgerConstructor);
+	const { ingredients, totalPrice, bun } = useSelector((state: RootState) => state.burgerConstructor);
 	const [isOrderDetailOpen, setIsOrderDetailOpen] = useState(false);
 
 	const [, dropRef] = useDrop<TIngredient>({
@@ -40,7 +41,6 @@ const BurgerConstructor: React.FC<IBurgerConstructorProps> = ({ style }) => {
 		}
 		const ingredientsIds = ingredients.map((ingredient: TIngredient) => ingredient._id);
 		if (bun) ingredientsIds.push(bun._id, bun._id);
-		// @ts-ignore
 		dispatch(fetchOrder(ingredientsIds));
 	};
 

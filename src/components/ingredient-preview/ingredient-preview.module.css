@@ -1,0 +1,14 @@
+.container{
+	border-radius: 100px;
+	border: 2px solid var(--button-normal, #801AB2);
+	background: var(--interface-bg, #131316);
+	width: 64px;
+	height: 64px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.ingredientImage{
+	height: 56px;
+}

@@ -1,0 +1,19 @@
+.container
+{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+.previewContainer
+{
+
+}
+.nameContainer
+{
+	width: 320px;
+}
+.priceContainer
+{
+	display: flex;
+}
+

@@ -5,7 +5,7 @@ import ModalOverlay from './modal-overlay/modal-overlay';
 import { CloseIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 
 interface IModalProps {
-	title: string;
+	title?: string;
 	children: ReactNode;
 	onClose: () => void;
 }

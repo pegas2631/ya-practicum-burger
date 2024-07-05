@@ -5,10 +5,11 @@ import ScrollableBlock from '../scrollable-block/scrollable-block';
 import IngredientCard from '../ingredient-card/ingredient-card';
 import Modal from '../modal/modal';
 import IngredientDetails from '../ingredient-details/ingredient-details';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from '../../services/hooks';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { setCurrentIngredient, clearCurrentIngredient, setCurrentIngredientIsOpen } from '../../services/slices/current-ingredient-slice';
-import TIngredient from '../../utils/types';
+import { TIngredient } from '../../utils/types';
+import {RootState} from "../../services/store";
 
 interface ITabsProps {
 	current: string;
@@ -39,9 +40,9 @@ const BurgerIngredients: React.FC<IBurgerIngredientsProps> = ({ style }) => {
 	const navigate = useNavigate();
 	const location = useLocation();
 	const dispatch = useDispatch();
-	const ingredients = useSelector((state: any) => state.ingredients.ingredients);
-	const currentIngredient = useSelector((state: any) => state.currentIngredient.currentIngredient);
-	const currentIngredientIsOpen = useSelector((state: any) => state.currentIngredient.isOpen);
+	const ingredients = useSelector((state: RootState) => state.ingredients.ingredients);
+	const currentIngredient = useSelector((state: RootState) => state.currentIngredient.currentIngredient);
+	const currentIngredientIsOpen = useSelector((state: RootState) => state.currentIngredient.isOpen);
 
 	const buns = ingredients.filter((ingredient: TIngredient) => ingredient.type === 'bun');
 	const mains = ingredients.filter((ingredient: TIngredient) => ingredient.type === 'main');
@@ -122,7 +123,7 @@ const BurgerIngredients: React.FC<IBurgerIngredientsProps> = ({ style }) => {
 					))}
 				</div>
 			</ScrollableBlock>
-			{currentIngredientIsOpen && (
+			{currentIngredientIsOpen && currentIngredient && (
 				<Modal title="Детали ингредиента" onClose={closeIngredient}>
 					<IngredientDetails ingredientId={currentIngredient._id} />
 				</Modal>

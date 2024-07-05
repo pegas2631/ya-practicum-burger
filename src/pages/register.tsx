@@ -1,9 +1,9 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
-import { useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import styles from './global.module.css';
 import { Button, EmailInput, PasswordInput, Input } from '@ya.praktikum/react-developer-burger-ui-components';
 import { registerUser } from '../services/slices/user-slice';
+import { useDispatch } from '../services/hooks'
 
 export const RegisterPage: React.FC = () => {
 	const [email, setEmail] = useState<string>('');
@@ -26,7 +26,6 @@ export const RegisterPage: React.FC = () => {
 
 	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault();
-		// @ts-ignore
 		dispatch(registerUser({ email, password, name }))
 			.unwrap()
 			.then(() => {

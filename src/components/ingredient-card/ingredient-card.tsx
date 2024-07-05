@@ -3,7 +3,7 @@ import React from 'react'
 import ingredientCard from './ingredient-card.module.css'
 import {Counter, CurrencyIcon} from '@ya.praktikum/react-developer-burger-ui-components';
 import { useDrag } from 'react-dnd';
-import TIngredient from "../../utils/types";
+import { TIngredient } from "../../utils/types";
 
 interface IIngredientProps {
 	ingredient: TIngredient;

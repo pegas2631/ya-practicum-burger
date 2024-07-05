@@ -1,0 +1,76 @@
+.container{
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+}
+.content{
+	max-width: 1280px;
+	display: flex;
+	flex-grow: 1;
+	flex-wrap: wrap;
+}
+
+.row
+{
+	margin-top: 20px;
+	display: flex;
+	width: 100%;
+	flex-wrap: nowrap;
+	gap: 56px;
+}
+
+.orderList{
+	flex: 1;
+	height: 100%;
+	max-height: calc(100vh - 188px);
+}
+
+.info{
+	flex: 1;
+	max-width: 640px;
+}
+
+.ordersStatusesBlock
+{
+	display: flex;
+	flex-wrap: nowrap;
+}
+
+.doneContainer{
+	flex: 1;
+}
+
+.inProgressContainer{
+	flex: 1;
+	margin-left: 40px;
+}
+
+.doneListContainer, .inProgressListContainer {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-auto-rows: auto;
+	gap: 10px;
+	overflow-y: auto;
+	max-height: 300px;
+}
+
+.doneListContainer > div, .inProgressListContainer > div {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-auto-rows: auto;
+	gap: 10px;
+}
+
+.ordersCountBlock
+{
+	margin-top: 60px;
+}
+
+.glowingText{
+	text-shadow: #4C4CFF 1px 0 10px;
+}
+
+.completedColor
+{
+	color: var(--colors-interface-success);
+}

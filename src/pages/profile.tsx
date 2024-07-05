@@ -1,10 +1,11 @@
 import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from '../services/hooks';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './global.module.css';
 import profile from './profile.module.css';
 import { Button, EmailInput, Input, PasswordInput } from '@ya.praktikum/react-developer-burger-ui-components';
 import { fetchUserData, logoutUser, updateUserData } from '../services/slices/user-slice';
+import {AppDispatch, RootState} from '../services/store';
 
 export const ProfilePage: React.FC = () => {
 	const [email, setEmail] = useState<string>('');
@@ -12,10 +13,9 @@ export const ProfilePage: React.FC = () => {
 	const [name, setName] = useState<string>('');
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	const user = useSelector((state: any) => state.user.user); // Убираем типизацию хранилища
+	const user = useSelector((state: RootState) => state.user.user);
 
 	useEffect(() => {
-		// @ts-ignore
 		dispatch(fetchUserData());
 	}, [dispatch]);
 
@@ -40,8 +40,7 @@ export const ProfilePage: React.FC = () => {
 
 	const handleSave = async (e: FormEvent) => {
 		e.preventDefault();
-		if (email !== user.email || name !== user.name || password) {
-			// @ts-ignore
+		if (user && (email !== user.email || name !== user.name || password)) {
 			dispatch(updateUserData({ email, password, name }));
 		}
 	};
@@ -56,9 +55,8 @@ export const ProfilePage: React.FC = () => {
 	};
 
 	const handleLogout = () => {
-		// @ts-ignore
 		dispatch(logoutUser());
-		localStorage.removeItem('accessToken'); // Убедитесь, что токены удаляются при выходе
+		localStorage.removeItem('accessToken');
 		localStorage.removeItem('refreshToken');
 		navigate('/login');
 	};

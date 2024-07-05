@@ -1,10 +1,11 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch } from '../services/hooks';
 import { useNavigate, useLocation } from 'react-router-dom';
 import styles from './global.module.css';
 import { EmailInput, PasswordInput, Button } from '@ya.praktikum/react-developer-burger-ui-components';
 import { Link } from 'react-router-dom';
 import { loginUser } from '../services/slices/user-slice';
+import { AppDispatch } from '../services/store';
 
 interface LocationState {
 	from: {
@@ -31,7 +32,6 @@ export const LoginPage: React.FC = () => {
 	const handleLogin = (e: FormEvent) => {
 		e.preventDefault();
 
-		// @ts-ignore
 		dispatch(loginUser({ email, password }))
 		.unwrap()
 		.then(() => {
