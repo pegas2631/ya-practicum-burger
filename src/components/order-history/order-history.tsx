@@ -22,12 +22,20 @@ const OrderHistory: React.FC = () => {
 	const isConnected: boolean = useSelector((state: RootState) => state.webSocket.wsConnected);
 	const error: string | undefined = useSelector((state: RootState) => state.webSocket.error);
 
+	const accessToken = localStorage.getItem('accessToken');
+	let token: string = '';
+	if (accessToken)
+	{
+		token = accessToken.startsWith('Bearer ') ? accessToken.slice(7) : accessToken;
+	}
+
 	useEffect(() => {
 		dispatch({
 			type: 'webSocket/connect',
 			payload: {
 				wsUrl: 'wss://norma.nomoreparties.space/orders',
 				onMessageAction: 'userOrders/setOrders',
+				token,
 			},
 		});
 
@@ -36,7 +44,7 @@ const OrderHistory: React.FC = () => {
 				type: 'webSocket/disconnect',
 			});
 		};
-	}, [dispatch]);
+	}, [dispatch, token]);
 
 	const openOrder = (order: TOrder) => {
 		dispatch(setCurrentOrder(order));

@@ -165,7 +165,15 @@ export const userSlice = createSlice({
 			.addCase(updateUserData.rejected, (state, action) => {
 				state.isLoading = false;
 				state.error = action.error.message || 'Failed to update user data';
-			});
+			})
+			.addCase(refreshToken.fulfilled, (state) => {
+				state.user = null;
+				state.isLoading = false;
+			})
+			.addCase(refreshToken.rejected, (state, action) => {
+				state.isLoading = false;
+				state.error = action.error.message || 'Failed to refresh token';
+			})
 	},
 });
 

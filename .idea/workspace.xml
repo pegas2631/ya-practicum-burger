@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81bc4438-5409-4ae8-8a87-9859283cbcdd" name="Changes" comment="общий socket-middleware для работы с веб сокетами">
+    <list default="true" id="81bc4438-5409-4ae8-8a87-9859283cbcdd" name="Changes" comment="обработал попытку соединения для веб скоета без переданного url">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/order-history/order-history.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-history/order-history.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/middleware/socket-middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/middleware/socket-middleware.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/slices/user-slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/user-slice.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -321,7 +323,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720070997829</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="обработал попытку соединения для веб скоета без переданного url">
+      <option name="closed" value="true" />
+      <created>1720163755597</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1720163755597</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -373,7 +383,8 @@
     <MESSAGE value="хук для типизации useSelector и useReducer" />
     <MESSAGE value="перенес подготовку ингрединета в prepare reducer-а, для того что бы оставить reducer чистой функцией" />
     <MESSAGE value="общий socket-middleware для работы с веб сокетами" />
-    <option name="LAST_COMMIT_MESSAGE" value="общий socket-middleware для работы с веб сокетами" />
+    <MESSAGE value="обработал попытку соединения для веб скоета без переданного url" />
+    <option name="LAST_COMMIT_MESSAGE" value="обработал попытку соединения для веб скоета без переданного url" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
