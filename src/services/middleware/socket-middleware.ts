@@ -24,6 +24,11 @@ export const socketMiddleware = (): Middleware => {
 
 			if (type === 'webSocket/connect' && token) {
 				const { wsUrl, onMessageAction } = payload;
+
+				if (!wsUrl){
+					return next(action);
+				}
+
 				socket = new WebSocket(`${wsUrl}?token=${token}`);
 
 				socket.onopen = () => {
@@ -31,12 +36,13 @@ export const socketMiddleware = (): Middleware => {
 				};
 
 				socket.onerror = (event) => {
+					console.log(event);
 					dispatch(setError('WebSocket error'));
 				};
 
 				socket.onmessage = (event) => {
 					const data = JSON.parse(event.data);
-					dispatch({type: payload.onMessageAction, payload: data});
+					dispatch({type: onMessageAction, payload: data});
 				};
 
 				socket.onclose = () => {
