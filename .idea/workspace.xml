@@ -4,19 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81bc4438-5409-4ae8-8a87-9859283cbcdd" name="Changes" comment="зависимости ф">
-      <change afterPath="$PROJECT_DIR$/cypress/.eslintrc.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cypress/fixtures/order.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cypress/fixtures/user.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cypress/integration/burger-constructor/make-order.spec.js" afterDir="false" />
+    <list default="true" id="81bc4438-5409-4ae8-8a87-9859283cbcdd" name="Changes" comment="функциональное тестирование конструктора drag&amp;drop + оформить заказа">
+      <change afterPath="$PROJECT_DIR$/src/services/slices/burger-constructor-slice.test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/slices/current-ingredient-slice.test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/slices/current-order-slice.test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/slices/ingredients-slice.test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/slices/order-slice.test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/slices/orders-slice.test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/slices/user-orders-slice.test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/slices/user-slice.test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/slices/ws-slice.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cypress.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cypress.config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/burger-constructor/burger-constructor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-constructor/burger-constructor.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ingredient-card/ingredient-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ingredient-card/ingredient-card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modal/modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/modal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/slices/burger-constructor-slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/burger-constructor-slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/slices/ingredients-slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/ingredients-slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/slices/order-slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/order-slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/slices/user-slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/user-slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/slices/ws-slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/ws-slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/request-helper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/request-helper.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,25 +80,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/m.ustinov/Projects/Practicum/react-burger/ya-practicum-burger-main/ya-practicum-burger&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs.jest.jest_package&quot;: &quot;/Users/m.ustinov/Projects/Practicum/react-burger/ya-practicum-burger-main/ya-practicum-burger/node_modules/react-scripts&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/m.ustinov/Projects/Practicum/react-burger/ya-practicum-burger-main/ya-practicum-burger/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "sprint-6/step-1",
+    "last_opened_file_path": "/Users/m.ustinov/Projects/Practicum/react-burger/ya-practicum-burger-main/ya-practicum-burger",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs.jest.jest_package": "/Users/m.ustinov/Projects/Practicum/react-burger/ya-practicum-burger-main/ya-practicum-burger/node_modules/react-scripts",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "Errors",
+    "ts.external.directory.path": "/Users/m.ustinov/Projects/Practicum/react-burger/ya-practicum-burger-main/ya-practicum-burger/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/components/burger-constructor" />
@@ -103,7 +111,20 @@
       <recent name="$PROJECT_DIR$/src/components/modal" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Jest.ingredientsSlice.should dispatch fetchIngredients and handle failure">
+    <configuration name="ingredientsSlice.should dispatch fetchIngredients and handle failure" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/services/slices/ingredients-slice.test.ts" />
+      <test-names>
+        <test-name value="ingredientsSlice" />
+        <test-name value="should dispatch fetchIngredients and handle failure" />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <configuration name="service is available.should be available on localhost:3000" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
@@ -119,6 +140,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.ingredientsSlice.should dispatch fetchIngredients and handle failure" />
         <item itemvalue="Jest.service is available.should be available on localhost:3000" />
       </list>
     </recent_temporary>
@@ -153,7 +175,7 @@
       <workItem from="1719776260083" duration="38306000" />
       <workItem from="1720604481461" duration="4820000" />
       <workItem from="1720628731951" duration="1791000" />
-      <workItem from="1720691249061" duration="8231000" />
+      <workItem from="1720691249061" duration="21353000" />
     </task>
     <task id="LOCAL-00001" summary="правки ревью">
       <option name="closed" value="true" />
@@ -363,7 +385,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720163755597</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="функциональное тестирование конструктора drag&amp;drop + оформить заказа">
+      <option name="closed" value="true" />
+      <created>1720700203936</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1720700203936</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -416,7 +446,8 @@
     <MESSAGE value="перенес подготовку ингрединета в prepare reducer-а, для того что бы оставить reducer чистой функцией" />
     <MESSAGE value="общий socket-middleware для работы с веб сокетами" />
     <MESSAGE value="обработал попытку соединения для веб скоета без переданного url" />
-    <option name="LAST_COMMIT_MESSAGE" value="обработал попытку соединения для веб скоета без переданного url" />
+    <MESSAGE value="функциональное тестирование конструктора drag&amp;drop + оформить заказа" />
+    <option name="LAST_COMMIT_MESSAGE" value="функциональное тестирование конструктора drag&amp;drop + оформить заказа" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

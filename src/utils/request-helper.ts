@@ -24,7 +24,7 @@ async function request(endpoint: string, options?: RequestInit): Promise<ApiResp
 
 	const data: ApiResponse = await response.json();
 
-checkData(data);
+	checkData(data);
 
 return data;
 }

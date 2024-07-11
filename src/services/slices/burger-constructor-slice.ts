@@ -10,7 +10,7 @@ interface IBun {
 	price: number;
 }
 
-interface IBurgerConstructorState {
+export interface IBurgerConstructorState {
 	ingredients: TIngredient[];
 	totalPrice: number;
 	bun: IBun | null;

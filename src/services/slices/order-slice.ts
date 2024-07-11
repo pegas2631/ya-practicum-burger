@@ -5,7 +5,7 @@ interface IOrder {
 	number: number | null;
 }
 
-interface IOrderState {
+export interface IOrderState {
 	order: IOrder | null;
 	isLoading: boolean;
 }
@@ -43,7 +43,10 @@ export const orderSlice = createSlice({
 			state.order = action.payload;
 		},
 		clearOrder: (state) => {
-			state.order = null;
+			state.order = {
+				number: null,
+			};
+			state.isLoading= false;
 		},
 	},
 	extraReducers: (builder) => {
@@ -57,7 +60,6 @@ export const orderSlice = createSlice({
 			})
 			.addCase(fetchOrder.rejected, (state, action) => {
 				state.isLoading = false;
-				console.error(action.error.message);
 			});
 	},
 });
