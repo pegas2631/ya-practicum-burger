@@ -53,7 +53,7 @@ const BurgerConstructor: React.FC<IBurgerConstructorProps> = ({ style }) => {
 	};
 
 	return (
-		<div ref={dropRef} className={`${burgerConstructor.container} pt-25 pr-4 pl-4`} style={{ ...style }}>
+		<div ref={dropRef} data-testId='burger-constructor' className={`${burgerConstructor.container} pt-25 pr-4 pl-4`} style={{ ...style }}>
 			<div className={`${burgerConstructor.bunContainer} pr-4 pl-7`}>
 				{bun ? (
 					<ConstructorElement
