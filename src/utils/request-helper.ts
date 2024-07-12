@@ -1,4 +1,4 @@
-const BASE_URL = 'https://norma.nomoreparties.space/api';
+export const BASE_URL = 'https://norma.nomoreparties.space/api';
 
 function checkResponse(response: Response): void {
 	if (!response.ok) {
@@ -24,7 +24,7 @@ async function request(endpoint: string, options?: RequestInit): Promise<ApiResp
 
 	const data: ApiResponse = await response.json();
 
-checkData(data);
+	checkData(data);
 
 return data;
 }

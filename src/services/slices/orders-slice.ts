@@ -8,7 +8,7 @@ interface IOrdersState {
 	totalToday: number;
 }
 
-const initialState: IOrdersState = {
+export const initialState: IOrdersState = {
 	orders: [],
 	isConnected: false,
 	total: 0,

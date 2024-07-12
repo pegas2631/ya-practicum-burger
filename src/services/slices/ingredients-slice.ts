@@ -7,7 +7,7 @@ interface IIngredientsState {
 	isLoading: boolean;
 }
 
-const initialState: IIngredientsState = {
+export const initialState: IIngredientsState = {
 	ingredients: [],
 	isLoading: false,
 };
@@ -27,7 +27,7 @@ export const ingredientsSlice = createSlice({
 		addIngredient: (state, action: PayloadAction<TIngredient>) => {
 			state.ingredients.push(action.payload);
 		},
-		addIngredients: (state, action: PayloadAction<TIngredient>) => {
+		addIngredients: (state, action: PayloadAction<TIngredient[]>) => {
 			state.ingredients = state.ingredients.concat(action.payload);
 		},
 		clearIngredients: (state) => {
@@ -71,7 +71,6 @@ export const ingredientsSlice = createSlice({
 			})
 			.addCase(fetchIngredients.rejected, (state, action) => {
 				state.isLoading = false;
-				console.error(action.error.message);
 			});
 	},
 });

@@ -13,6 +13,7 @@ type TIngredient = {
 	uuid: string;
 	__v: number;
 	count: number;
+	index?: number;
 };
 
 type TOrder = {

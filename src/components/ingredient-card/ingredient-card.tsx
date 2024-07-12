@@ -20,7 +20,7 @@ const IngredientCard: React.FC<IIngredientProps> = ({ ingredient, onClick }) => 
 	}));
 
 	return (
-		<div ref={dragRef} style={{ opacity: isDragging ? 0.5 : 1 }} className={ingredientCard.container} onClick={onClick}>
+		<div ref={dragRef} style={{ opacity: isDragging ? 0.5 : 1 }} className={`${ingredientCard.container} ingredient-card-test-class`} onClick={onClick}>
 			{ingredient.count > 0 && <Counter count={ingredient.count} size="default" extraClass="m-1" />}
 			<img src={ingredient.image} alt={ingredient.name} className='pl-4 pr-4' />
 			<section className={`${ingredientCard.currencySection} pt-1 pb-1`}>
@@ -29,7 +29,7 @@ const IngredientCard: React.FC<IIngredientProps> = ({ ingredient, onClick }) => 
 				</p>
 				<CurrencyIcon type="primary" />
 			</section>
-			<p className={'text text_type_main-small text-center'}>{ingredient.name}</p>
+			<p className={'text text_type_main-small text-center'} data-testId={'ingredient-name'}>{ingredient.name}</p>
 		</div>
 	);
 };

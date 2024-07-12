@@ -1,20 +1,20 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import request from '../../utils/request-helper';
 
-interface IUser {
+export interface IUser {
 	id: string;
 	name: string;
 	email: string;
 	password: string;
 }
 
-interface IUserState {
+export interface IUserState {
 	user: IUser | null;
 	isLoading: boolean;
 	error: string | null;
 }
 
-const initialState: IUserState = {
+export const initialState: IUserState = {
 	user: null,
 	isLoading: false,
 	error: null,
