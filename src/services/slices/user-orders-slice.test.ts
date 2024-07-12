@@ -1,13 +1,6 @@
-import reducer, { setOrders, clearOrders } from './user-orders-slice';
+import reducer, { setOrders, clearOrders, initialState } from './user-orders-slice';
 import { TOrder } from '../../utils/types';
-
-interface IUserOrdersState {
-	orders: TOrder[];
-}
-
-const initialState: IUserOrdersState = {
-	orders: [],
-};
+import { TEST_ORDER } from '../../utils/test-data';
 
 describe('userOrdersSlice', () => {
 	it('should return the initial state', () => {
@@ -16,8 +9,8 @@ describe('userOrdersSlice', () => {
 
 	it('should handle setOrders', () => {
 		const orders: TOrder[] = [
-			{ _id: '1', ingredients: ['1', '2'], status: 'done', name: 'Order 1', createdAt: '2023-01-01', updatedAt: '2023-01-01', number: 1, owner: 'owner1', __v: 0 },
-			{ _id: '2', ingredients: ['3', '4'], status: 'pending', name: 'Order 2', createdAt: '2023-01-02', updatedAt: '2023-01-02', number: 2, owner: 'owner2', __v: 0 },
+			{ ...TEST_ORDER, _id: '1', number: 1, owner: 'owner1' },
+			{ ...TEST_ORDER, _id: '2', status: 'pending', name: 'Order 2', createdAt: '2023-01-02', updatedAt: '2023-01-02', number: 2, owner: 'owner2' },
 		];
 		const payload = {
 			orders,
@@ -37,8 +30,8 @@ describe('userOrdersSlice', () => {
 		const stateWithOrders = {
 			...initialState,
 			orders: [
-				{ _id: '1', ingredients: ['1', '2'], status: 'done', name: 'Order 1', createdAt: '2023-01-01', updatedAt: '2023-01-01', number: 1, owner: 'owner1', __v: 0 },
-				{ _id: '2', ingredients: ['3', '4'], status: 'pending', name: 'Order 2', createdAt: '2023-01-02', updatedAt: '2023-01-02', number: 2, owner: 'owner2', __v: 0 },
+				{ ...TEST_ORDER, _id: '1', number: 1, owner: 'owner1' },
+				{ ...TEST_ORDER, _id: '2', status: 'pending', name: 'Order 2', createdAt: '2023-01-02', updatedAt: '2023-01-02', number: 2, owner: 'owner2' },
 			],
 		};
 

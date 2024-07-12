@@ -6,7 +6,7 @@ interface ICurrentIngredientState {
 	isOpen: boolean;
 }
 
-const initialState: ICurrentIngredientState = {
+export const initialState: ICurrentIngredientState = {
 	currentIngredient: null,
 	isOpen: false,
 };

@@ -6,7 +6,7 @@ export interface WebSocketState {
 	error?: string;
 }
 
-const initialState: WebSocketState = {
+export const initialState: WebSocketState = {
 	wsConnected: false,
 	error: undefined,
 };

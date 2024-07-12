@@ -1,9 +1,9 @@
 import configureMockStore from 'redux-mock-store';
-import {thunk} from 'redux-thunk';
+import { thunk } from 'redux-thunk';
 import fetchMock from 'fetch-mock';
-import reducer, { loginUser, logoutUser, refreshToken, registerUser, fetchUserData, updateUserData, IUserState, IUser } from './user-slice';
-
-const BASE_URL = 'https://norma.nomoreparties.space/api';
+import reducer, { loginUser, logoutUser, refreshToken, registerUser, fetchUserData, updateUserData, IUserState, IUser, initialState } from './user-slice';
+import { BASE_URL } from '../../utils/request-helper';
+import { TEST_USER } from '../../utils/test-data';
 
 const middlewares = [thunk];
 // @ts-ignore
@@ -13,12 +13,6 @@ describe('userSlice', () => {
 	afterEach(() => {
 		fetchMock.restore();
 	});
-
-	const initialState: IUserState = {
-		user: null,
-		isLoading: false,
-		error: null,
-	};
 
 	it('should return the initial state', () => {
 		expect(reducer(undefined, {} as any)).toEqual(initialState);
@@ -36,18 +30,11 @@ describe('userSlice', () => {
 	});
 
 	it('should handle loginUser fulfilled', () => {
-		const user: IUser = {
-			id: '1',
-			name: 'John Doe',
-			email: 'john.doe@example.com',
-			password: 'password123',
-		};
-
-		const action = { type: loginUser.fulfilled.type, payload: { user } };
+		const action = { type: loginUser.fulfilled.type, payload: { user: TEST_USER } };
 		const expectedState = {
 			...initialState,
 			isLoading: false,
-			user: user,
+			user: TEST_USER,
 		};
 
 		expect(reducer(initialState, action)).toEqual(expectedState);
@@ -65,30 +52,21 @@ describe('userSlice', () => {
 	});
 
 	it('should dispatch loginUser and handle success', async () => {
-		const user: IUser = {
-			id: '1',
-			name: 'John Doe',
-			email: 'john.doe@example.com',
-			password: 'password123',
-		};
-
 		fetchMock.postOnce(`${BASE_URL}/auth/login`, {
-			body: { user, refreshToken: 'refreshToken', accessToken: 'accessToken', success: true },
+			body: { user: TEST_USER, refreshToken: 'refreshToken', accessToken: 'accessToken', success: true },
 			headers: { 'content-type': 'application/json' },
 		});
 
 		const expectedActions = [
 			{ type: loginUser.pending.type, meta: expect.any(Object) },
-			{ type: loginUser.fulfilled.type, payload: { user }, meta: expect.any(Object) },
+			{ type: loginUser.fulfilled.type, payload: { user: TEST_USER }, meta: expect.any(Object) },
 		];
 
 		const store = mockStore(initialState);
 
-		await store.dispatch(loginUser({ email: user.email, password: user.password }) as any);
+		await store.dispatch(loginUser({ email: TEST_USER.email, password: TEST_USER.password }) as any);
 		expect(store.getActions()).toEqual(expectedActions);
 	});
-
-
 
 	it('should dispatch loginUser and handle failure', async () => {
 		fetchMock.postOnce(`${BASE_URL}/auth/login`, {
@@ -102,7 +80,7 @@ describe('userSlice', () => {
 
 		const store = mockStore(initialState);
 
-		await store.dispatch(loginUser({ email: 'john.doe@example.com', password: 'password123' }) as any);
+		await store.dispatch(loginUser({ email: TEST_USER.email, password: TEST_USER.password }) as any);
 		expect(store.getActions()).toEqual(expectedActions);
 	});
 
@@ -216,18 +194,11 @@ describe('userSlice', () => {
 	});
 
 	it('should handle registerUser fulfilled', () => {
-		const user: IUser = {
-			id: '1',
-			name: 'John Doe',
-			email: 'john.doe@example.com',
-			password: 'password123',
-		};
-
-		const action = { type: registerUser.fulfilled.type, payload: { user } };
+		const action = { type: registerUser.fulfilled.type, payload: { user: TEST_USER } };
 		const expectedState = {
 			...initialState,
 			isLoading: false,
-			user: user,
+			user: TEST_USER,
 		};
 
 		expect(reducer(initialState, action)).toEqual(expectedState);
@@ -245,26 +216,19 @@ describe('userSlice', () => {
 	});
 
 	it('should dispatch registerUser and handle success', async () => {
-		const user: IUser = {
-			id: '1',
-			name: 'John Doe',
-			email: 'john.doe@example.com',
-			password: 'password123',
-		};
-
 		fetchMock.postOnce(`${BASE_URL}/auth/register`, {
-			body: { user, refreshToken: 'refreshToken', accessToken: 'accessToken', success: true },
+			body: { user: TEST_USER, refreshToken: 'refreshToken', accessToken: 'accessToken', success: true },
 			headers: { 'content-type': 'application/json' },
 		});
 
 		const expectedActions = [
 			{ type: registerUser.pending.type, meta: expect.any(Object) },
-			{ type: registerUser.fulfilled.type, payload: { user }, meta: expect.any(Object) },
+			{ type: registerUser.fulfilled.type, payload: { user: TEST_USER }, meta: expect.any(Object) },
 		];
 
 		const store = mockStore(initialState);
 
-		await store.dispatch(registerUser({ name: user.name, email: user.email, password: user.password }) as any);
+		await store.dispatch(registerUser({ name: TEST_USER.name, email: TEST_USER.email, password: TEST_USER.password }) as any);
 		expect(store.getActions()).toEqual(expectedActions);
 	});
 
@@ -285,18 +249,11 @@ describe('userSlice', () => {
 	});
 
 	it('should handle fetchUserData fulfilled', () => {
-		const user: IUser = {
-			id: '1',
-			name: 'John Doe',
-			email: 'john.doe@example.com',
-			password: 'password123',
-		};
-
-		const action = { type: fetchUserData.fulfilled.type, payload: { user } };
+		const action = { type: fetchUserData.fulfilled.type, payload: { user: TEST_USER } };
 		const expectedState = {
 			...initialState,
 			isLoading: false,
-			user: user,
+			user: TEST_USER,
 		};
 
 		expect(reducer(initialState, action)).toEqual(expectedState);
@@ -314,21 +271,14 @@ describe('userSlice', () => {
 	});
 
 	it('should dispatch fetchUserData and handle success', async () => {
-		const user: IUser = {
-			id: '1',
-			name: 'John Doe',
-			email: 'john.doe@example.com',
-			password: 'password123',
-		};
-
 		fetchMock.getOnce(`${BASE_URL}/auth/user`, {
-			body: { user, success: true },
+			body: { user: TEST_USER, success: true },
 			headers: { 'content-type': 'application/json' },
 		});
 
 		const expectedActions = [
 			{ type: fetchUserData.pending.type, meta: expect.any(Object) },
-			{ type: fetchUserData.fulfilled.type, payload: { user }, meta: expect.any(Object) },
+			{ type: fetchUserData.fulfilled.type, payload: { user: TEST_USER }, meta: expect.any(Object) },
 		];
 
 		const store = mockStore(initialState);
@@ -354,18 +304,11 @@ describe('userSlice', () => {
 	});
 
 	it('should handle updateUserData fulfilled', () => {
-		const user: IUser = {
-			id: '1',
-			name: 'John Doe',
-			email: 'john.doe@example.com',
-			password: 'password123',
-		};
-
-		const action = { type: updateUserData.fulfilled.type, payload: { user } };
+		const action = { type: updateUserData.fulfilled.type, payload: { user: TEST_USER } };
 		const expectedState = {
 			...initialState,
 			isLoading: false,
-			user: user,
+			user: TEST_USER,
 		};
 
 		expect(reducer(initialState, action)).toEqual(expectedState);
@@ -383,26 +326,18 @@ describe('userSlice', () => {
 	});
 
 	it('should dispatch updateUserData and handle success', async () => {
-		const user: IUser = {
-			id: '1',
-			name: 'John Doe',
-			email: 'john.doe@example.com',
-			password: 'password123',
-		};
-
 		fetchMock.patchOnce(`${BASE_URL}/auth/user`, {
-			body: { user, success: true },
+			body: { user: TEST_USER, success: true },
 			headers: { 'content-type': 'application/json' },
 		});
-
 		const expectedActions = [
 			{ type: updateUserData.pending.type, meta: expect.any(Object) },
-			{ type: updateUserData.fulfilled.type, payload: { user }, meta: expect.any(Object) },
+			{ type: updateUserData.fulfilled.type, payload: { user: TEST_USER }, meta: expect.any(Object) },
 		];
 
 		const store = mockStore(initialState);
 
-		await store.dispatch(updateUserData(user) as any);
+		await store.dispatch(updateUserData(TEST_USER) as any);
 		expect(store.getActions()).toEqual(expectedActions);
 	});
 
@@ -421,5 +356,4 @@ describe('userSlice', () => {
 		await store.dispatch(updateUserData({ id: '1', name: 'John Doe', email: 'john.doe@example.com', password: 'password123' }) as any);
 		expect(store.getActions()).toEqual(expectedActions);
 	});
-
 });

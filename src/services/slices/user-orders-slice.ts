@@ -12,7 +12,7 @@ interface ISetOrderPayload {
 	totalToday: number;
 }
 
-const initialState: IUserOrdersState = {
+export const initialState: IUserOrdersState = {
 	orders: [],
 };
 

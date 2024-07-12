@@ -1,10 +1,9 @@
 import configureMockStore from 'redux-mock-store';
 import { thunk } from 'redux-thunk';
 import fetchMock from 'fetch-mock';
-import reducer, { fetchOrder, setOrder, clearOrder } from './order-slice';
-import { IOrderState } from './order-slice'; // Импортируйте интерфейс состояния, если он экспортируется
-
-const BASE_URL = 'https://norma.nomoreparties.space/api';
+import reducer, { fetchOrder, setOrder, clearOrder, initialState } from './order-slice';
+import { BASE_URL } from '../../utils/request-helper';
+import { TEST_ORDER } from '../../utils/test-data';
 
 const middlewares = [thunk];
 // @ts-ignore
@@ -15,31 +14,23 @@ describe('orderSlice', () => {
 		fetchMock.restore();
 	});
 
-	const initialState: IOrderState = {
-		order: {
-			number: null,
-		},
-		isLoading: false,
-	};
-
 	it('should return the initial state', () => {
 		expect(reducer(undefined, {} as any)).toEqual(initialState);
 	});
 
 	it('should handle setOrder', () => {
-		const order = { number: 12345 };
 		const expectedState = {
 			...initialState,
-			order,
+			order: TEST_ORDER,
 		};
 
-		expect(reducer(initialState, setOrder(order))).toEqual(expectedState);
+		expect(reducer(initialState, setOrder(TEST_ORDER))).toEqual(expectedState);
 	});
 
 	it('should handle clearOrder', () => {
 		const stateWithOrder = {
 			...initialState,
-			order: { number: 12345 },
+			order: TEST_ORDER,
 		};
 
 		expect(reducer(stateWithOrder, clearOrder())).toEqual(initialState);
@@ -56,12 +47,11 @@ describe('orderSlice', () => {
 	});
 
 	it('should handle fetchOrder fulfilled', () => {
-		const order = { number: 12345 };
-		const action = { type: fetchOrder.fulfilled.type, payload: order };
+		const action = { type: fetchOrder.fulfilled.type, payload: TEST_ORDER };
 		const expectedState = {
 			...initialState,
 			isLoading: false,
-			order,
+			order: TEST_ORDER,
 		};
 
 		expect(reducer(initialState, action)).toEqual(expectedState);
@@ -78,17 +68,16 @@ describe('orderSlice', () => {
 	});
 
 	it('should dispatch fetchOrder and handle success', async () => {
-		const order = { number: 12345 };
 		const ingredientsIds = ['1', '2'];
 
 		fetchMock.postOnce(`${BASE_URL}/orders`, {
-			body: { order, success: true },
+			body: { order: TEST_ORDER, success: true },
 			headers: { 'content-type': 'application/json' },
 		});
 
 		const expectedActions = [
 			{ type: fetchOrder.pending.type, meta: expect.any(Object) },
-			{ type: fetchOrder.fulfilled.type, payload: order, meta: expect.any(Object) },
+			{ type: fetchOrder.fulfilled.type, payload: TEST_ORDER, meta: expect.any(Object) },
 		];
 
 		const store = mockStore(initialState);

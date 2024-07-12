@@ -1,6 +1,6 @@
 describe('Burger constructor', () => {
 	beforeEach(() => {
-		cy.visit('http://localhost:3000');
+		cy.visit('/');
 		cy.intercept("POST", "api/orders", { fixture: "order.json" }).as("postOrder");
 
 		window.localStorage.setItem(

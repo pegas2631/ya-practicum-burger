@@ -4,27 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81bc4438-5409-4ae8-8a87-9859283cbcdd" name="Changes" comment="функциональное тестирование конструктора drag&amp;drop + оформить заказа">
-      <change afterPath="$PROJECT_DIR$/src/services/slices/burger-constructor-slice.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/slices/current-ingredient-slice.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/slices/current-order-slice.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/slices/ingredients-slice.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/slices/order-slice.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/slices/orders-slice.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/slices/user-orders-slice.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/slices/user-slice.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/slices/ws-slice.test.ts" afterDir="false" />
+    <list default="true" id="81bc4438-5409-4ae8-8a87-9859283cbcdd" name="Changes" comment="тесты для редакса">
+      <change afterPath="$PROJECT_DIR$/src/utils/test-data.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cypress.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cypress.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cypress/integration/burger-constructor/make-order.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/cypress/integration/burger-constructor/make-order.spec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/slices/burger-constructor-slice.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/burger-constructor-slice.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/slices/burger-constructor-slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/burger-constructor-slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/slices/current-ingredient-slice.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/current-ingredient-slice.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/slices/current-ingredient-slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/current-ingredient-slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/slices/current-order-slice.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/current-order-slice.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/slices/current-order-slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/current-order-slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/slices/ingredients-slice.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/ingredients-slice.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/slices/ingredients-slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/ingredients-slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/slices/order-slice.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/order-slice.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/slices/order-slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/order-slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/slices/orders-slice.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/orders-slice.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/slices/orders-slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/orders-slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/slices/user-orders-slice.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/user-orders-slice.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/slices/user-orders-slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/user-orders-slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/slices/user-slice.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/user-slice.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/slices/user-slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/user-slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/slices/ws-slice.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/ws-slice.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/slices/ws-slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/slices/ws-slice.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/request-helper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/request-helper.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +178,7 @@
       <workItem from="1719776260083" duration="38306000" />
       <workItem from="1720604481461" duration="4820000" />
       <workItem from="1720628731951" duration="1791000" />
-      <workItem from="1720691249061" duration="21353000" />
+      <workItem from="1720691249061" duration="24189000" />
     </task>
     <task id="LOCAL-00001" summary="правки ревью">
       <option name="closed" value="true" />
@@ -393,7 +396,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720700203936</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="тесты для редакса">
+      <option name="closed" value="true" />
+      <created>1720717009779</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1720717009779</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -447,7 +458,8 @@
     <MESSAGE value="общий socket-middleware для работы с веб сокетами" />
     <MESSAGE value="обработал попытку соединения для веб скоета без переданного url" />
     <MESSAGE value="функциональное тестирование конструктора drag&amp;drop + оформить заказа" />
-    <option name="LAST_COMMIT_MESSAGE" value="функциональное тестирование конструктора drag&amp;drop + оформить заказа" />
+    <MESSAGE value="тесты для редакса" />
+    <option name="LAST_COMMIT_MESSAGE" value="тесты для редакса" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

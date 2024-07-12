@@ -8,10 +8,11 @@ import reducer, {
 	increaseIngredientCount,
 	decreaseIngredientCount,
 	fetchIngredients,
+	initialState,
 } from './ingredients-slice';
+import { BASE_URL } from '../../utils/request-helper';
 import { TIngredient } from '../../utils/types';
-
-const BASE_URL = 'https://norma.nomoreparties.space/api';
+import { TEST_INGREDIENT } from '../../utils/test-data';
 
 const middlewares = [thunk];
 // @ts-ignore
@@ -22,45 +23,23 @@ describe('ingredientsSlice', () => {
 		fetchMock.restore();
 	});
 
-	const initialState = {
-		ingredients: [],
-		isLoading: false,
-	};
-
 	it('should return the initial state', () => {
 		expect(reducer(undefined, {} as any)).toEqual(initialState);
 	});
 
 	it('should handle addIngredient', () => {
-		const ingredient: TIngredient = {
-			_id: '1',
-			name: 'Lettuce',
-			type: 'main',
-			proteins: 1,
-			fat: 1,
-			carbohydrates: 1,
-			calories: 1,
-			price: 1,
-			image: 'image_url',
-			image_mobile: 'image_mobile_url',
-			image_large: 'image_large_url',
-			uuid: 'uuid-1',
-			__v: 0,
-			count: 1,
-		};
-
 		const expectedState = {
 			...initialState,
-			ingredients: [ingredient],
+			ingredients: [TEST_INGREDIENT],
 		};
 
-		expect(reducer(initialState, addIngredient(ingredient))).toEqual(expectedState);
+		expect(reducer(initialState, addIngredient(TEST_INGREDIENT))).toEqual(expectedState);
 	});
 
 	it('should handle clearIngredients', () => {
 		const ingredients: TIngredient[] = [
-			{ _id: '1', name: 'Lettuce', type: 'main', proteins: 1, fat: 1, carbohydrates: 1, calories: 1, price: 1, image: 'image_url', image_mobile: 'image_mobile_url', image_large: 'image_large_url', uuid: 'uuid-1', __v: 0, count: 1 },
-			{ _id: '2', name: 'Tomato', type: 'main', proteins: 1, fat: 1, carbohydrates: 1, calories: 1, price: 2, image: 'image_url', image_mobile: 'image_mobile_url', image_large: 'image_large_url', uuid: 'uuid-2', __v: 0, count: 1 },
+			{ ...TEST_INGREDIENT, _id: '1', uuid: 'uuid-1' },
+			{ ...TEST_INGREDIENT, _id: '2', name: 'Tomato', price: 2, uuid: 'uuid-2' },
 		];
 		const stateWithIngredients = {
 			...initialState,
@@ -72,8 +51,8 @@ describe('ingredientsSlice', () => {
 
 	it('should handle addIngredients', () => {
 		const ingredients: TIngredient[] = [
-			{ _id: '1', name: 'Lettuce', type: 'main', proteins: 1, fat: 1, carbohydrates: 1, calories: 1, price: 1, image: 'image_url', image_mobile: 'image_mobile_url', image_large: 'image_large_url', uuid: 'uuid-1', __v: 0, count: 1 },
-			{ _id: '2', name: 'Tomato', type: 'main', proteins: 1, fat: 1, carbohydrates: 1, calories: 1, price: 2, image: 'image_url', image_mobile: 'image_mobile_url', image_large: 'image_large_url', uuid: 'uuid-2', __v: 0, count: 1 },
+			{ ...TEST_INGREDIENT, _id: '1', uuid: 'uuid-1' },
+			{ ...TEST_INGREDIENT, _id: '2', name: 'Tomato', price: 2, uuid: 'uuid-2' },
 		];
 
 		const expectedState = {
@@ -86,8 +65,8 @@ describe('ingredientsSlice', () => {
 
 	it('should handle increaseIngredientCount', () => {
 		const ingredients: TIngredient[] = [
-			{ _id: '1', name: 'Lettuce', type: 'main', proteins: 1, fat: 1, carbohydrates: 1, calories: 1, price: 1, image: 'image_url', image_mobile: 'image_mobile_url', image_large: 'image_large_url', uuid: 'uuid-1', __v: 0, count: 0 },
-			{ _id: '2', name: 'Tomato', type: 'main', proteins: 1, fat: 1, carbohydrates: 1, calories: 1, price: 2, image: 'image_url', image_mobile: 'image_mobile_url', image_large: 'image_large_url', uuid: 'uuid-2', __v: 0, count: 0 },
+			{ ...TEST_INGREDIENT, _id: '1', uuid: 'uuid-1', count: 0 },
+			{ ...TEST_INGREDIENT, _id: '2', name: 'Tomato', price: 2, uuid: 'uuid-2', count: 0 },
 		];
 
 		const stateWithIngredients = {
@@ -108,8 +87,8 @@ describe('ingredientsSlice', () => {
 
 	it('should handle decreaseIngredientCount', () => {
 		const ingredients: TIngredient[] = [
-			{ _id: '1', name: 'Lettuce', type: 'main', proteins: 1, fat: 1, carbohydrates: 1, calories: 1, price: 1, image: 'image_url', image_mobile: 'image_mobile_url', image_large: 'image_large_url', uuid: 'uuid-1', __v: 0, count: 1 },
-			{ _id: '2', name: 'Tomato', type: 'main', proteins: 1, fat: 1, carbohydrates: 1, calories: 1, price: 2, image: 'image_url', image_mobile: 'image_mobile_url', image_large: 'image_large_url', uuid: 'uuid-2', __v: 0, count: 0 },
+			{ ...TEST_INGREDIENT, _id: '1', uuid: 'uuid-1', count: 1 },
+			{ ...TEST_INGREDIENT, _id: '2', name: 'Tomato', price: 2, uuid: 'uuid-2', count: 0 },
 		];
 
 		const stateWithIngredients = {
@@ -140,8 +119,8 @@ describe('ingredientsSlice', () => {
 
 	it('should handle fetchIngredients fulfilled', () => {
 		const ingredients: TIngredient[] = [
-			{ _id: '1', name: 'Lettuce', type: 'main', proteins: 1, fat: 1, carbohydrates: 1  , calories: 1, price: 1, image: 'image_url', image_mobile: 'image_mobile_url', image_large: 'image_large_url', uuid: 'uuid-1', __v: 0, count: 1 },
-			{ _id: '2', name: 'Tomato', type: 'main', proteins: 1, fat: 1, carbohydrates: 1, calories: 1, price: 2, image: 'image_url', image_mobile: 'image_mobile_url', image_large: 'image_large_url', uuid: 'uuid-2', __v: 0, count: 1 },
+			{ ...TEST_INGREDIENT, _id: '1', uuid: 'uuid-1' },
+			{ ...TEST_INGREDIENT, _id: '2', name: 'Tomato', price: 2, uuid: 'uuid-2' },
 		];
 
 		const action = { type: fetchIngredients.fulfilled.type, payload: ingredients };
@@ -166,8 +145,8 @@ describe('ingredientsSlice', () => {
 
 	it('should dispatch fetchIngredients and handle success', async () => {
 		const ingredients: TIngredient[] = [
-			{ _id: '1', name: 'Lettuce', type: 'main', proteins: 1, fat: 1, carbohydrates: 1, calories: 1, price: 1, image: 'image_url', image_mobile: 'image_mobile_url', image_large: 'image_large_url', uuid: 'uuid-1', __v: 0, count: 1 },
-			{ _id: '2', name: 'Tomato', type: 'main', proteins: 1, fat: 1, carbohydrates: 1, calories: 1, price: 2, image: 'image_url', image_mobile: 'image_mobile_url', image_large: 'image_large_url', uuid: 'uuid-2', __v: 0, count: 1 },
+			{ ...TEST_INGREDIENT, _id: '1', uuid: 'uuid-1' },
+			{ ...TEST_INGREDIENT, _id: '2', name: 'Tomato', price: 2, uuid: 'uuid-2' },
 		];
 
 		fetchMock.getOnce(`${BASE_URL}/ingredients`, {

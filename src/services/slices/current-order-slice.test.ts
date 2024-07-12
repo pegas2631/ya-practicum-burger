@@ -3,54 +3,29 @@ import reducer, {
 	setCurrentOrder,
 	clearCurrentOrder,
 	setCurrentOrderIsOpen,
+	initialState,
 } from './current-order-slice';
 import { TOrder } from '../../utils/types';
+import { TEST_ORDER } from '../../utils/test-data';
 
 describe('currentOrderSlice', () => {
-	const initialState = {
-		currentOrder: null,
-		isOpen: false,
-	};
-
 	it('should return the initial state', () => {
 		expect(reducer(undefined, {} as PayloadAction<any>)).toEqual(initialState);
 	});
 
 	it('should handle setCurrentOrder', () => {
-		const order: TOrder = {
-			_id: '1',
-			ingredients: ['ingredient1', 'ingredient2'],
-			owner: 'owner1',
-			status: 'done',
-			name: 'Order 1',
-			createdAt: '2023-01-01T00:00:00.000Z',
-			updatedAt: '2023-01-01T00:00:00.000Z',
-			number: 1,
-			__v: 0,
-		};
-
 		const expectedState = {
 			...initialState,
-			currentOrder: order,
+			currentOrder: TEST_ORDER,
 		};
 
-		expect(reducer(initialState, setCurrentOrder(order))).toEqual(expectedState);
+		expect(reducer(initialState, setCurrentOrder(TEST_ORDER))).toEqual(expectedState);
 	});
 
 	it('should handle clearCurrentOrder', () => {
 		const stateWithOrder = {
 			...initialState,
-			currentOrder: {
-				_id: '1',
-				ingredients: ['ingredient1', 'ingredient2'],
-				owner: 'owner1',
-				status: 'done',
-				name: 'Order 1',
-				createdAt: '2023-01-01T00:00:00.000Z',
-				updatedAt: '2023-01-01T00:00:00.000Z',
-				number: 1,
-				__v: 0,
-			},
+			currentOrder: TEST_ORDER,
 		};
 
 		const expectedState = {

@@ -2,66 +2,29 @@ import { PayloadAction } from '@reduxjs/toolkit';
 import reducer, {
 	setCurrentIngredient,
 	clearCurrentIngredient,
-	setCurrentIngredientIsOpen, currentIngredientSlice,
+	setCurrentIngredientIsOpen,
+	initialState,
 } from './current-ingredient-slice';
-import { TIngredient } from '../../utils/types';
+import { TEST_INGREDIENT } from '../../utils/test-data';
 
 describe('currentIngredientSlice', () => {
-	const initialState = {
-		currentIngredient: null,
-		isOpen: false,
-	};
-
 	it('should return the initial state', () => {
 		expect(reducer(undefined, {} as PayloadAction<any>)).toEqual(initialState);
 	});
 
 	it('should handle setCurrentIngredient', () => {
-		const ingredient: TIngredient = {
-			_id: '1',
-			name: 'Lettuce',
-			type: 'main',
-			proteins: 1,
-			fat: 1,
-			carbohydrates: 1,
-			calories: 1,
-			price: 1,
-			image: 'image_url',
-			image_mobile: 'image_mobile_url',
-			image_large: 'image_large_url',
-			uuid: 'uuid-1',
-			__v: 0,
-			count: 1,
-		};
-
 		const expectedState = {
 			...initialState,
-			currentIngredient: ingredient,
+			currentIngredient: TEST_INGREDIENT,
 		};
 
-		expect(reducer(initialState, setCurrentIngredient(ingredient))).toEqual(expectedState);
+		expect(reducer(initialState, setCurrentIngredient(TEST_INGREDIENT))).toEqual(expectedState);
 	});
 
 	it('should handle clearCurrentIngredient', () => {
-		const currentIngredient: TIngredient = {
-			_id: '1',
-			name: 'Lettuce',
-			type: 'main',
-			proteins: 1,
-			fat: 1,
-			carbohydrates: 1,
-			calories: 1,
-			price: 1,
-			image: 'image_url',
-			image_mobile: 'image_mobile_url',
-			image_large: 'image_large_url',
-			uuid: 'uuid-1',
-			__v: 0,
-			count: 1,
-		};
 		const stateWithIngredient = {
 			...initialState,
-			currentIngredient,
+			currentIngredient: TEST_INGREDIENT,
 		};
 
 		const expectedState = {

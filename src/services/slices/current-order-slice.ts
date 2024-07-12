@@ -6,7 +6,7 @@ interface ICurrentOrderState {
 	isOpen: boolean;
 }
 
-const initialState: ICurrentOrderState = {
+export const initialState: ICurrentOrderState = {
 	currentOrder: null,
 	isOpen: false,
 };
